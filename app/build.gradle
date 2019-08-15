@@ -33,8 +33,14 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    // added for firebase
+    // added for firebase connection
     implementation 'com.google.firebase:firebase-core:17.0.0'
+
+    // Added for Firebase email auth
+    implementation 'com.google.firebase:firebase-auth:18.1.0'
+
+    // Added for Firebase Realtime Database
+    implementation 'com.google.firebase:firebase-database:18.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
