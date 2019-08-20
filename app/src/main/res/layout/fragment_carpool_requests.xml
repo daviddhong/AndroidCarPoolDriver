@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -9,6 +10,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/carpool_request_header"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/border_bottom">
@@ -43,6 +45,23 @@
                 android:src="@drawable/ic_outline_notifications"
                 android:tint="#c6d2e1" />
 
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/carpool_request_header"
+            android:layout_above="@+id/relative_layout_request_new_ride"
+            android:layout_marginBottom="15dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rides_requested_recycler_view"
+                tools:listitem="@layout/layout_requested_ride_ticket_entity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
     </RelativeLayout>
 
