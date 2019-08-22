@@ -9,9 +9,10 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/post_carpool_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/border_bottom">
+            android:background="#FFF">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,23 +48,79 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/background_rectangle_fill">
+            android:layout_height="match_parent"
+            android:layout_below="@id/post_carpool_toolbar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Post new carpool"
-                android:textColor="#FFF"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_centerInParent="true"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_post_new_carpool"
+            android:layout_width="match_parent"
+            android:layout_height="178dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/background_rectangle_fill">
+
+            <RelativeLayout
+                android:id="@+id/post_new_carpool"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/border_rectangle_unfilled">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="Post new carpool"
+                    android:textColor="#78849E"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_next" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/post_new_carpool"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Post a carpool route that you will be driving. If matched with a
+rider, you can earn back an amount that do not exceed the cost of gas for the route."
+                    android:textColor="#FFF"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

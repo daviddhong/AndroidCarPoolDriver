@@ -1,149 +1,369 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView_welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="Let's make an account!"
-            android:textColor="#4264fb"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/relative_layout_ic_back_activity"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="50dp"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_oval_fill">
+
+                <ImageView
+                    android:id="@+id/back_make_account"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="#FFF" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_make_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative_layout_ic_back_activity"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/textView_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Let's make an account!"
+                android:textColor="#2A2E43"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_make_account_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_make_account"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_make_account_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#2A2E43"
+                android:text="First and last name" />
 
             <EditText
                 android:id="@+id/editText_firstname_make"
-                android:layout_width="300dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_below="@id/text_make_account_name"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/border_rectangle_unfilled"
-
-                android:ems="10"
-                android:gravity="center"
-                android:hint="First Name"
+                android:gravity="center|left"
+                android:hint="First name"
                 android:inputType="textPersonName"
-                android:textColor="#0077B5"
-                android:textSize="20sp" />
+                android:padding="15dp"
+                android:textColor="#454F63"
+                android:textColorHint="#454F63"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/editText_lastname_make"
-                android:layout_width="300dp"
-                android:layout_height="0dp"
-
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_below="@id/editText_firstname_make"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/border_rectangle_unfilled"
-                android:ems="10"
-                android:gravity="center"
-
-                android:hint="Last Name"
+                android:gravity="center|left"
+                android:hint="Last name"
                 android:inputType="textPersonName"
-                android:textColor="#0077B5"
-                android:textSize="20sp" />
+                android:padding="15dp"
+                android:textColor="#454F63"
+                android:textColorHint="#454F63"
+                android:textSize="18sp" />
 
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/editText_email_make"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/border_rectangle_unfilled"
-
-
-            android:drawableStart="@drawable/ic_email_24dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Enter your Email"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            android:textColor="#0077B5"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/editText_confirmemail_make"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:background="@drawable/border_rectangle_unfilled"
-            android:ems="10"
-
-            android:gravity="center"
-            android:hint="Confirm your Email"
-            android:inputType="textEmailAddress"
-            android:textColor="#0077B5"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/editText_pw_make"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/border_rectangle_unfilled"
-
-
-            android:drawableStart="@drawable/ic_lock_24dp"
-
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Enter your Password"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:textColor="#0077B5"
-            android:textSize="20sp" />
-
-        <EditText
-
-            android:id="@+id/editText_confirmpw_make"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-
-            android:background="@drawable/border_rectangle_unfilled"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Confirm your Password"
-            android:inputType="textPassword"
-            android:textColor="#0077B5"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/button_confirm_make"
-            android:layout_width="300dp"
+        <RelativeLayout
+            android:id="@+id/relative_layout_make_account_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/relative_layout_make_account_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp">
+
+            <RelativeLayout
+                android:id="@+id/make_account_email_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_email_make_account"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_email_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/image_email_make_account"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A2E43"
+                    android:text="Email information"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/make_account_email_header">
+
+                <EditText
+                    android:id="@+id/editText_email_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:hint="Enter email"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:textColor="#454F63"
+                    android:textColorHint="#454F63"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_layout_email"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/editText_confirmemail_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:hint="Confirm email"
+                    android:inputType="textEmailAddress"
+                    android:padding="15dp"
+                    android:textColor="#454F63"
+                    android:textColorHint="#454F63"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_make_account_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_layout_make_account_email"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_phone_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_phone_make_account"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/image_phone_make_account"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A2E43"
+                    android:text="Phone information"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_layout_phone_header"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/editText_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:hint="Enter phone number"
+                    android:inputType="phone"
+                    android:paddingLeft="15dp"
+                    android:textColor="#454F63"
+                    android:textColorHint="#454F63"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_layout_phone"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/editText_confirm_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:hint="Confirm phone number"
+                    android:inputType="phone"
+                    android:paddingLeft="15dp"
+                    android:textColor="#454F63"
+                    android:textColorHint="#454F63"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_make_account_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_layout_make_account_phone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp">
+
+            <RelativeLayout
+                android:id="@+id/make_account_password_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_password_make_account"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_lock_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/image_password_make_account"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#2A2E43"
+                    android:text="Account password"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/make_account_password_header"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/editText_pw_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:hint="Enter password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="15dp"
+                    android:textColor="#454F63"
+                    android:textColorHint="#454F63"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_layout_password"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/editText_confirmpw_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:hint="Confirm password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="15dp"
+                    android:textColor="#454F63"
+                    android:textColorHint="#454F63"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
 
 
-            android:background="@drawable/background_rectangle_fill"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:textStyle="bold"
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/button_confirm_make"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_below="@+id/relative_layout_make_account_password"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/background_rectangle_fill">
 
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:text="Confirm "
-            />
-    </LinearLayout>
-</RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Create new account"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_arrow_forward"
+                android:tint="#FFF" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

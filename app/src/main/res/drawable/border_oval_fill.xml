@@ -11,7 +11,7 @@
         android:type="radial"/>
 
     <solid
-        android:color="#4264fb"/>
+        android:color="#2A2E43"/>
 
     <size
         android:height="100dp"

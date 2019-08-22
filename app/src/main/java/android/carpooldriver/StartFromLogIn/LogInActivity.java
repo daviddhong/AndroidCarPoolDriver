@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +23,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
-    private Button loginButton;
-    private TextView MakeAccountPage, ForgotPassword, ResendVerificationEmail;
+    private RelativeLayout loginButton;
+    private RelativeLayout MakeAccountPage;
+    private TextView ForgotPassword, ResendVerificationEmail;
     private EditText loginEmail, loginPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -43,12 +45,12 @@ public class LogInActivity extends AppCompatActivity {
     private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
-        MakeAccountPage = findViewById(R.id.textView_makeaccount);
-        loginButton = findViewById(R.id.button_login);
+        MakeAccountPage = (RelativeLayout) findViewById(R.id.relative_layout_make_account_login);
+        loginButton = (RelativeLayout) findViewById(R.id.button_login);
         loginEmail = findViewById(R.id.editText_email_login);
         loginPassword = findViewById(R.id.editText_password_login);
         ResendVerificationEmail = findViewById(R.id.textView_resend_verification_email);
-        ForgotPassword = findViewById(R.id.textView_forgotpassword);
+        ForgotPassword = findViewById(R.id.textView_forgot_password);
     }
 
     // Log In when login button is pressed

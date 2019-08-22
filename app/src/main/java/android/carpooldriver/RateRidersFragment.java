@@ -16,7 +16,7 @@ public class RateRidersFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mRateRidersView = inflater.inflate(R.layout.fragment_rate_riders, container, false);
+        mRateRidersView = inflater.inflate(R.layout.fragment_chat, container, false);
         return mRateRidersView;
     }
 }

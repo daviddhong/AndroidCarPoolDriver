@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.your_carpool:
                     fragment = new YourCarpoolFragment();
                     break;
-                case R.id.rate_riders:
+                case R.id.chat:
                     fragment = new RateRidersFragment();
                     break;
                 case R.id.more:

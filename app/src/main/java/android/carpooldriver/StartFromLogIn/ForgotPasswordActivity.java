@@ -5,8 +5,8 @@ import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
-    private Button sendResetPasswordEmailButton;
+    private RelativeLayout sendResetPasswordEmailButton;
     private EditText Email;
     private FirebaseAuth mAuth;
 
@@ -28,14 +28,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         mAuth = FirebaseAuth.getInstance();
-        sendResetPasswordEmailButton = findViewById(R.id.button_resetpassword);
-        Email = findViewById(R.id.textview_emailreset);
+        sendResetPasswordEmailButton = findViewById(R.id.button_reset_password);
+        Email = findViewById(R.id.text_view_layout_email_reset);
 
-        forgotpassword();
+        forgotPassword();
     }
 
 
-    private void forgotpassword() {
+    private void forgotPassword() {
 
         sendResetPasswordEmailButton.setOnClickListener((new View.OnClickListener() {
             @Override

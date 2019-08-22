@@ -7,21 +7,22 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="">
 
         <RelativeLayout
             android:id="@+id/relative_layout_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/border_bottom">
+            android:background="#FFF">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Your Carpool"
-                android:textColor="#4264fb"
+                android:text="Upcoming Carpool"
+                android:textColor="#2A2E43"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -33,7 +34,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@+id/notification_your_carpool"
                 android:src="@drawable/ic_account"
-                android:tint="#4264fb" />
+                android:tint="#2A2E43" />
 
             <ImageView
                 android:id="@+id/notification_your_carpool"
@@ -43,40 +44,52 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/ic_outline_notifications"
-                android:tint="#c6d2e1" />
-
+                android:tint="#78849E" />
 
         </RelativeLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout_your_carpool"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_below="@+id/relative_layout_toolbar"
-            android:background="#FFF"
-            app:tabSelectedTextColor="#4264fb"
-            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-            app:tabTextColor="#c6d2e1">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_item_upcoming_carpool"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Upcoming Carpool" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_item_carpool_history"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Carpool History" />
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager_your_carpool"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tab_layout_your_carpool"/>
+            android:layout_below="@id/relative_layout_toolbar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_rectangle_fill">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                android:text="My carpool history"
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_forward"
+                android:tint="#FFF"/>
+
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

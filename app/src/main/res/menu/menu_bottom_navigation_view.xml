@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/carpool_requests"
-        android:icon="@drawable/ic_list"
+        android:icon="@drawable/ic_request"
         android:title="Carpool Requests">
 
     </item>
 
     <item android:id="@+id/post_carpool"
-        android:icon="@drawable/ic_list_add"
+        android:icon="@drawable/ic_wheel"
         android:title="Post Carpool">
 
     </item>
@@ -19,9 +19,9 @@
 
     </item>
 
-    <item android:id="@+id/rate_riders"
-        android:icon="@drawable/ic_rate_review"
-        android:title="Rate Riders">
+    <item android:id="@+id/chat"
+        android:icon="@drawable/ic_chat"
+        android:title="Chat">
 
     </item>
 

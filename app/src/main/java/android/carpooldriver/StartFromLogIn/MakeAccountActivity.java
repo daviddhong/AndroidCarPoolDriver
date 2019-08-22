@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 
 public class MakeAccountActivity extends AppCompatActivity {
 
-    private Button confirmAccountInformationButton;
+    private RelativeLayout confirmAccountInformationButton;
     private EditText makeEmail, makePassword, firstName, lastName, confirmEmail, confirmPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -56,7 +57,7 @@ public class MakeAccountActivity extends AppCompatActivity {
 
     //make account with name email and password. Then goes to verify phone number page
     private void confirmAccountInformation() {
-        confirmAccountInformationButton = findViewById(R.id.button_confirm_make);
+        RelativeLayout confirmAccountInformationButton = (RelativeLayout) findViewById(R.id.button_confirm_make);
         confirmAccountInformationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
