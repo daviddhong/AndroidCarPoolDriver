@@ -175,7 +175,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="Destination Location Name"
                 android:textColor="#2A2E43"
-                android:textColorHint="2A2E43"
+                android:textColorHint="#2A2E43"
                 android:textSize="15sp" />
         </RelativeLayout>
 
