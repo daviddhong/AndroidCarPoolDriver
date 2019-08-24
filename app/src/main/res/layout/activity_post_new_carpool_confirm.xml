@@ -279,10 +279,11 @@
                 android:background="@drawable/background_rectangle_fill">
 
                 <TextView
+                    android:id="@+id/confirm_carpool_button_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Confirm carpool"
+                    android:text="Request to Pickup Rider"
                     android:textColor="#FFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
