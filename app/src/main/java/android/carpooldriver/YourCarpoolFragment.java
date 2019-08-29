@@ -1,4 +1,4 @@
-package android.carpooldriver.YourCarpool;
+package android.carpooldriver;
 
 import android.carpooldriver.R;
 import android.os.Bundle;

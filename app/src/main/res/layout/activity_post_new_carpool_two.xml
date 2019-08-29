@@ -1,6 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/post_carpool_two_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="57dp"
+        mapbox:mapbox_cameraTargetLat="40.73581"
+        mapbox:mapbox_cameraTargetLng="-73.99155"
+        mapbox:mapbox_cameraZoom="11" />
+
+    <RelativeLayout
+        android:id="@+id/rl_back_button_post_new_carpool_two"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/border_oval_fill">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="#FFF"/>
+
+    </RelativeLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_rectangle_rounded_border_top"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="57dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_drag_handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/drag_handle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_drag_handle"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_pn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_drag_handle"
+                android:background="@drawable/border_bottom">
+
+                <RelativeLayout
+                    android:id="@+id/rl_text_pn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Available Seats"
+                        android:textColor="#2A2E43"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_picker_pn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/rl_text_pn">
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/pn_picker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:np_dividerColor="#2A2E43"
+                        app:np_dividerDistance="70dp"
+                        app:np_height="180dp"
+                        app:np_width="64dp"
+                        app:np_max="11"
+                        app:np_min="1"
+                        app:np_selectedTextColor="#2A2E43"
+                        app:np_selectedTextSize="20sp"
+                        app:np_textColor="#78849E"
+                        app:np_textSize="20sp"
+                        app:np_value="1" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_pn"
+                android:background="@drawable/border_bottom"
+                android:layout_marginTop="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_text_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carpool Date"
+                        android:textColor="#2A2E43"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_picker_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_text_date"
+                    android:layout_centerHorizontal="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_picker_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.shawnlin.numberpicker.NumberPicker
+                            android:id="@+id/month_picker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            app:np_width="64dp"
+                            app:np_height="180dp"
+                            app:np_dividerColor="#2A2E43"
+                            app:np_selectedTextColor="#2A2E43"
+                            app:np_selectedTextSize="20sp"
+                            app:np_textColor="#78849E"
+                            app:np_textSize="20sp"
+                            app:np_dividerDistance="70dp"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_toRightOf="@+id/rl_picker_month"
+                        android:id="@+id/rl_picker_day"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.shawnlin.numberpicker.NumberPicker
+                            android:id="@+id/day_picker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            app:np_dividerColor="#2A2E43"
+                            app:np_selectedTextColor="#2A2E43"
+                            app:np_selectedTextSize="20sp"
+                            app:np_textColor="#78849E"
+                            app:np_textSize="20sp"
+                            app:np_dividerDistance="70dp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_toRightOf="@+id/rl_picker_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <com.shawnlin.numberpicker.NumberPicker
+                            android:id="@+id/year_picker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            app:np_dividerColor="#2A2E43"
+                            app:np_selectedTextColor="#2A2E43"
+                            app:np_selectedTextSize="20sp"
+                            app:np_textColor="#78849E"
+                            app:np_textSize="20sp"
+                            app:np_dividerDistance="70dp"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_date"
+                android:layout_marginTop="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_text_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carpool Time"
+                        android:textColor="#2A2E43"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_picker_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/rl_text_time">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/dots"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@+id/rl_picker_hour">
+
+                            <ImageView
+                                android:id="@+id/dot_one"
+                                android:layout_width="5dp"
+                                android:layout_height="5dp"
+                                android:layout_centerHorizontal="true"
+                                android:src="@drawable/border_oval_fill" />
+
+                            <ImageView
+                                android:layout_width="5dp"
+                                android:layout_height="5dp"
+                                android:layout_below="@id/dot_one"
+                                android:layout_marginTop="10dp"
+                                android:layout_centerHorizontal="true"
+                                android:src="@drawable/border_oval_fill" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_picker_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/hour_picker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                app:np_dividerColor="#2A2E43"
+                                app:np_dividerDistance="70dp"
+                                app:np_selectedTextColor="#2A2E43"
+                                app:np_selectedTextSize="20sp"
+                                app:np_textColor="#78849E"
+                                app:np_textSize="20sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_picker_minute"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/dots"
+                            android:layout_marginLeft="5dp">
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/minute_picker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:np_dividerColor="#2A2E43"
+                                app:np_dividerDistance="70dp"
+                                app:np_selectedTextColor="#2A2E43"
+                                app:np_selectedTextSize="20sp"
+                                app:np_textColor="#78849E"
+                                app:np_textSize="20sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_picker_am_pm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/rl_picker_minute"
+                            android:layout_marginLeft="15dp">
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/am_pm_picker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:np_dividerColor="#2A2E43"
+                                app:np_dividerDistance="70dp"
+                                app:np_selectedTextColor="#2A2E43"
+                                app:np_selectedTextSize="20sp"
+                                app:np_textColor="#78849E"
+                                app:np_textSize="20sp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_next_post_new_carpool_two"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/rl_time"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="38dp"
+                android:background="@drawable/background_rectangle_fill">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Continue"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <ImageView
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_forward"
+                    android:tint="#FFF"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
