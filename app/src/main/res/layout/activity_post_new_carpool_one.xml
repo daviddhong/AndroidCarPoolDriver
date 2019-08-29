@@ -32,7 +32,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/border_oval_fill">
+            android:background="@drawable/background_oval_filled">
 
             <ImageView
                 android:layout_width="25dp"
@@ -56,7 +56,7 @@
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_forward"
-                android:tint="#2A2E43" />
+                android:tint="#05D686" />
 
             <RelativeLayout
                 android:id="@+id/origin_post_new_carpool_one"
@@ -151,7 +151,7 @@
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_forward"
-                    android:tint="#2A2E43"/>
+                    android:tint="#05D686"/>
 
             </RelativeLayout>
 

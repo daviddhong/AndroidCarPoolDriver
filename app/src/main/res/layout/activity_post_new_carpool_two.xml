@@ -23,7 +23,7 @@
         android:layout_marginLeft="15dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
-        android:background="@drawable/border_oval_fill">
+        android:background="@drawable/background_oval_filled">
 
         <ImageView
             android:layout_width="25dp"
@@ -78,7 +78,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Available Seats"
-                        android:textColor="#2A2E43"
+                        android:textStyle="bold"
+                        android:textColor="#05D686"
                         android:textSize="15sp" />
 
                 </RelativeLayout>
@@ -95,16 +96,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        app:np_dividerColor="#2A2E43"
-                        app:np_dividerDistance="70dp"
+                        app:np_dividerColor="#05D686"
+                        app:np_dividerDistance="58dp"
                         app:np_height="180dp"
                         app:np_width="64dp"
                         app:np_max="11"
                         app:np_min="1"
-                        app:np_selectedTextColor="#2A2E43"
-                        app:np_selectedTextSize="20sp"
+                        app:np_selectedTextColor="#05D686"
+                        app:np_selectedTextSize="17sp"
                         app:np_textColor="#78849E"
-                        app:np_textSize="20sp"
+                        app:np_textSize="17sp"
                         app:np_value="1" />
 
                 </RelativeLayout>
@@ -129,7 +130,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Carpool Date"
-                        android:textColor="#2A2E43"
+                        android:textStyle="bold"
+                        android:textColor="#05D686"
                         android:textSize="15sp" />
 
                 </RelativeLayout>
@@ -153,12 +155,12 @@
                             android:layout_centerVertical="true"
                             app:np_width="64dp"
                             app:np_height="180dp"
-                            app:np_dividerColor="#2A2E43"
-                            app:np_selectedTextColor="#2A2E43"
-                            app:np_selectedTextSize="20sp"
+                            app:np_dividerColor="#05D686"
+                            app:np_selectedTextColor="#05D686"
+                            app:np_selectedTextSize="17sp"
                             app:np_textColor="#78849E"
-                            app:np_textSize="20sp"
-                            app:np_dividerDistance="70dp"/>
+                            app:np_textSize="17sp"
+                            app:np_dividerDistance="58dp"/>
 
                     </RelativeLayout>
 
@@ -175,12 +177,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            app:np_dividerColor="#2A2E43"
-                            app:np_selectedTextColor="#2A2E43"
-                            app:np_selectedTextSize="20sp"
+                            app:np_dividerColor="#05D686"
+                            app:np_selectedTextColor="#05D686"
+                            app:np_selectedTextSize="17sp"
                             app:np_textColor="#78849E"
-                            app:np_textSize="20sp"
-                            app:np_dividerDistance="70dp"/>
+                            app:np_textSize="17sp"
+                            app:np_dividerDistance="58dp"/>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -194,12 +196,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            app:np_dividerColor="#2A2E43"
-                            app:np_selectedTextColor="#2A2E43"
-                            app:np_selectedTextSize="20sp"
+                            app:np_dividerColor="#05D686"
+                            app:np_selectedTextColor="#05D686"
+                            app:np_selectedTextSize="17sp"
                             app:np_textColor="#78849E"
-                            app:np_textSize="20sp"
-                            app:np_dividerDistance="70dp"/>
+                            app:np_textSize="17sp"
+                            app:np_dividerDistance="58dp"/>
                     </RelativeLayout>
 
                 </RelativeLayout>
@@ -223,7 +225,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Carpool Time"
-                        android:textColor="#2A2E43"
+                        android:textStyle="bold"
+                        android:textColor="#05D686"
                         android:textSize="15sp" />
 
                 </RelativeLayout>
@@ -249,18 +252,18 @@
 
                             <ImageView
                                 android:id="@+id/dot_one"
-                                android:layout_width="5dp"
-                                android:layout_height="5dp"
+                                android:layout_width="3dp"
+                                android:layout_height="3dp"
                                 android:layout_centerHorizontal="true"
-                                android:src="@drawable/border_oval_fill" />
+                                android:src="@drawable/background_oval_filled" />
 
                             <ImageView
-                                android:layout_width="5dp"
-                                android:layout_height="5dp"
+                                android:layout_width="3dp"
+                                android:layout_height="3dp"
                                 android:layout_below="@id/dot_one"
                                 android:layout_marginTop="10dp"
                                 android:layout_centerHorizontal="true"
-                                android:src="@drawable/border_oval_fill" />
+                                android:src="@drawable/background_oval_filled" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -273,12 +276,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
-                                app:np_dividerColor="#2A2E43"
-                                app:np_dividerDistance="70dp"
-                                app:np_selectedTextColor="#2A2E43"
-                                app:np_selectedTextSize="20sp"
+                                app:np_dividerColor="#05D686"
+                                app:np_dividerDistance="58dp"
+                                app:np_selectedTextColor="#05D686"
+                                app:np_selectedTextSize="17sp"
                                 app:np_textColor="#78849E"
-                                app:np_textSize="20sp" />
+                                app:np_textSize="17sp" />
 
                         </RelativeLayout>
 
@@ -293,12 +296,12 @@
                                 android:id="@+id/minute_picker"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:np_dividerColor="#2A2E43"
-                                app:np_dividerDistance="70dp"
-                                app:np_selectedTextColor="#2A2E43"
-                                app:np_selectedTextSize="20sp"
+                                app:np_dividerColor="#05D686"
+                                app:np_dividerDistance="58dp"
+                                app:np_selectedTextColor="#05D686"
+                                app:np_selectedTextSize="17sp"
                                 app:np_textColor="#78849E"
-                                app:np_textSize="20sp" />
+                                app:np_textSize="17sp" />
 
                         </RelativeLayout>
 
@@ -313,12 +316,12 @@
                                 android:id="@+id/am_pm_picker"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:np_dividerColor="#2A2E43"
-                                app:np_dividerDistance="70dp"
-                                app:np_selectedTextColor="#2A2E43"
-                                app:np_selectedTextSize="20sp"
+                                app:np_dividerColor="#05D686"
+                                app:np_dividerDistance="58dp"
+                                app:np_selectedTextColor="#05D686"
+                                app:np_selectedTextSize="17sp"
                                 app:np_textColor="#78849E"
-                                app:np_textSize="20sp" />
+                                app:np_textSize="17sp" />
 
                         </RelativeLayout>
 

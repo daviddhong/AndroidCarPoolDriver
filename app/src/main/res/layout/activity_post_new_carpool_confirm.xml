@@ -18,7 +18,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/border_oval_fill">
+                android:background="@drawable/background_oval_filled">
 
                 <ImageView
                     android:id="@+id/back_confirm"
@@ -55,7 +55,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:text="Carpool Posting"
-                    android:textColor="#2A2E43"
+                    android:textColor="#05D686"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -77,14 +77,15 @@
 
                     <ImageView
                         android:id="@+id/from"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_from" />
+                        android:src="@drawable/ic_from"
+                        android:tint="#05D686"/>
 
                     <RelativeLayout
                         android:id="@+id/path"
-                        android:layout_width="3dp"
+                        android:layout_width="2dp"
                         android:layout_height="38dp"
                         android:layout_below="@id/from"
                         android:layout_centerInParent="true"
@@ -97,7 +98,8 @@
                         android:layout_height="10dp"
                         android:layout_below="@id/path"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_solid_to" />
+                        android:src="@drawable/ic_solid_to"
+                        android:tint="#05D686"/>
 
                 </RelativeLayout>
 
@@ -127,8 +129,8 @@
                            android:layout_height="wrap_content"
                            android:layout_below="@id/origin_location_text"
                            android:hint="Pickup Location Name"
-                           android:textColor="#454F63"
-                           android:textColorHint="#454F63"
+                           android:textColor="#78849E"
+                           android:textColorHint="#78849E"
                            android:textSize="12sp" />
                    </RelativeLayout>
 
@@ -153,8 +155,8 @@
                            android:layout_height="wrap_content"
                            android:layout_below="@id/destination_location_text"
                            android:hint="Destination Location Name"
-                           android:textColor="#454F63"
-                           android:textColorHint="#454F63"
+                           android:textColor="#78849E"
+                           android:textColorHint="#78849E"
                            android:textSize="12sp" />
                    </RelativeLayout>
                </RelativeLayout>
@@ -163,6 +165,7 @@
 
             <RelativeLayout
                 android:id="@+id/pn"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/route"
@@ -182,8 +185,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_seat"
                     android:hint="#"
-                    android:textColor="#454F63"
-                    android:textColorHint="#454F63"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
                     android:textSize="12sp" />
             </RelativeLayout>
 
@@ -209,8 +212,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_calendar"
                     android:hint="Date of carpool"
-                    android:textColor="#454F63"
-                    android:textColorHint="#454F63"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
                     android:textSize="12sp" />
 
             </RelativeLayout>
@@ -236,8 +239,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_time"
                     android:hint="Time of carpool"
-                    android:textColor="#454F63"
-                    android:textColorHint="#454F63"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
                     android:textSize="12sp" />
 
             </RelativeLayout>
@@ -257,14 +260,25 @@
                     android:tint="#05D686"/>
 
                 <TextView
+                    android:id="@+id/earnings_text_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_monetization"
                     android:hint="Estimated earnings"
-                    android:textColor="#454F63"
-                    android:textColorHint="#454F63"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/earnings_text_confirm"
+                    android:layout_marginLeft="10dp"
+                    android:text="(CAD)"
+                    android:textColor="#05D686"
                     android:textSize="12sp" />
 
 
@@ -308,14 +322,14 @@
                 android:layout_height="50dp"
                 android:layout_below="@id/confirm_carpool"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/border_rectangle_unfilled">
+                android:background="@drawable/border_rectangle_unfilled_with_border">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Cancel"
-                    android:textColor="#2A2E43"
+                    android:textColor="#05D686"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 

@@ -20,7 +20,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Post Carpool"
-                android:textColor="#2A2E43"
+                android:textColor="#05D686"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@+id/notification_post_carpool"
                 android:src="@drawable/ic_account"
-                android:tint="#2A2E43" />
+                android:tint="#05D686" />
 
             <ImageView
                 android:id="@+id/notification_post_carpool"
@@ -49,7 +49,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/post_carpool_toolbar"
+            android:layout_below="@id/relative_layout_post_new_carpool"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -65,9 +65,8 @@
             android:id="@+id/relative_layout_post_new_carpool"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/post_carpool_toolbar"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/background_rectangle_fill">
 
@@ -96,7 +95,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_next" />
+                    android:src="@drawable/ic_next"
+                    android:tint="#05D686"/>
 
             </RelativeLayout>
 

@@ -21,7 +21,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/border_oval_fill">
+                android:background="@drawable/background_oval_filled">
 
                 <ImageView
                     android:id="@+id/back_make_account"

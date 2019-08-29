@@ -5,7 +5,7 @@
     <item
         android:bottom="1dp"
         android:top="1dp"
-        android:right="1dp"
+        android:right="-10dp"
         android:left="1dp">
         <shape
             android:shape="rectangle">
@@ -14,6 +14,10 @@
                 android:color="#05D686"/>
             <corners
                 android:radius="2dp"/>
+
+            <stroke
+                android:width="0.5dp"
+                android:color="#05D686"/>
         </shape>
     </item>
 </layer-list>
