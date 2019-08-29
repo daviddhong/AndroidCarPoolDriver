@@ -72,7 +72,7 @@
                         android:id="@+id/passenger_number_image"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/ic_seat"
+                        android:src="@drawable/ic_person"
                         android:tint="#FFF"/>
 
                     <TextView

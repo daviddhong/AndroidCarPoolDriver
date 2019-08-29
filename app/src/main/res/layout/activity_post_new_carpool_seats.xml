@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#05D686">
+        android:background="#2A2E43">
 
         <RelativeLayout
             android:id="@+id/rl_back_button_post_new_carpool_two"
@@ -64,7 +64,7 @@
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/pn_picker"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 app:np_dividerColor="#FFF"
@@ -75,7 +75,7 @@
                 app:np_min="1"
                 app:np_selectedTextColor="#FFF"
                 app:np_selectedTextSize="17sp"
-                app:np_textColor="#B3B3B3"
+                app:np_textColor="#78849E"
                 app:np_textSize="17sp"
                 app:np_value="1" />
 
@@ -110,7 +110,7 @@
                     android:textSize="17sp"
                     android:layout_centerInParent="true"
                     android:text="Select carpool date"
-                    android:textColor="#05D686"
+                    android:textColor="#2A2E43"
                     android:textStyle="bold"/>
 
                 <ImageView
@@ -120,7 +120,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_arrow_forward"
-                    android:tint="#05D686"/>
+                    android:tint="#2A2E43"/>
 
 
             </RelativeLayout>

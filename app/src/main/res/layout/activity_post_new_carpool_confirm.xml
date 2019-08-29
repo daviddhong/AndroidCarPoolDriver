@@ -55,7 +55,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:text="Carpool Posting"
-                    android:textColor="#05D686"
+                    android:textColor="#2A2E43"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -80,8 +80,7 @@
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_from"
-                        android:tint="#05D686"/>
+                        android:src="@drawable/ic_from" />
 
                     <RelativeLayout
                         android:id="@+id/path"
@@ -98,8 +97,7 @@
                         android:layout_height="10dp"
                         android:layout_below="@id/path"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_solid_to"
-                        android:tint="#05D686"/>
+                        android:src="@drawable/ic_solid_to" />
 
                 </RelativeLayout>
 
@@ -177,7 +175,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_person"
-                    android:tint="#05D686"/>
+                    android:tint="#2A2E43"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -330,7 +328,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Cancel"
-                    android:textColor="#05D686"
+                    android:textColor="#2A2E43"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 

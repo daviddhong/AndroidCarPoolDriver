@@ -10,21 +10,16 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/text_title"
-            android:layout_width="match_parent"
+            android:id="@+id/rl_close_login"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="78dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp">
 
-            <TextView
-                android:id="@+id/textView_welcome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                android:text="Welcome CarPool Driver"
-                android:textColor="#2A2E43"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_close" />
 
         </RelativeLayout>
 
@@ -32,16 +27,16 @@
             android:id="@+id/enter_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_title"
             android:layout_marginLeft="15dp"
+            android:layout_below="@id/rl_close_login"
             android:layout_marginTop="50dp"
             android:layout_marginRight="15dp">
 
             <RelativeLayout
                 android:id="@+id/enter_email"
                 android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:background="@drawable/border_rectangle_unfilled">
+                android:layout_height="50dp"
+                android:background="@drawable/border_rectangle_unfilled_with_border">
 
                 <ImageView
                     android:id="@+id/image_email_login"
@@ -61,15 +56,15 @@
                     android:hint="Enter email"
                     android:inputType="textEmailAddress"
                     android:textColor="#454F63"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="58dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/enter_email"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/border_rectangle_unfilled">
+                android:background="@drawable/border_rectangle_unfilled_with_border">
 
                 <ImageView
                     android:id="@+id/image_lock_login"
@@ -89,7 +84,7 @@
                     android:hint="Enter password"
                     android:inputType="textPassword"
                     android:textColor="#454F63"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
 
 
             </RelativeLayout>
@@ -112,31 +107,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Log in"
+                android:text="Sign in"
                 android:textColor="#FFF"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="15dp"
-                android:src="@drawable/ic_arrow_forward"
-                android:tint="#FFF" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relative_layout_make_account_login"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_below="@+id/button_login"
             android:layout_marginTop="15dp"
-            android:background="@drawable/border_rectangle_unfilled">
+            android:background="@drawable/border_rectangle_unfilled_with_border">
 
             <TextView
                 android:id="@+id/textView_make_account"
@@ -145,17 +131,8 @@
                 android:text="Create new account"
                 android:layout_centerInParent="true"
                 android:textColor="#2A2E43"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="15dp"
-                android:src="@drawable/ic_arrow_forward"
-                android:tint="#2A2E43" />
 
         </RelativeLayout>
 
@@ -165,10 +142,10 @@
             android:layout_below="@id/relative_layout_make_account_login"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
             android:text="Forgot password?"
             android:textColor="#2A2E43"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -176,11 +153,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/textView_forgot_password"
+            android:layout_below="@id/relative_layout_make_account_login"
             android:layout_marginTop="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
             android:text="Resend verification email"
             android:textColor="#2A2E43"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:visibility="invisible" />
 

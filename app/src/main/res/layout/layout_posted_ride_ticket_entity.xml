@@ -72,7 +72,7 @@
                         android:id="@+id/passenger_number_image_post"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/ic_seat"
+                        android:src="@drawable/ic_person"
                         android:tint="#FFF"/>
 
                     <TextView
@@ -81,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/passenger_number_image"
+                        android:layout_toRightOf="@+id/passenger_number_image_post"
                         android:hint="#"
                         android:textColor="#FFF"
                         android:textColorHint="#FFF"
@@ -251,7 +251,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_close"
-                android:tint="#05D686"/>
+                android:tint="#2A2E43"/>
 
 
         </RelativeLayout>

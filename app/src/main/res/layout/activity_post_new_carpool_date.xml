@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#05D686">
+        android:background="#2A2E43">
 
         <RelativeLayout
             android:id="@+id/rl_back_button_post_new_carpool_date"
@@ -70,7 +70,7 @@
 
                 <com.shawnlin.numberpicker.NumberPicker
                     android:id="@+id/month_picker"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     app:np_dividerColor="#FFF"
@@ -78,7 +78,7 @@
                     app:np_height="180dp"
                     app:np_selectedTextColor="#FFF"
                     app:np_selectedTextSize="17sp"
-                    app:np_textColor="#B3B3B3"
+                    app:np_textColor="#78849E"
                     app:np_textSize="17sp"
                     app:np_width="64dp" />
 
@@ -93,14 +93,14 @@
 
                 <com.shawnlin.numberpicker.NumberPicker
                     android:id="@+id/day_picker"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     app:np_dividerColor="#FFF"
                     app:np_dividerDistance="58dp"
                     app:np_selectedTextColor="#FFF"
                     app:np_selectedTextSize="17sp"
-                    app:np_textColor="#B3B3B3"
+                    app:np_textColor="#78849E"
                     app:np_textSize="17sp" />
             </RelativeLayout>
 
@@ -112,14 +112,14 @@
 
                 <com.shawnlin.numberpicker.NumberPicker
                     android:id="@+id/year_picker"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     app:np_dividerColor="#FFF"
                     app:np_dividerDistance="58dp"
                     app:np_selectedTextColor="#FFF"
                     app:np_selectedTextSize="17sp"
-                    app:np_textColor="#B3B3B3"
+                    app:np_textColor="#78849E"
                     app:np_textSize="17sp" />
             </RelativeLayout>
 
@@ -155,7 +155,7 @@
                     android:textSize="17sp"
                     android:layout_centerInParent="true"
                     android:text="Select carpool time"
-                    android:textColor="#05D686"
+                    android:textColor="#2A2E43"
                     android:textStyle="bold"/>
 
                 <ImageView
@@ -164,8 +164,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="15dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrow_forward"
-                    android:tint="#05D686"/>
+                    android:src="@drawable/ic_arrow_forward" />
 
 
             </RelativeLayout>
