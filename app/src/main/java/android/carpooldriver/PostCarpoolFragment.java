@@ -30,7 +30,7 @@ public class PostCarpoolFragment extends Fragment {
         mPostCarpoolRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PostCarpoolOneActivity.class);
+                Intent intent = new Intent(getActivity(), PostCarpoolRouteActivity.class);
                 startActivity(intent);
                 // EFFECTS: Animation to Profile Activity
                 getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);

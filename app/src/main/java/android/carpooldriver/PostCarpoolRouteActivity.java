@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.MapboxDirections;
@@ -31,7 +30,6 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
-import com.mapbox.mapboxsdk.plugins.annotation.Line;
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.PlaceAutocomplete;
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.model.PlaceOptions;
 import com.mapbox.mapboxsdk.style.layers.LineLayer;
@@ -57,7 +55,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 
 
-public class PostCarpoolOneActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final int REQUEST_CODE_AUTOCOMPLETE_ORIGIN = 1;
     private static final int REQUEST_CODE_AUTOCOMPLETE_DESTINATION = 2;
@@ -96,7 +94,7 @@ public class PostCarpoolOneActivity extends AppCompatActivity implements OnMapRe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.MAP_BOX_API_KEY));
-        setContentView(R.layout.activity_post_new_carpool_one);
+        setContentView(R.layout.activity_post_new_carpool_route);
 
         // MODIFIES: this
         // EFFECTS: Generate map from Mapbox API.
@@ -162,7 +160,7 @@ public class PostCarpoolOneActivity extends AppCompatActivity implements OnMapRe
                         .placeOptions(PlaceOptions.builder()
                                 .backgroundColor(Color.parseColor("#EEEEEE"))
                                 .build(PlaceOptions.MODE_CARDS))
-                        .build(PostCarpoolOneActivity.this);
+                        .build(PostCarpoolRouteActivity.this);
 
                 startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE_ORIGIN);
             }
@@ -183,7 +181,7 @@ public class PostCarpoolOneActivity extends AppCompatActivity implements OnMapRe
                         .placeOptions(PlaceOptions.builder()
                                 .backgroundColor(Color.parseColor("#EEEEEE"))
                                 .build(PlaceOptions.MODE_CARDS))
-                        .build(PostCarpoolOneActivity.this);
+                        .build(PostCarpoolRouteActivity.this);
 
                 startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE_DESTINATION);
             }
@@ -520,8 +518,8 @@ public class PostCarpoolOneActivity extends AppCompatActivity implements OnMapRe
         nextRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PostCarpoolOneActivity.this,
-                        PostCarpoolTwoActivity.class);
+                Intent intent = new Intent(PostCarpoolRouteActivity.this,
+                        PostCarpoolSeatsActivity.class);
 
                 intent.putExtra("ORIGIN_LOCATION_STRING_KEY", textViewOrigin.getText());
                 intent.putExtra("ORIGIN_LATITUDE_KEY", originLatitudeData);
