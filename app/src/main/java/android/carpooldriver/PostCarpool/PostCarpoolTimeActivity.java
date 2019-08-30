@@ -1,7 +1,10 @@
 package android.carpooldriver.PostCarpool;
 
 import android.carpooldriver.R;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,6 +64,15 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
 
     // EFFECTS: Initialize the next activity.
     private void initNext() {
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_time_post);
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostCarpoolTimeActivity.this, PostCarpoolConfirmActivity.class);
+                startActivity(intent);
 
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
     }
 }

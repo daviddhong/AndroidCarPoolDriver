@@ -203,7 +203,7 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
                 lineCap(Property.LINE_CAP_ROUND),
                 lineJoin(Property.LINE_JOIN_ROUND),
                 lineWidth(5f),
-                lineColor(Color.parseColor("#454F63"))
+                lineColor(Color.parseColor("#0A1C2A"))
         );
         loadedMapStyle.addLayer(routeLayer);
     }
@@ -216,7 +216,7 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
     // EFFECTS: The layer data for the origin source data.
     private void initLayerOrigin(@NonNull Style loadedMapStyle) {
         loadedMapStyle.addImage(ICON_ID_ORIGIN, BitmapUtils.getBitmapFromDrawable(
-                getResources().getDrawable(R.drawable.ic_car_374785)));
+                getResources().getDrawable(R.drawable.ic_car_0a1c2a)));
 
         loadedMapStyle.addLayer(new SymbolLayer(ICON_LAYER_ID_ORIGIN,
                 ROUTE_SOURCE_ID_ORIGIN).withProperties(
@@ -233,7 +233,7 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
     // EFFECTS: The layer data for the destination source data.
     private void initLayerDestination(@NonNull Style loadedMapStyle) {
         loadedMapStyle.addImage(ICON_ID_DESTINATION, BitmapUtils.getBitmapFromDrawable(
-                getResources().getDrawable(R.drawable.ic_car_f8e9a1)));
+                getResources().getDrawable(R.drawable.ic_car_1e44c1)));
 
         loadedMapStyle.addLayer(new SymbolLayer(ICON_LAYER_ID_DESTINATION,
                 ROUTE_SOURCE_ID_DESTINATION).withProperties(

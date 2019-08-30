@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#0A1C2A">
+        android:background="#FFF">
 
         <RelativeLayout
             android:id="@+id/rl_back_button_post_new_carpool_date"
@@ -23,7 +23,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#FFF" />
+                android:tint="#0A1C2A" />
 
         </RelativeLayout>
 
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="What day would you"
-                android:textColor="#FFF"
+                android:textColor="#0A1C2A"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
                 android:layout_below="@id/text_row_one"
                 android:layout_marginTop="10dp"
                 android:text="like to carpool?"
-                android:textColor="#FFF"
+                android:textColor="#0A1C2A"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -73,12 +73,12 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    app:np_dividerColor="#FFF"
+                    app:np_dividerColor="#0A1C2A"
                     app:np_dividerDistance="58dp"
                     app:np_height="180dp"
-                    app:np_selectedTextColor="#FFF"
+                    app:np_selectedTextColor="#0A1C2A"
                     app:np_selectedTextSize="17sp"
-                    app:np_textColor="#FFF"
+                    app:np_textColor="#0A1C2A"
                     app:np_textSize="17sp"
                     app:np_width="64dp" />
 
@@ -96,11 +96,11 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    app:np_dividerColor="#FFF"
+                    app:np_dividerColor="#0A1C2A"
                     app:np_dividerDistance="58dp"
-                    app:np_selectedTextColor="#FFF"
+                    app:np_selectedTextColor="#0A1C2A"
                     app:np_selectedTextSize="17sp"
-                    app:np_textColor="#FFF"
+                    app:np_textColor="#0A1C2A"
                     app:np_textSize="17sp" />
             </RelativeLayout>
 
@@ -115,17 +115,18 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    app:np_dividerColor="#FFF"
+                    app:np_dividerColor="#0A1C2A"
                     app:np_dividerDistance="58dp"
-                    app:np_selectedTextColor="#FFF"
+                    app:np_selectedTextColor="#0A1C2A"
                     app:np_selectedTextSize="17sp"
-                    app:np_textColor="#FFF"
+                    app:np_textColor="#0A1C2A"
                     app:np_textSize="17sp" />
             </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/next_carpool_date_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -136,10 +137,9 @@
 
 
             <RelativeLayout
-                android:id="@+id/next_carpool_date_post"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/border_rectangle_unfilled">
+                android:background="@drawable/background_rectangle_fill">
 
 
                 <TextView
@@ -147,17 +147,9 @@
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
                     android:layout_centerInParent="true"
-                    android:text="Select carpool time"
-                    android:textColor="#0A1C2A"
+                    android:text="Continue"
+                    android:textColor="#FFF"
                     android:textStyle="bold"/>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_arrow_forward" />
 
 
             </RelativeLayout>

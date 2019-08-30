@@ -11,13 +11,13 @@
   <group>
     <clip-path android:pathData="M0,0h42v66h-42z M 0,0"/>
     <path
-        android:pathData="M17,6L25,6A8,8 0,0 1,33 14L33,46A8,8 0,0 1,25 54L17,54A8,8 0,0 1,9 46L9,14A8,8 0,0 1,17 6z"
-        android:fillColor="#374785"/>
+        android:pathData="M17,6h8a8,8 0,0 1,8 8L33,46a8,8 0,0 1,-8 8L17,54a8,8 0,0 1,-8 -8L9,14A8,8 0,0 1,17 6Z"
+        android:fillColor="#1E44C1"/>
     <path
-        android:pathData="M19,18L23,18A8,8 0,0 1,31 26L31,40A8,8 0,0 1,23 48L19,48A8,8 0,0 1,11 40L11,26A8,8 0,0 1,19 18z"
+        android:pathData="M18.948,18L22.948,18A8,8 0,0 1,30.948 26L30.948,40A8,8 0,0 1,22.948 48L18.948,48A8,8 0,0 1,10.948 40L10.948,26A8,8 0,0 1,18.948 18z"
         android:fillColor="#000000"/>
     <path
-        android:pathData="M19,27h4a6,6 0,0 1,6 6v6a6,6 0,0 1,-6 6L19,45a6,6 0,0 1,-6 -6L13,33A6,6 0,0 1,19 27Z"
-        android:fillColor="#374785"/>
+        android:pathData="M18.895,26.999L22.895,26.999A6,6 0,0 1,28.895 32.999L28.895,38.999A6,6 0,0 1,22.895 44.999L18.895,44.999A6,6 0,0 1,12.895 38.999L12.895,32.999A6,6 0,0 1,18.895 26.999z"
+        android:fillColor="#1E44C1"/>
   </group>
 </vector>
