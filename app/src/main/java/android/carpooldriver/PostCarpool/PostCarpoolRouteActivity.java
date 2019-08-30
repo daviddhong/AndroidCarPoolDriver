@@ -1,9 +1,10 @@
-package android.carpooldriver;
+package android.carpooldriver.PostCarpool;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 
 import android.app.Activity;
+import android.carpooldriver.R;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;

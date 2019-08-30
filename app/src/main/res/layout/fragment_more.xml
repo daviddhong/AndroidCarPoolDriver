@@ -428,6 +428,26 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="58dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginRight="58dp"
+            android:background="@drawable/border_rectangle_unfilled_with_border_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Sign out"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#1E44C1"/>
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

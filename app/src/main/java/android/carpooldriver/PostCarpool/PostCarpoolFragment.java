@@ -1,5 +1,6 @@
-package android.carpooldriver;
+package android.carpooldriver.PostCarpool;
 
+import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;

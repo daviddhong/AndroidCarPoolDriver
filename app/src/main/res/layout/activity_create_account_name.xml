@@ -27,6 +27,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/rl_close_create_account_name"
@@ -54,6 +55,68 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/text_provide_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_text"
+            android:layout_marginRight="38dp"
+            android:layout_toRightOf="@+id/rl_close_create_account_name"
+            android:layout_marginTop="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1E44C1"
+                android:text="The name has to be same as the name on your driver's license"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sign_up_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/border_rectangle_unfilled_with_border"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <EditText
+                android:id="@+id/editText_email_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:background="@android:color/transparent"
+                android:hint="Enter name"
+                android:inputType="textPersonName"
+                android:textColor="#0A1C2A"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/continue_sign_up_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="188dp"
+            android:layout_marginRight="58dp"
+            android:layout_marginLeft="58dp"
+            android:background="@drawable/background_rectangle_fill">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_centerInParent="true"
+                android:text="Continue"
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
 
 
     </RelativeLayout>

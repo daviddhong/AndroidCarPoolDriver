@@ -85,22 +85,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="78dp"
+            android:layout_marginBottom="158dp"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="58dp"
             android:layout_marginLeft="58dp">
 
-
-            <ImageView
-                android:id="@+id/icon_walking"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
-                android:src="@drawable/ic_icon_walking" />
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@id/icon_walking"
                 android:background="@drawable/border_rectangle_unfilled">
 
 

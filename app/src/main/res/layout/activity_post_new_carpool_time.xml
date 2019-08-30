@@ -76,18 +76,20 @@
 
                     <ImageView
                         android:id="@+id/dot_one"
-                        android:layout_width="3dp"
-                        android:layout_height="3dp"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/background_oval_filled" />
+                        android:src="@drawable/background_oval_filled"
+                        android:tint="#FFF"/>
 
                     <ImageView
-                        android:layout_width="3dp"
-                        android:layout_height="3dp"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
                         android:layout_below="@id/dot_one"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/background_oval_filled" />
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/background_oval_filled"
+                        android:tint="#FFF"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -158,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="78dp"
+            android:layout_marginBottom="158dp"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="58dp"
             android:layout_marginLeft="58dp"

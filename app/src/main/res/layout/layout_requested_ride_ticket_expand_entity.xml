@@ -17,8 +17,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/background_oval_filled">
+                android:layout_marginTop="20dp">
 
                 <ImageView
                     android:id="@+id/back_confirm"
@@ -26,7 +25,7 @@
                     android:layout_height="20dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#FFF" />
+                    android:tint="#0A1C2A" />
 
             </RelativeLayout>
 
@@ -35,12 +34,11 @@
         <RelativeLayout
             android:id="@+id/relative_layout_confirm_body"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/confirm_footer"
+            android:layout_height="wrap_content"
             android:layout_below="@id/relative_layout_ic_back_activity_confirm"
-            android:layout_marginLeft="39dp"
+            android:layout_marginLeft="38dp"
             android:layout_marginTop="28dp"
-            android:layout_marginRight="39dp"
+            android:layout_marginRight="38dp"
             android:layout_marginBottom="28dp"
             android:background="@drawable/border_rectangle_unfilled_with_border">
 
@@ -54,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
-                    android:text="Carpool Posting"
+                    android:text="Carpool Request"
                     android:textColor="#0A1C2A"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -101,63 +99,63 @@
 
                 </RelativeLayout>
 
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_toRightOf="@id/locations"
-                   android:layout_marginLeft="18dp"
-                   android:layout_centerVertical="true">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/locations"
+                    android:layout_marginLeft="18dp"
+                    android:layout_centerVertical="true">
 
-                   <RelativeLayout
-                       android:id="@+id/from_rl"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/from_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                       <TextView
-                           android:id="@+id/origin_location_text"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="Pickup location"
-                           android:textColor="#1E44C1"
-                           android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/origin_location_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pickup location"
+                            android:textColor="#1E44C1"
+                            android:textSize="12sp" />
 
-                       <TextView
-                           android:id="@+id/origin_data"
-                           android:layout_width="250dp"
-                           android:layout_height="wrap_content"
-                           android:layout_below="@id/origin_location_text"
-                           android:hint="Pickup Location Name"
-                           android:textColor="#78849E"
-                           android:textColorHint="#78849E"
-                           android:textSize="12sp" />
-                   </RelativeLayout>
+                        <TextView
+                            android:id="@+id/origin_data"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/origin_location_text"
+                            android:hint="Pickup Location Name"
+                            android:textColor="#78849E"
+                            android:textColorHint="#78849E"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
 
-                   <RelativeLayout
-                       android:id="@+id/to_rl"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_below="@id/from_rl"
-                       android:layout_marginTop="17dp">
+                    <RelativeLayout
+                        android:id="@+id/to_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/from_rl"
+                        android:layout_marginTop="17dp">
 
-                       <TextView
-                           android:id="@+id/destination_location_text"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="Destination location"
-                           android:textColor="#1E44C1"
-                           android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/destination_location_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Destination location"
+                            android:textColor="#1E44C1"
+                            android:textSize="12sp" />
 
-                       <TextView
-                           android:id="@+id/destination_data"
-                           android:layout_width="250dp"
-                           android:layout_height="wrap_content"
-                           android:layout_below="@id/destination_location_text"
-                           android:hint="Destination Location Name"
-                           android:textColor="#78849E"
-                           android:textColorHint="#78849E"
-                           android:textSize="12sp" />
-                   </RelativeLayout>
-               </RelativeLayout>
+                        <TextView
+                            android:id="@+id/destination_data"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/destination_location_text"
+                            android:hint="Destination Location Name"
+                            android:textColor="#78849E"
+                            android:textColorHint="#78849E"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
 
             </RelativeLayout>
 
@@ -251,7 +249,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/time"
                 android:layout_marginLeft="58dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp">
 
                 <ImageView
                     android:id="@+id/image_monetization"
@@ -293,7 +292,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="178dp">
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/relative_layout_confirm_body">
 
             <RelativeLayout
                 android:id="@+id/confirm_carpool"
@@ -308,7 +308,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Post Carpool"
+                    android:text="Request to carpool"
                     android:textColor="#FFF"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -329,7 +329,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Cancel"
+                    android:text="Cancel request to carpool"
                     android:textColor="#2A2E43"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -339,5 +339,6 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
 
 </LinearLayout>

@@ -10,7 +10,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_close_create_account_drivers_license"
+            android:id="@+id/rl_back_create_account_drivers_license"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_arrow_back"
                 android:tint="#0A1C2A" />
 
         </RelativeLayout>
@@ -29,7 +29,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/rl_close_create_account_drivers_license"
+            android:layout_toRightOf="@+id/rl_back_create_account_drivers_license"
             android:layout_marginTop="128dp">
 
             <TextView
@@ -54,6 +54,28 @@
         </RelativeLayout>
 
 
+        <RelativeLayout
+            android:id="@+id/continue_sign_up_id_picture"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="188dp"
+            android:layout_marginRight="58dp"
+            android:layout_marginLeft="58dp"
+            android:background="@drawable/background_rectangle_fill">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_centerInParent="true"
+                android:text="Continue"
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

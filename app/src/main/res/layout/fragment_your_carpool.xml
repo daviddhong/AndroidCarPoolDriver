@@ -22,7 +22,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Upcoming Carpool"
-                android:textColor="#2A2E43"
+                android:textColor="#0A1C2A"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_toLeftOf="@+id/notification_your_carpool"
                 android:src="@drawable/ic_account"
-                android:tint="#2A2E43" />
+                android:tint="#0A1C2A" />
 
             <ImageView
                 android:id="@+id/notification_your_carpool"
@@ -80,16 +80,6 @@
                 android:text="My carpool history"
                 android:textColor="#FFF"
                 android:textStyle="bold"/>
-
-            <ImageView
-                android:layout_width="25sp"
-                android:layout_height="25sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow_forward"
-                android:tint="#FFF"/>
-
 
         </RelativeLayout>
 
