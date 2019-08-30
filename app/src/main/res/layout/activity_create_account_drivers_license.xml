@@ -10,7 +10,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_close_create_account_password"
+            android:id="@+id/rl_close_create_account_drivers_license"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -29,14 +29,14 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/rl_close_create_account_password"
+            android:layout_toRightOf="@+id/rl_close_create_account_drivers_license"
             android:layout_marginTop="128dp">
 
             <TextView
                 android:id="@+id/text_row_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time to write your"
+                android:text="Please take a picture of"
                 android:textSize="25sp"
                 android:textColor="#0A1C2A"
                 android:textStyle="bold"/>
@@ -47,7 +47,7 @@
                 android:layout_below="@id/text_row_one"
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
-                android:text="password to sign in with."
+                android:text="your driver's license."
                 android:textColor="#0A1C2A"
                 android:textStyle="bold"/>
 

@@ -55,7 +55,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:text="Carpool Posting"
-                    android:textColor="#2A2E43"
+                    android:textColor="#0A1C2A"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -175,7 +175,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_person"
-                    android:tint="#2A2E43"/>
+                    android:tint="#0A1C2A"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -202,7 +202,8 @@
                     android:id="@+id/image_calendar"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_calendar" />
+                    android:src="@drawable/ic_calendar"
+                    android:tint="#0A1C2A"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -229,7 +230,8 @@
                     android:id="@+id/image_time"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_time" />
+                    android:src="@drawable/ic_time"
+                    android:tint="#0A1C2A"/>
 
                 <TextView
                     android:layout_width="wrap_content"
