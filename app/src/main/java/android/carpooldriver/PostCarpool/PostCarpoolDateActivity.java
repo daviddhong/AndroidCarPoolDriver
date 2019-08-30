@@ -19,6 +19,9 @@ public class PostCarpoolDateActivity extends AppCompatActivity {
     private NumberPicker month;
     private NumberPicker day;
     private NumberPicker year;
+    String monthString;
+    String dayString;
+    String yearString;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class PostCarpoolDateActivity extends AppCompatActivity {
         month.setMaxValue(data.length);
         month.setDisplayedValues(data);
         month.setFadingEdgeEnabled(false);
+
+        monthString = String.valueOf(month.getValue());
     }
 
     // EFFECTS: Initialize the day number picker.
@@ -51,6 +56,8 @@ public class PostCarpoolDateActivity extends AppCompatActivity {
         day.setMaxValue(data.length);
         day.setDisplayedValues(data);
         day.setFadingEdgeEnabled(false);
+
+        dayString = String.valueOf(day.getValue());
     }
 
     // EFFECTS: Initialize the year number picker.
@@ -66,15 +73,32 @@ public class PostCarpoolDateActivity extends AppCompatActivity {
         year.setMaxValue(data.length);
         year.setDisplayedValues(data);
         year.setFadingEdgeEnabled(false);
+
+        yearString = String.valueOf(year.getValue());
     }
 
     // EFFECTS: Initialize the next activity.
     private void initNext() {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_date_post);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+            String earnings = bundle.getString("EARNINGS_STRING_KEY");
+            String seats = bundle.getString("SEATS_STRING");
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PostCarpoolDateActivity.this, PostCarpoolTimeActivity.class);
+
+                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
+                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
+                intent.putExtra("EARNINGS_STRING_KEY", earnings);
+                intent.putExtra("SEATS_STRING", seats);
+                intent.putExtra("MONTH_STRING", monthString);
+                intent.putExtra("DAY_STRING", dayString);
+                intent.putExtra("YEAR_STRING", yearString);
 
                 startActivity(intent);
 

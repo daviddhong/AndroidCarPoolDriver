@@ -16,6 +16,9 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
     private NumberPicker hour;
     private NumberPicker minutes;
     private NumberPicker period;
+    String hourString;
+    String minutesString;
+    String periodString;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
         hour.setDisplayedValues(data);
         hour.setFadingEdgeEnabled(false);
 
+        hourString = String.valueOf(hour.getValue());
+
     }
 
     // EFFECTS: Initialize the minute number picker.
@@ -50,6 +55,8 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
         minutes.setMaxValue(data.length);
         minutes.setDisplayedValues(data);
         minutes.setFadingEdgeEnabled(false);
+
+        minutesString = String.valueOf(minutes.getValue());
     }
 
     // EFFECTS: Initialize the period number picker.
@@ -60,15 +67,39 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
         period.setMaxValue(data.length);
         period.setDisplayedValues(data);
         period.setFadingEdgeEnabled(false);
+
+        periodString = String.valueOf(period.getValue());
     }
 
     // EFFECTS: Initialize the next activity.
     private void initNext() {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_time_post);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+            String earnings = bundle.getString("EARNINGS_STRING_KEY");
+            String seats = bundle.getString("SEATS_STRING");
+            String month = bundle.getString("MONTH_STRING");
+            String day = bundle.getString("DAY_STRING");
+            String year = bundle.getString("YEAR_STRING");
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PostCarpoolTimeActivity.this, PostCarpoolConfirmActivity.class);
+
+                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
+                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
+                intent.putExtra("EARNINGS_STRING_KEY", earnings);
+                intent.putExtra("SEATS_STRING", seats);
+                intent.putExtra("MONTH_STRING", month);
+                intent.putExtra("DAY_STRING", day);
+                intent.putExtra("YEAR_STRING", year);
+                intent.putExtra("HOUR_STRING", hourString);
+                intent.putExtra("MINUTES_STRING", minutesString);
+                intent.putExtra("PERIOD_STRING", periodString);
+
                 startActivity(intent);
 
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

@@ -15,6 +15,7 @@ import com.shawnlin.numberpicker.NumberPicker;
 public class PostCarpoolSeatsActivity extends AppCompatActivity {
 
     NumberPicker seats;
+    String seatsString;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,16 +28,34 @@ public class PostCarpoolSeatsActivity extends AppCompatActivity {
     // EFFECTS: Initialize the number picker for the number of seats.
     private void initSeatNumberPicker() {
         seats = (NumberPicker) findViewById(R.id.pn_picker);
+        String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+        seats.setMinValue(1);
+        seats.setMaxValue(data.length);
+        seats.setDisplayedValues(data);
         seats.setFadingEdgeEnabled(false);
+
+        seatsString = String.valueOf(seats.getValue());
+
     }
 
     // EFFECTS: Initialize the next activity.
     private void initNext() {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_seat_post);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
+
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+            String earnings = bundle.getString("EARNINGS_STRING_KEY");
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PostCarpoolSeatsActivity.this, PostCarpoolDateActivity.class);
+
+                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
+                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
+                intent.putExtra("EARNINGS_STRING_KEY", earnings);
+                intent.putExtra("SEATS_STRING", seatsString);
 
                 startActivity(intent);
 

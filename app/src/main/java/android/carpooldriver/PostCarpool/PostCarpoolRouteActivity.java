@@ -530,6 +530,8 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
                 intent.putExtra("DESTINATION_LATITUDE_KEY", destinationLatitudeData);
                 intent.putExtra("DESTINATION_LONGITUDE_KEY", destinationLongitudeData);
 
+                intent.putExtra("EARNINGS_STRING_KEY", textViewCost.getText());
+
                 startActivity(intent);
 
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
