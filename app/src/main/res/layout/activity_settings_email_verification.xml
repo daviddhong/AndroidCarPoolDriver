@@ -10,7 +10,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_back_create_account_email"
+            android:id="@+id/rl_back_settings_verify_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -27,81 +27,36 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/text_one_create_account_email"
+            android:id="@+id/settings_verify_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/rl_back_create_account_email"
+            android:layout_toRightOf="@+id/rl_back_settings_verify_email"
             android:layout_marginTop="128dp">
 
             <TextView
-                android:id="@+id/text_row_one"
+                android:id="@+id/text_row_one_settings_verify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi"
+                android:text="Please enter the verification"
                 android:textSize="25sp"
                 android:textColor="#0A1C2A"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/text_row_one"
-                android:layout_marginLeft="10dp"
-                android:textSize="25sp"
-                android:textColor="#1E44C1"
-                android:hint="Person's Name"
-                android:textColorHint="#1E44C1"
-                android:textStyle="bold"/>
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/text_row_one"
+                android:layout_below="@id/text_row_one_settings_verify"
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
-                android:text="What is your email?"
+                android:text="code sent to your inbox."
                 android:textColor="#0A1C2A"
                 android:textStyle="bold"/>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/text_provide_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_one_create_account_email"
-            android:layout_toRightOf="@+id/rl_back_create_account_email"
-            android:layout_marginTop="28dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#1E44C1"
-                android:text="Please provide your work or school email."
-                android:textSize="17sp"
-                android:textStyle="bold"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_provide_email"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/rl_back_create_account_email">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#78849E"
-                android:text="Why work or school email?"
-                android:textSize="15sp"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/sign_up_email"
+            android:id="@+id/settings_email_verification_code"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/border_rectangle_unfilled_with_border"
@@ -109,30 +64,20 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
 
-            <ImageView
-                android:id="@+id/image_email_sign_up"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/ic_email_24dp" />
-
             <EditText
-                android:id="@+id/editText_email_login"
+                android:id="@+id/editText_settings_email_verification"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@id/image_email_sign_up"
                 android:background="@android:color/transparent"
-                android:hint="Enter email"
-                android:inputType="textEmailAddress"
+                android:hint="Enter verification code"
+                android:inputType="textNoSuggestions"
                 android:textColor="#0A1C2A"
                 android:textSize="15sp" />
         </RelativeLayout>
 
-
         <RelativeLayout
-            android:id="@+id/continue_sign_up_email"
+            android:id="@+id/continue_settings_email_verification"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
