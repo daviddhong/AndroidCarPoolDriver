@@ -20,4 +20,8 @@ public class MoreFragment extends Fragment {
         mMoreView = inflater.inflate(R.layout.fragment_more, container, false);
         return mMoreView;
     }
+
+    private void initEmail() {
+
+    }
 }
