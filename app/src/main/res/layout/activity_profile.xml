@@ -21,8 +21,8 @@
             android:background="@drawable/background_oval_filled">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_close"
                 android:tint="#FFF" />
@@ -42,6 +42,25 @@
                 android:id="@+id/profile_picture"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#FFF"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/camera"
+            android:background="@drawable/background_oval_unfilled"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/profile_camera"
+                android:src="@drawable/ic_camera"
+                android:tint="#1E44C1"
+                android:layout_centerInParent="true"/>
 
         </RelativeLayout>
 

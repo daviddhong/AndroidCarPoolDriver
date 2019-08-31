@@ -35,8 +35,8 @@
             android:background="@drawable/background_oval_filled">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_close"
                 android:tint="#FFF" />
