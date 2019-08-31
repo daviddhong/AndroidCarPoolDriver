@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.carpooldriver.More.MoreFragment;
+import android.carpooldriver.More.MoreFragmentActivity;
 import android.carpooldriver.PostCarpool.PostCarpoolFragment;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new ChatFragment();
                     break;
                 case R.id.more:
-                    fragment = new MoreFragment();
+                    fragment = new MoreFragmentActivity();
                     break;
             }
             getSupportFragmentManager().beginTransaction()

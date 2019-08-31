@@ -129,7 +129,7 @@
                 android:id="@+id/textView_make_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create new account"
+                android:text="Sign up"
                 android:layout_centerInParent="true"
                 android:textColor="#2A2E43"
                 android:textSize="17sp"

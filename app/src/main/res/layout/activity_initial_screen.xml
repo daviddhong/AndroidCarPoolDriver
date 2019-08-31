@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:id="@+id/init_screen_sign_up"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/background_rectangle_fill_light"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign up"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/init_screen_sign_up"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp">
+
+                <TextView
+                    android:id="@+id/text_horizontal_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already have a Carpool Driver account?"
+                    android:textColor="#0A1C2A"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/init_screen_sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/text_horizontal_one"
+                    android:layout_marginLeft="5dp"
+                    android:text="Sign in"
+                    android:textColor="#78849E"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
