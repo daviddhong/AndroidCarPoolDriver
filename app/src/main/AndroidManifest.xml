@@ -25,6 +25,7 @@
         <activity android:name=".More.MoreEmailActivity"/>
         <activity android:name=".More.Profile.MoreProfileActivity"/>
         <activity android:name=".More.Password.MoreCurrentPasswordActivity"/>
+        <activity android:name=".PostCarpool.PostCarpoolRouteActivity"/>
     </application>
 
 </manifest>
