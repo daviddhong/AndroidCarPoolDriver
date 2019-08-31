@@ -124,7 +124,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@id/image_email_sign_up"
                 android:background="@android:color/transparent"
-                android:hint="Enter email"
+                android:hint="eg. carpool_driver@alumni.ubc.ca"
                 android:inputType="textEmailAddress"
                 android:textColor="#0A1C2A"
                 android:textSize="15sp" />
