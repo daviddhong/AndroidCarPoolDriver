@@ -10,37 +10,50 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_back_settings_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp">
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_arrow_back"
-                android:tint="#0A1C2A" />
+            <RelativeLayout
+                android:id="@+id/rl_back_settings_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true">
 
-        </RelativeLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="#0A1C2A" />
 
-        <RelativeLayout
-            android:id="@+id/rl_settings_save_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp">
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
+                android:text="Email address"
+                android:layout_centerInParent="true"
                 android:textSize="17sp"
-                android:textColor="#1E44C1"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="#0A1C2A" />
+
+            <RelativeLayout
+                android:id="@+id/rl_settings_save_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:textSize="17sp"
+                    android:textColor="#1E44C1" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
