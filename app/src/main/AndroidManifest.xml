@@ -21,6 +21,10 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".RiderTicketActivity"/>
         <activity android:name=".StartFromLogIn.InitActivity"/>
+        <activity android:name=".More.MoreOpenSourceLicenseActivity"/>
+        <activity android:name=".More.MoreEmailActivity"/>
+        <activity android:name=".More.Profile.MoreProfileActivity"/>
+        <activity android:name=".More.Password.MoreCurrentPasswordActivity"/>
     </application>
 
 </manifest>
