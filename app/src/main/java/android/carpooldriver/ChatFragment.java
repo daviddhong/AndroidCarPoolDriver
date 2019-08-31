@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class RateRidersFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
-    View mRateRidersView;
+    View mChatView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mRateRidersView = inflater.inflate(R.layout.fragment_chat, container, false);
-        return mRateRidersView;
+        mChatView = inflater.inflate(R.layout.fragment_chat, container, false);
+        return mChatView;
     }
 }

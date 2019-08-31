@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new YourCarpoolFragment();
                     break;
                 case R.id.chat:
-                    fragment = new RateRidersFragment();
+                    fragment = new ChatFragment();
                     break;
                 case R.id.more:
                     fragment = new MoreFragment();
