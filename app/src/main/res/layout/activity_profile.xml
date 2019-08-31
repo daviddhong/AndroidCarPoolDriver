@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -29,13 +30,92 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="288dp">
+            android:id="@+id/profile_pic_rl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp">
 
-            <ImageView
-                android:id="@+id/profile_picture"
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:id="@+id/profile_picture"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFF"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_name_rl"
+            android:layout_below="@+id/profile_pic_rl"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/border_rectangle_unfilled_with_border">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/name_stable_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#1E44C1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/name_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name_stable_profile"
+                    android:layout_marginTop="7dp"
+                    android:textColor="#2A2E43"
+                    android:textSize="15sp"
+                    android:hint="Name"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_car_type_rl"
+            android:layout_below="@+id/profile_name_rl"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/border_rectangle_unfilled_with_border">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/stable_car_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Car model and year"
+                    android:textColor="#1E44C1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/name_car_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stable_car_type"
+                    android:layout_marginTop="7dp"
+                    android:textColor="#2A2E43"
+                    android:textSize="15sp"
+                    android:hint="Car model and year"/>
+            </RelativeLayout>
 
         </RelativeLayout>
 
