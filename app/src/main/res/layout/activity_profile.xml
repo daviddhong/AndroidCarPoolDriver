@@ -59,7 +59,7 @@
                 android:layout_height="20dp"
                 android:id="@+id/profile_camera"
                 android:src="@drawable/ic_camera"
-                android:tint="#1E44C1"
+                android:tint="#4264fb"
                 android:layout_centerInParent="true"/>
 
         </RelativeLayout>
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:textColor="#1E44C1"
+                    android:textColor="#4264fb"
                     android:textSize="12sp" />
 
                 <TextView
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phone number"
-                    android:textColor="#1E44C1"
+                    android:textColor="#4264fb"
                     android:textSize="12sp" />
 
                 <TextView
@@ -159,7 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Car model and year"
-                    android:textColor="#1E44C1"
+                    android:textColor="#4264fb"
                     android:textSize="12sp" />
 
                 <TextView

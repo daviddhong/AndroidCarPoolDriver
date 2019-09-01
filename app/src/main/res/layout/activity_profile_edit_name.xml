@@ -10,37 +10,40 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_back_profile_edit_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_arrow_back"
-                android:tint="#0A1C2A" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_profile_save_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp">
-
-            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <RelativeLayout
+                android:id="@+id/rl_back_profile_edit_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
-                android:textSize="17sp"
-                android:textColor="#1E44C1"
-                android:textStyle="bold"/>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="#0A1C2A" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_profile_save_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:textSize="17sp"
+                    android:textColor="#4264fb" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
