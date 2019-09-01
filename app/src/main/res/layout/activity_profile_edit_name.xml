@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="Save"
                     android:textSize="17sp"
-                    android:textColor="#4264fb" />
+                    android:textColor="#05D686" />
 
             </RelativeLayout>
 
@@ -63,7 +63,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_person"
-                android:tint="#0A1C2A"/>
+                android:tint="#05D686"/>
 
             <EditText
                 android:id="@+id/editText_name_profile"

@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:text="Save"
                     android:textSize="17sp"
-                    android:textColor="#1E44C1" />
+                    android:textColor="#05D686" />
 
             </RelativeLayout>
 
@@ -72,7 +72,8 @@
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:src="@drawable/ic_email_24dp" />
+                android:src="@drawable/ic_email_24dp"
+                android:tint="#05D686"/>
 
             <EditText
                 android:id="@+id/editText_email_change_settings"

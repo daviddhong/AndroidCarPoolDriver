@@ -68,7 +68,7 @@
                     android:id="@+id/name_year_car"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#4264fb"
+                    android:textColor="#05D686"
                     android:text="Your car name and year"
                     android:textSize="17sp"
                     android:textStyle="bold"/>

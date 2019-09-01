@@ -435,7 +435,7 @@
             android:layout_marginBottom="58dp"
             android:layout_marginLeft="58dp"
             android:layout_marginRight="58dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border_blue">
+            android:background="@drawable/border_rectangle_unfilled_with_border_clova">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -444,7 +444,7 @@
                 android:text="Sign out"
                 android:textStyle="bold"
                 android:textSize="17sp"
-                android:textColor="#1E44C1"/>
+                android:textColor="#05D686"/>
 
         </RelativeLayout>
 

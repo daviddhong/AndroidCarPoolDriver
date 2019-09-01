@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#4264fb"
+                android:textColor="#05D686"
                 android:text="The rider will communicate with you through phone."
                 android:textSize="17sp"
                 android:textStyle="bold"/>
@@ -106,7 +106,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_phone"
-                android:tint="#0A1C2A"/>
+                android:tint="#05D686"/>
 
             <EditText
                 android:id="@+id/editText_password_sign_up"
