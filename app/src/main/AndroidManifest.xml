@@ -25,7 +25,22 @@
         <activity android:name=".More.MoreEmailActivity"/>
         <activity android:name=".More.Profile.MoreProfileActivity"/>
         <activity android:name=".More.Password.MoreCurrentPasswordActivity"/>
+        <activity android:name=".More.Password.MoreNewPasswordActivity"/>
+        <activity android:name=".More.MorePhoneNumberActivity"/>
         <activity android:name=".PostCarpool.PostCarpoolRouteActivity"/>
+        <activity android:name=".PostCarpool.PostCarpoolConfirmActivity"/>
+        <activity android:name=".PostCarpool.PostCarpoolDateActivity"/>
+        <activity android:name=".PostCarpool.PostCarpoolTimeActivity"/>
+        <activity android:name=".PostCarpool.PostCarpoolSeatsActivity"/>
+        <activity android:name=".More.Profile.ProfileEditPhoneNumberActivity"/>
+        <activity android:name=".More.Profile.ProfileEditCarModelActivity"/>
+        <activity android:name=".More.Profile.ProfileEditNameActivity"/>
+        <activity android:name=".CreateAccount.CreateAccountDriversLicense"/>
+        <activity android:name=".CreateAccount.CreateAccountCarType"/>
+        <activity android:name=".CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".CreateAccount.CreateAccountName"/>
     </application>
 
 </manifest>

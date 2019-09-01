@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/back_button_profile"
+            android:id="@+id/close_button_profile"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"

@@ -31,6 +31,17 @@ public class PostCarpoolDateActivity extends AppCompatActivity {
         initDayNumberPicker();
         initYearNumberPicker();
         initNext();
+        initBack();
+    }
+
+    private void initBack() {
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_button_post_new_carpool_date);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     // EFFECTS: Initialize the month number picker.

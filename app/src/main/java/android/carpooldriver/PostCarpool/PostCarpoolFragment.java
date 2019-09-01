@@ -1,11 +1,14 @@
 package android.carpooldriver.PostCarpool;
 
+import android.carpooldriver.More.Profile.MoreProfileActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,7 @@ public class PostCarpoolFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mPostCarpoolView = inflater.inflate(R.layout.fragment_post_carpool, container, false);
         initPostNewCarpool();
+        initProfile();
         return mPostCarpoolView;
     }
 
@@ -35,6 +39,18 @@ public class PostCarpoolFragment extends Fragment {
                 startActivity(intent);
                 // EFFECTS: Animation to Profile Activity
                 getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+            }
+        });
+    }
+
+    private void initProfile() {
+        ImageView profileImageView = (ImageView) mPostCarpoolView.findViewById(R.id.profile_post_carpool);
+        profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MoreProfileActivity.class);
+                startActivity(intent);
+
             }
         });
     }

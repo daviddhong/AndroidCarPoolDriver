@@ -23,6 +23,7 @@ public class PostCarpoolSeatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post_new_carpool_seats);
         initSeatNumberPicker();
         initNext();
+        initBack();
     }
 
     // EFFECTS: Initialize the number picker for the number of seats.
@@ -36,6 +37,16 @@ public class PostCarpoolSeatsActivity extends AppCompatActivity {
 
         seatsString = String.valueOf(seats.getValue());
 
+    }
+
+    private void initBack() {
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_button_post_new_carpool_two);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     // EFFECTS: Initialize the next activity.

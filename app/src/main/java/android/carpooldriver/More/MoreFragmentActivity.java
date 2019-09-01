@@ -26,6 +26,7 @@ public class MoreFragmentActivity extends Fragment {
         initEmail();
         initAccountPassword();
         initOpenSourceLicense();
+        initPhone();
         return mMoreView;
     }
 
@@ -62,7 +63,17 @@ public class MoreFragmentActivity extends Fragment {
     }
 
     private void initPhone() {
+        RelativeLayout settingsPhone = (RelativeLayout) mMoreView.findViewById(R.id.settings_phone);
+        settingsPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MorePhoneNumberActivity.class);
+                startActivity(intent);
 
+                // EFFECTS: Animation to CurrentPasswordActivity.
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
     }
 
     // MODIFIES: this

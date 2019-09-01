@@ -28,6 +28,17 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
         initMinutePicker();
         initPeriodPicker();
         initNext();
+        initBack();
+    }
+
+    private void initBack() {
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_button_post_new_carpool_time);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     // EFFECTS: Initialize the hour number picker.

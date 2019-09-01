@@ -103,7 +103,18 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
+        initBack();
         initNextActivity();
+    }
+
+    private void initBack() {
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.back_button_post_new_carpool_one);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

@@ -49,7 +49,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/relative_layout_post_new_carpool"
+            android:layout_below="@id/post_carpool_toolbar"
+            android:layout_marginTop="25dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -65,9 +66,10 @@
             android:id="@+id/relative_layout_post_new_carpool"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:layout_below="@+id/post_carpool_toolbar"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="35dp"
             android:background="@drawable/background_rectangle_fill">
 
             <RelativeLayout
