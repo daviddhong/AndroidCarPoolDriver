@@ -29,20 +29,10 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@+id/notification_post_carpool"
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"
                 android:src="@drawable/ic_account"
                 android:tint="#0A1C2A" />
-
-            <ImageView
-                android:id="@+id/notification_post_carpool"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/ic_outline_notifications"
-                android:tint="#78849E" />
 
         </RelativeLayout>
 
@@ -50,9 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/post_carpool_toolbar"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginTop="25dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

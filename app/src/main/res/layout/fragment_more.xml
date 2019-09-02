@@ -24,16 +24,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/notification_more"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/ic_outline_notifications"
-                android:tint="#78849E" />
-
         </RelativeLayout>
 
         <RelativeLayout

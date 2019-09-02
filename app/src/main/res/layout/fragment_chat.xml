@@ -27,20 +27,10 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@+id/notification_rate_riders"
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"
                 android:src="@drawable/ic_account"
                 android:tint="#0A1C2A" />
-
-            <ImageView
-                android:id="@+id/notification_rate_riders"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/ic_outline_notifications"
-                android:tint="#78849E" />
 
         </RelativeLayout>
     </RelativeLayout>
