@@ -40,9 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/post_carpool_toolbar"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginTop="25dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
