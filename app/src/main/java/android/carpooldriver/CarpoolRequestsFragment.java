@@ -52,7 +52,8 @@ public class CarpoolRequestsFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets").child(currentUserID);
+        // todo check to get all rider tickets
+        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
