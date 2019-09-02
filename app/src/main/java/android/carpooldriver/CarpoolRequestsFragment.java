@@ -69,33 +69,32 @@ public class CarpoolRequestsFragment extends Fragment {
                 = new FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RiderRequestTicket riderReqTickets) {
-//                String usersIDS = getRef(i).getKey();
-//                UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                        if (dataSnapshot.exists()) {
-//                            final String riderTo = dataSnapshot.child("To").getValue().toString();
-//                            final String riderFrom = dataSnapshot.child("From").getValue().toString();
+                String usersIDS = getRef(i).getKey();
+                UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            final String riderTo = dataSnapshot.child("To").getValue().toString();
+                            final String riderFrom = dataSnapshot.child("From").getValue().toString();
                             riderticketholder.riderTo.setText(riderReqTickets.getticketto());
                             riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
                             riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     // does nothing when clicked yet (request for the ride)
-                                    String clicked_user_id = getRef(i).getParent().getKey();
+//                                    String clicked_user_id = getRef(i).getParent().getKey();
                                     Intent intent = new Intent(getActivity(), RiderTicketActivity.class);
-                                    intent.putExtra("clicked_user_id", clicked_user_id);
+                                    intent.putExtra("clicked_user_id", usersIDS);
                                     startActivity(intent);
                                 }
                             });
                         }
-//                    }
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//                    }
-//                });
-//            }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
+            }
 
             @NonNull
             @Override
