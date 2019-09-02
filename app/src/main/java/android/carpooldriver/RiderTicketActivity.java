@@ -29,11 +29,11 @@ public class RiderTicketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_new_carpool_confirm);
+        setContentView(R.layout.layout_requested_ride_ticket_expand_entity_post);
 
         // initialize fields
-        confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
-        confirmButton = findViewById(R.id.confirm_carpool);
+        confirm_carpool_button_word = findViewById(R.id.request_cancel_button_word);
+        confirmButton = findViewById(R.id.request_cancel_carpool_post);
         mAuth = FirebaseAuth.getInstance();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         PickUpRequestRef = FirebaseDatabase.getInstance().getReference().child("PickUpRequest");
@@ -145,7 +145,7 @@ public class RiderTicketActivity extends AppCompatActivity {
             });
         } else {
 //            confirmButton.setVisibility(View.INVISIBLE);
-            confirm_carpool_button_word.setText("my own request? shouldn't be...");
+            confirm_carpool_button_word.setText("My own ride request... cannot request!");
             confirmButton.setEnabled(false);
         }
 

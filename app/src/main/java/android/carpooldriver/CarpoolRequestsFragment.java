@@ -69,7 +69,7 @@ public class CarpoolRequestsFragment extends Fragment {
                 = new FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RiderRequestTicket riderReqTickets) {
-                String usersIDS = getRef(i).getKey();
+//                String usersIDS = getRef(i).getKey();
 //                UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -83,7 +83,7 @@ public class CarpoolRequestsFragment extends Fragment {
                                 @Override
                                 public void onClick(View v) {
                                     // does nothing when clicked yet (request for the ride)
-                                    String clicked_user_id = getRef(i).getKey();
+                                    String clicked_user_id = getRef(i).getParent().getKey();
                                     Intent intent = new Intent(getActivity(), RiderTicketActivity.class);
                                     intent.putExtra("clicked_user_id", clicked_user_id);
                                     startActivity(intent);

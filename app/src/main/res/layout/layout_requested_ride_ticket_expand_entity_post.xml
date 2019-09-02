@@ -295,7 +295,7 @@
             android:layout_below="@+id/relative_layout_confirm_body_post">
 
             <RelativeLayout
-                android:id="@+id/message_post"
+                android:id="@+id/request_cancel_carpool_post"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="39dp"
@@ -303,11 +303,11 @@
                 android:background="@drawable/background_rectangle_fill">
 
                 <TextView
-                    android:id="@+id/message_button_word"
+                    android:id="@+id/request_cancel_button_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Message the rider"
+                    android:text="Request to Pickup Rider"
                     android:textColor="#FFF"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -315,12 +315,12 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/cancel_carpool_post"
+                android:id="@+id/message_rider_post"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="39dp"
                 android:layout_marginRight="39dp"
                 android:layout_height="50dp"
-                android:layout_below="@id/message_post"
+                android:layout_below="@id/request_cancel_carpool_post"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/border_rectangle_unfilled_with_border">
 
@@ -328,7 +328,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Cancel request to carpool"
+                    android:text="Message the Rider"
                     android:textColor="#2A2E43"
                     android:textSize="17sp"
                     android:textStyle="bold" />
