@@ -1,4 +1,4 @@
-package android.carpooldriver.More.Profile;
+package android.carpooldriver.Settings.Profile;
 
 import android.carpooldriver.R;
 import android.content.Intent;

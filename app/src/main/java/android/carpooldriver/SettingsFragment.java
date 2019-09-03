@@ -1,7 +1,10 @@
-package android.carpooldriver.More;
+package android.carpooldriver;
 
-import android.carpooldriver.More.Password.MoreCurrentPasswordActivity;
-import android.carpooldriver.More.Profile.MoreProfileActivity;
+import android.carpooldriver.Settings.MoreEmailActivity;
+import android.carpooldriver.Settings.MoreOpenSourceLicenseActivity;
+import android.carpooldriver.Settings.MorePhoneNumberActivity;
+import android.carpooldriver.Settings.Password.MoreCurrentPasswordActivity;
+import android.carpooldriver.Settings.Profile.MoreProfileActivity;
 import android.carpooldriver.R;
 import android.carpooldriver.StartFromLogIn.LogInActivity;
 import android.content.Intent;
@@ -17,7 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MoreFragmentActivity extends Fragment {
+public class SettingsFragment extends Fragment {
 
     View mMoreView;
     private RelativeLayout sign_out_button;

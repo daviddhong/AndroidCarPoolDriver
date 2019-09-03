@@ -1,4 +1,4 @@
-package android.carpooldriver.More;
+package android.carpooldriver.Settings;
 
 import android.carpooldriver.R;
 import android.os.Bundle;

@@ -1,9 +1,8 @@
 package android.carpooldriver;
 
-import android.carpooldriver.More.Profile.MoreProfileActivity;
+import android.carpooldriver.CarpoolRiderRequests.RiderRequestTicketClass;
+import android.carpooldriver.Settings.Profile.MoreProfileActivity;
 import android.carpooldriver.PostCarpool.PostCarpoolRouteActivity;
-import android.carpooldriver.R;
-import android.carpooldriver.RiderRequestTicket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -66,14 +65,14 @@ public class PostCarpoolFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RiderRequestTicket>()
-                .setQuery(DriverTicketsRef, RiderRequestTicket.class)
+        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
+                .setQuery(DriverTicketsRef, RiderRequestTicketClass.class)
                 .build();
 
-        final FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder> adapter
-                = new FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder>(options) {
+        final FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder> adapter
+                = new FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RiderRequestTicket riderReqTickets) {
+            protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RiderRequestTicketClass riderReqTickets) {
                 String usersIDS = getRef(i).getKey();
                 UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
                     @Override

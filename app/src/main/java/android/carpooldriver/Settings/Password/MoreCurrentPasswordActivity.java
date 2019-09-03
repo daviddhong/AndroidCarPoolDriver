@@ -1,4 +1,4 @@
-package android.carpooldriver.More.Password;
+package android.carpooldriver.Settings.Password;
 
 import android.carpooldriver.R;
 import android.content.Intent;

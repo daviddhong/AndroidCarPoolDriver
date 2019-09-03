@@ -1,5 +1,6 @@
-package android.carpooldriver;
+package android.carpooldriver.CarpoolRiderRequests;
 
+import android.carpooldriver.R;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class RiderTicketActivity extends AppCompatActivity {
+public class IndividualRiderTicketActivity extends AppCompatActivity {
 
     private String receiveUserID, senderUserID, current_state;
     private TextView ticketID, confirm_carpool_button_word;
@@ -30,7 +31,6 @@ public class RiderTicketActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_requested_ride_ticket_expand_entity_post);
-
         // initialize fields
         confirm_carpool_button_word = findViewById(R.id.request_cancel_button_word);
         confirmButton = findViewById(R.id.request_cancel_carpool_post);
@@ -43,7 +43,6 @@ public class RiderTicketActivity extends AppCompatActivity {
         senderUserID = mAuth.getCurrentUser().getUid();
         RetrieveUserInformation();
     }
-
     private void RetrieveUserInformation() {
         UserRef.child(receiveUserID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -56,16 +55,12 @@ public class RiderTicketActivity extends AppCompatActivity {
                 ManageChatFriendRequest();
 //                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
-
     private void ManageChatFriendRequest() {
-
-
         PickUpRequestRef.child(senderUserID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
