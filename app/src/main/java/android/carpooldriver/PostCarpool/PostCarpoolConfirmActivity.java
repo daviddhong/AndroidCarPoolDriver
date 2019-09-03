@@ -23,6 +23,12 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
 
     RelativeLayout mConfirmActivityRelativeLayout;
     String currentUserName;
+    TextView carpoolOriginText;
+    TextView carpoolDestinationText;
+    TextView seatsText;
+    TextView earningsText;
+    TextView dateText;
+    TextView timeText;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference RootRef, RootKeyRef;
@@ -32,6 +38,15 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_new_carpool_confirm);
 
+        initBack();
+
+        initOriginText();
+        initDestinationText();
+        initSeats();
+        initDateText();
+        initTimeText();
+        initEarningsText();
+
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         currentUserName = currentUser.getUid();
@@ -39,21 +54,74 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         setConfirmActivityRelativeLayout();
     }
 
+    private void initBack() {
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_confirm);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void initSeats() {
+        Bundle bundle = getIntent().getExtras();
+        String seats = bundle.getString("SEATS_STRING");
+        seatsText = (TextView) findViewById(R.id.seats_confirm);
+        seatsText.setText(seats);
+    }
+
+    private void initOriginText() {
+        Bundle bundle = getIntent().getExtras();
+        String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+        carpoolOriginText = (TextView) findViewById(R.id.origin_data);
+        carpoolOriginText.setText(origin);
+    }
+
+    private void initDestinationText() {
+        Bundle bundle = getIntent().getExtras();
+        String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+        carpoolDestinationText = (TextView) findViewById(R.id.destination_data);
+        carpoolDestinationText.setText(destination);
+    }
+
+    private void initEarningsText() {
+        Bundle bundle = getIntent().getExtras();
+        String earnings = bundle.getString("EARNINGS_STRING_KEY");
+        earningsText = (TextView) findViewById(R.id.earnings_text_confirm);
+        earningsText.setText(earnings);
+    }
+
+    private void initDateText() {
+        Bundle bundle = getIntent().getExtras();
+        String month = bundle.getString("MONTH_STRING");
+        String day = bundle.getString("DAY_STRING");
+        String year = bundle.getString("YEAR_STRING");
+        dateText = (TextView) findViewById(R.id.date_confirm);
+        String date = month + " " + day + ", " + year;
+        dateText.setText(date);
+    }
+
+    private void initTimeText() {
+        Bundle bundle = getIntent().getExtras();
+        String hour = bundle.getString("HOUR_STRING");
+        String minutes = bundle.getString("MINUTES_STRING");
+        String period = bundle.getString("PERIOD_STRING");
+        timeText = (TextView) findViewById(R.id.time_confirm);
+        String time = hour + " " + ":" + " " + minutes + " " + period;
+        timeText.setText(time);
+    }
+
     // EFFECTS: Set ConfirmNewRideRequest.
     private void setConfirmActivityRelativeLayout() {
         mConfirmActivityRelativeLayout = (RelativeLayout) findViewById(R.id.confirm_carpool);
         mConfirmActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
-//            Bundle bundle = getIntent().getExtras();
-//            String origin = bundle.getString("ORIGIN");
-//            String destination = bundle.getString("DESTINATION");
-//            String date = bundle.getString("DATE_VALUE");
-//            String time = bundle.getString("TIME_VALUE");
-//            String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
+
             @Override
             public void onClick(View v) {
                 //save to realtime database
                 Toast.makeText(PostCarpoolConfirmActivity.this, "clicked", Toast.LENGTH_LONG).show();
-                savetorealtimedatabase();
+                saveToRealTimeDatabase();
                 Intent intent = new Intent(PostCarpoolConfirmActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -63,7 +131,7 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         });
     }
 
-    private void savetorealtimedatabase() {
+    private void saveToRealTimeDatabase() {
         String messageKey = RootRef.push().getKey();
         HashMap<String, Object> riderTicketKey = new HashMap<>();
         RootRef.updateChildren(riderTicketKey);

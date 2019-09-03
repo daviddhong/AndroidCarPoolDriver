@@ -14,6 +14,7 @@
             android:layout_height="70dp">
 
             <RelativeLayout
+                android:id="@+id/rl_back_confirm"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
@@ -178,12 +179,13 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/seats_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_seat"
-                    android:hint="#goign to post a driver ticket"
+                    android:hint="#"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
                     android:textSize="12sp" />
@@ -206,6 +208,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/date_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -234,6 +237,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/time_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -267,7 +271,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_monetization"
-                    android:hint="Estimated earnings"
+                    android:hint="$"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
                     android:textSize="12sp" />

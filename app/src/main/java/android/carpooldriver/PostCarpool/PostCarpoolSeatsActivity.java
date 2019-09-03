@@ -37,6 +37,20 @@ public class PostCarpoolSeatsActivity extends AppCompatActivity {
 
         seatsString = String.valueOf(seats.getValue());
 
+        seats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        seats.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                    seats.setValue(newVal);
+                    seatsString = String.valueOf(seats.getValue());
+            }
+        });
     }
 
     private void initBack() {
