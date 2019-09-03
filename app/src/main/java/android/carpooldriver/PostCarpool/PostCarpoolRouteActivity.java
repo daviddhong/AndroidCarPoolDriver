@@ -314,6 +314,8 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
                     textViewOrigin = (TextView) findViewById(R.id.second_activity_origin);
                     textViewOrigin.setText(carmenFeatureOrigin.text());
 
+                    textViewDestination = (TextView) findViewById(R.id.second_activity_destination);
+
                     // EFFECTS: Remove the previous ROUTE_LAYER_ID and ROUTE_SOURCE_ID to generate
                     // a new ROUTE_LAYER_ID and ROUTE_SOURCE_ID.
                     style.removeLayer(ROUTE_LAYER_ID);
@@ -326,12 +328,14 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
                     initSourceRoute(style);
                     initLayerRoute(style);
 
-                    // EFFECTS: Create two points to generate a route.
-                    Point origin = Point.fromLngLat(originLatitude, originLongitude);
-                    Point destination = Point.fromLngLat(destinationLatitude, destinationLongitude);
+                    if (textViewDestination.getText().length() > 0) {
+                        // EFFECTS: Create two points to generate a route.
+                        Point origin = Point.fromLngLat(originLatitude, originLongitude);
+                        Point destination = Point.fromLngLat(destinationLatitude, destinationLongitude);
 
-                    // EFFECTS: Generate a route with a polyline.
-                    getRoute(style, origin, destination);
+                        // EFFECTS: Generate a route with a polyline.
+                        getRoute(style, origin, destination);
+                    }
                 }
             }
 
@@ -379,6 +383,8 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
                                         .zoom(14)
                                         .build()), 4000);
                     }
+                    textViewOrigin = (TextView) findViewById(R.id.second_activity_origin);
+
                     // EFFECTS: The searched location's name will be shown in the destination text view.
                     textViewDestination = (TextView) findViewById(R.id.second_activity_destination);
                     textViewDestination.setText(carmenFeatureDestination.text());
@@ -395,12 +401,14 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
                     initSourceRoute(style);
                     initLayerRoute(style);
 
-                    // EFFECTS: Create two points to generate a route.
-                    Point origin = Point.fromLngLat(originLatitude, originLongitude);
-                    Point destination = Point.fromLngLat(destinationLatitude, destinationLongitude);
+                    if (textViewOrigin.getText().length() > 0) {
+                        // EFFECTS: Create two points to generate a route.
+                        Point origin = Point.fromLngLat(originLatitude, originLongitude);
+                        Point destination = Point.fromLngLat(destinationLatitude, destinationLongitude);
 
-                    // EFFECTS: Generate a route with a polyline.
-                    getRoute(style, origin, destination);
+                        // EFFECTS: Generate a route with a polyline.
+                        getRoute(style, origin, destination);
+                    }
                 }
             }
         }
