@@ -2,7 +2,7 @@ package android.carpooldriver;
 
 import android.carpooldriver.CarpoolRiderRequests.RiderRequestTicketClass;
 import android.carpooldriver.CarpoolRiderRequests.IndividualRiderTicketActivity;
-import android.carpooldriver.Settings.Profile.MoreProfileActivity;
+import android.carpooldriver.Settings.Profile.ProfileActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -125,7 +125,7 @@ public class CarpoolRiderRequestsFragment extends Fragment {
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MoreProfileActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
             }
         });

@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MoreCurrentPasswordActivity extends AppCompatActivity {
+public class CurrentPasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MoreCurrentPasswordActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MoreCurrentPasswordActivity.this, MoreNewPasswordActivity.class);
+                Intent intent = new Intent(CurrentPasswordActivity.this, NewPasswordActivity.class);
                 startActivity(intent);
 
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
