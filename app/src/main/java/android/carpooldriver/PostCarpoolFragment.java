@@ -1,12 +1,16 @@
 package android.carpooldriver;
 
 import android.carpooldriver.More.Profile.MoreProfileActivity;
+import android.carpooldriver.PostCarpool.PostCarpoolRouteActivity;
+import android.carpooldriver.R;
+import android.carpooldriver.RiderRequestTicket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,38 +28,38 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class CarpoolRequestsFragment extends Fragment {
+public class PostCarpoolFragment extends Fragment {
 
-    private View mCarpoolRequestsView;
-
+    View mPostCarpoolView;
+    RelativeLayout mPostCarpoolRelativeLayout;
     private RecyclerView FriendRecyclerView;
-    private DatabaseReference RiderTicketsRef, UsersRef;
+    private DatabaseReference DriverTicketsRef, UsersRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
+    public static final int ADD_TICKET_REQUEST = 1;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mCarpoolRequestsView = inflater.inflate(R.layout.fragment_carpool_requests, container, false);
-
-        displaysFriendsListbyRecyclerView();
-
+        mPostCarpoolView = inflater.inflate(R.layout.fragment_post_carpool, container, false);
+        initPostNewCarpool();
         initProfile();
-
-        return mCarpoolRequestsView;
+        displaysFriendsListbyRecyclerView();
+        return mPostCarpoolView;
     }
 
     //use recycler view and friend list adapter to display list of friends
     private void displaysFriendsListbyRecyclerView() {
-        FriendRecyclerView = (RecyclerView) mCarpoolRequestsView.findViewById(R.id.rides_requested_recycler_view);
+        FriendRecyclerView = (RecyclerView) mPostCarpoolView.findViewById(R.id.myposteddrivertickets);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        // todo check to get all rider tickets
-        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+        // todo this is getting all the driver tickets from database
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
+
 
     // create firebase recycler
     @Override
@@ -63,7 +67,7 @@ public class CarpoolRequestsFragment extends Fragment {
         super.onStart();
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RiderRequestTicket>()
-                .setQuery(RiderTicketsRef, RiderRequestTicket.class)
+                .setQuery(DriverTicketsRef, RiderRequestTicket.class)
                 .build();
 
         final FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder> adapter
@@ -74,23 +78,21 @@ public class CarpoolRequestsFragment extends Fragment {
                 UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                         if (dataSnapshot.exists()) {
                             final String riderTo = dataSnapshot.child("To").getValue().toString();
                             final String riderFrom = dataSnapshot.child("From").getValue().toString();
-                            riderticketholder.riderTo.setText(riderReqTickets.getticketto());
-                            riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
+                            riderticketholder.riderTo.setText(riderTo);
+                            riderticketholder.riderFrom.setText(riderFrom);
                             riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    // does nothing when clicked yet (request for the ride)
-//                                    String clicked_user_id = getRef(i).getParent().getKey();
-                                    Intent intent = new Intent(getActivity(), RiderTicketActivity.class);
-                                    intent.putExtra("clicked_user_id", usersIDS);
-                                    startActivity(intent);
+                                    // does nothing when clicked yet (probably want to delete it)
                                 }
                             });
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
@@ -100,7 +102,7 @@ public class CarpoolRequestsFragment extends Fragment {
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_requested_ride_ticket_entity, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_posted_ride_ticket_entity, parent, false);
                 riderTicketHolder viewHolder = new riderTicketHolder(view);
                 return viewHolder;
             }
@@ -108,7 +110,6 @@ public class CarpoolRequestsFragment extends Fragment {
         FriendRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
-
 
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
@@ -120,15 +121,30 @@ public class CarpoolRequestsFragment extends Fragment {
         }
     }
 
+
+    // EFFECTS: Initialize the post new carpool activity.
+    private void initPostNewCarpool() {
+        mPostCarpoolRelativeLayout = (RelativeLayout) mPostCarpoolView.findViewById(R.id.post_new_carpool);
+        mPostCarpoolRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PostCarpoolRouteActivity.class);
+                startActivity(intent);
+                // EFFECTS: Animation to Profile Activity
+                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+            }
+        });
+    }
+
     private void initProfile() {
-        ImageView profileImageView = (ImageView) mCarpoolRequestsView.findViewById(R.id.profile_carpool_requests);
+        ImageView profileImageView = (ImageView) mPostCarpoolView.findViewById(R.id.profile_post_carpool);
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MoreProfileActivity.class);
                 startActivity(intent);
+
             }
         });
     }
-
 }

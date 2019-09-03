@@ -2,31 +2,31 @@ package android.carpooldriver;
 
 public class RiderRequestTicket {
 
-    public String t_from, t_to;
+    public String From, To;
 
 
     public RiderRequestTicket() {
     }
     public RiderRequestTicket(String tickfrom, String ticketto) {
-        this.t_from = tickfrom;
-        this.t_to = ticketto;
+        this.From = tickfrom;
+        this.To = ticketto;
     }
 
 
     public String getticketfrom() {
-        return t_from;
+        return From;
     }
     public void setticketfrom(String ticketto) {
-        this.t_from = ticketto;
+        this.From = ticketto;
     }
 
 
 
     public String getticketto() {
-        return t_to;
+        return To;
     }
     public void setticketto(String ticketto) {
-        this.t_to = ticketto;
+        this.To = ticketto;
     }
 
 
