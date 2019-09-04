@@ -18,29 +18,29 @@
         </activity>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".RiderTicketActivity"/>
+        <activity android:name=".BottomNavigationMainActivity"/>
+        <activity android:name=".CarpoolRiderRequests.IndividualRiderTicketActivity"/>
         <activity android:name=".StartFromLogIn.InitActivity"/>
-        <activity android:name=".More.MoreOpenSourceLicenseActivity"/>
-        <activity android:name=".More.MoreEmailActivity"/>
-        <activity android:name=".More.Profile.MoreProfileActivity"/>
-        <activity android:name=".More.Password.MoreCurrentPasswordActivity"/>
-        <activity android:name=".More.Password.MoreNewPasswordActivity"/>
-        <activity android:name=".More.MorePhoneNumberActivity"/>
+        <activity android:name=".Settings.OpenSourceLicenseActivity"/>
+        <activity android:name=".Settings.EmailActivity"/>
+        <activity android:name=".Settings.Profile.ProfileActivity"/>
+        <activity android:name=".Settings.Password.CurrentPasswordActivity"/>
+        <activity android:name=".Settings.Password.NewPasswordActivity"/>
+        <activity android:name=".Settings.PhoneNumberActivity"/>
         <activity android:name=".PostCarpool.PostCarpoolRouteActivity"/>
         <activity android:name=".PostCarpool.PostCarpoolConfirmActivity"/>
         <activity android:name=".PostCarpool.PostCarpoolDateActivity"/>
         <activity android:name=".PostCarpool.PostCarpoolTimeActivity"/>
         <activity android:name=".PostCarpool.PostCarpoolSeatsActivity"/>
-        <activity android:name=".More.Profile.ProfileEditPhoneNumberActivity"/>
-        <activity android:name=".More.Profile.ProfileEditCarModelActivity"/>
-        <activity android:name=".More.Profile.ProfileEditNameActivity"/>
-        <activity android:name=".CreateAccount.CreateAccountDriversLicense"/>
-        <activity android:name=".CreateAccount.CreateAccountCarType"/>
-        <activity android:name=".CreateAccount.CreateAccountPhoneNumber"/>
-        <activity android:name=".CreateAccount.CreateAccountPassword"/>
-        <activity android:name=".CreateAccount.CreateAccountEmail"/>
-        <activity android:name=".CreateAccount.CreateAccountName"/>
+        <activity android:name=".Settings.Profile.ProfileEditPhoneNumberActivity"/>
+        <activity android:name=".Settings.Profile.ProfileEditCarModelActivity"/>
+        <activity android:name=".Settings.Profile.ProfileEditNameActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountDriversLicense"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountCarType"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
     </application>
 
 </manifest>

@@ -1,13 +1,13 @@
-package android.carpooldriver;
+package android.carpooldriver.CarpoolRiderRequests;
 
-public class RiderRequestTicket {
+public class RiderRequestTicketClass {
 
     public String From, To;
 
 
-    public RiderRequestTicket() {
+    public RiderRequestTicketClass() {
     }
-    public RiderRequestTicket(String tickfrom, String ticketto) {
+    public RiderRequestTicketClass(String tickfrom, String ticketto) {
         this.From = tickfrom;
         this.To = ticketto;
     }

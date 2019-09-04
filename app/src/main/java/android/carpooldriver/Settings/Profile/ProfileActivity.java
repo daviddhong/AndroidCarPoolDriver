@@ -1,4 +1,4 @@
-package android.carpooldriver.More.Profile;
+package android.carpooldriver.Settings.Profile;
 
 import android.carpooldriver.R;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MoreProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MoreProfileActivity extends AppCompatActivity {
         editCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MoreProfileActivity.this, ProfileEditCarModelActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, ProfileEditCarModelActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class MoreProfileActivity extends AppCompatActivity {
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MoreProfileActivity.this, ProfileEditNameActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, ProfileEditNameActivity.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class MoreProfileActivity extends AppCompatActivity {
         phoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MoreProfileActivity.this, ProfileEditPhoneNumberActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, ProfileEditPhoneNumberActivity.class);
                 startActivity(intent);
             }
         });

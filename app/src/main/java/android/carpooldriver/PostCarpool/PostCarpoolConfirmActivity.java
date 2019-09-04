@@ -1,6 +1,6 @@
 package android.carpooldriver.PostCarpool;
 
-import android.carpooldriver.MainActivity;
+import android.carpooldriver.BottomNavigationMainActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -122,7 +122,7 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
                 //save to realtime database
                 Toast.makeText(PostCarpoolConfirmActivity.this, "clicked", Toast.LENGTH_LONG).show();
                 saveToRealTimeDatabase();
-                Intent intent = new Intent(PostCarpoolConfirmActivity.this, MainActivity.class);
+                Intent intent = new Intent(PostCarpoolConfirmActivity.this, BottomNavigationMainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from ()Activity to ()Activity.

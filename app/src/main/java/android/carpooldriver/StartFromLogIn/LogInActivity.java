@@ -1,12 +1,11 @@
 package android.carpooldriver.StartFromLogIn;
 
 
-import android.carpooldriver.MainActivity;
+import android.carpooldriver.BottomNavigationMainActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -89,10 +88,10 @@ public class LogInActivity extends AppCompatActivity {
 
     // go to main activity
     private void SendToMainActivity() {
-        Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+        Intent intent = new Intent(LogInActivity.this, BottomNavigationMainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        // EFFECTS: Animation from LogInActivity to MainActivity.
+        // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
         LogInActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
@@ -140,7 +139,7 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LogInActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
-                // EFFECTS: Animation from LogInActivity to MainActivity.
+                // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
                 LogInActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         }));

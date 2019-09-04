@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.carpooldriver.More.MoreFragmentActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class BottomNavigationMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_layout, new CarpoolRequestsFragment()).commit();
+                .replace(R.id.frame_layout, new CarpoolRiderRequestsFragment()).commit();
     }
 
     private void bottomNavigationView() {
@@ -40,19 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.carpool_requests:
-                    fragment = new CarpoolRequestsFragment();
+                    fragment = new CarpoolRiderRequestsFragment();
                     break;
                 case R.id.post_carpool:
                     fragment = new PostCarpoolFragment();
                     break;
                 case R.id.your_carpool:
-                    fragment = new YourCarpoolFragment();
+                    fragment = new ConfirmedCarpoolFragment();
                     break;
                 case R.id.chat:
-                    fragment = new ChatFragment();
+                    fragment = new PendingRequestsFragment();
                     break;
                 case R.id.more:
-                    fragment = new MoreFragmentActivity();
+                    fragment = new SettingsFragment();
                     break;
             }
             getSupportFragmentManager().beginTransaction()

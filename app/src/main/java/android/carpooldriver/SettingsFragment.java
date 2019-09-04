@@ -1,8 +1,10 @@
-package android.carpooldriver.More;
+package android.carpooldriver;
 
-import android.carpooldriver.More.Password.MoreCurrentPasswordActivity;
-import android.carpooldriver.More.Profile.MoreProfileActivity;
-import android.carpooldriver.R;
+import android.carpooldriver.Settings.EmailActivity;
+import android.carpooldriver.Settings.OpenSourceLicenseActivity;
+import android.carpooldriver.Settings.PhoneNumberActivity;
+import android.carpooldriver.Settings.Password.CurrentPasswordActivity;
+import android.carpooldriver.Settings.Profile.ProfileActivity;
 import android.carpooldriver.StartFromLogIn.LogInActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +19,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MoreFragmentActivity extends Fragment {
+public class SettingsFragment extends Fragment {
 
     View mMoreView;
     private RelativeLayout sign_out_button;
@@ -63,7 +65,7 @@ public class MoreFragmentActivity extends Fragment {
         settingsProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MoreProfileActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation to Profile Activity
@@ -79,7 +81,7 @@ public class MoreFragmentActivity extends Fragment {
         settingsEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MoreEmailActivity.class);
+                Intent intent = new Intent(getActivity(), EmailActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation to EmailActivity.
@@ -93,7 +95,7 @@ public class MoreFragmentActivity extends Fragment {
         settingsPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MorePhoneNumberActivity.class);
+                Intent intent = new Intent(getActivity(), PhoneNumberActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation to CurrentPasswordActivity.
@@ -109,7 +111,7 @@ public class MoreFragmentActivity extends Fragment {
         settingsAccountPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MoreCurrentPasswordActivity.class);
+                Intent intent = new Intent(getActivity(), CurrentPasswordActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation to CurrentPasswordActivity.
@@ -131,7 +133,7 @@ public class MoreFragmentActivity extends Fragment {
         settingsOSL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MoreOpenSourceLicenseActivity.class);
+                Intent intent = new Intent(getActivity(), OpenSourceLicenseActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation to OpenSourceLicenseActivity.
