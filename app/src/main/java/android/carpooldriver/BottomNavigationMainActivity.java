@@ -48,7 +48,7 @@ public class BottomNavigationMainActivity extends AppCompatActivity {
                     fragment = new ConfirmedCarpoolFragment();
                     break;
                 case R.id.chat:
-                    fragment = new PendingRequestsFragment();
+                    fragment = new AcceptPendingRequestsFragment();
                     break;
                 case R.id.more:
                     fragment = new SettingsFragment();

@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class PostCarpoolFragment extends Fragment {
@@ -55,7 +56,7 @@ public class PostCarpoolFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         // todo this is getting all the driver tickets from database
-        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets").child(currentUserID);
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
