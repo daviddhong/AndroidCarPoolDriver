@@ -57,6 +57,9 @@ dependencies {
     // EFFECTS: Circular Image View Library.
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+    // EFFECTS: Stripe Dependency.
+    implementation 'com.stripe:stripe-android:10.4.2'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
