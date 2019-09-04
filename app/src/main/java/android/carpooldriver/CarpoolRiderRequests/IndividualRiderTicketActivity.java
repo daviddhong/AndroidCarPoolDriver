@@ -52,7 +52,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 //                    String userLastN = dataSnapshot.child("lastname").getValue().toString();
 //                    FirstName.setText(userFirstN);
 //                    LastName.setText(userLastN);
-                ManageChatFriendRequest();
+                ManageCarpoolRequest();
 //                }
             }
             @Override
@@ -60,7 +60,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
             }
         });
     }
-    private void ManageChatFriendRequest() {
+    private void ManageCarpoolRequest() {
         PickUpRequestRef.child(senderUserID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -84,7 +84,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 //                                DeclineFriendRequestButton.setOnClickListener(new View.OnClickListener() {
 //                                    @Override
 //                                    public void onClick(View v) {
-//                                        CancelFriendRequest();
+//                                        CancelCarpoolRequest();
 //                                    }
 //                                });
 //
@@ -125,13 +125,13 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     confirmButton.setEnabled(false);
                     if (current_state.equals("new_dontknoweachother")) {
-                        SendChatRequest();
+                        SendRequestToPickUpRider();
                     }
                     if (current_state.equals("requestissent")) {
-                        CancelFriendRequest();
+                        CancelCarpoolRequest();
                     }
                     if (current_state.equals("requestisreceived")) {
-                        AcceptFriendRequest();
+                        ConfirmCarpoolRequest();
                     }
                     if (current_state.equals("friendstatus")) {
                         RemoveSpecificContact();
@@ -176,7 +176,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                 });
     }
 
-    private void AcceptFriendRequest() {
+    private void ConfirmCarpoolRequest() {
 
         ConfirmedMatchRef.child(senderUserID).child(receiveUserID)
                 .child("Friends").setValue("Saved")
@@ -225,7 +225,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                 });
     }
 
-    private void CancelFriendRequest() {
+    private void CancelCarpoolRequest() {
         PickUpRequestRef.child(senderUserID).child(receiveUserID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -255,7 +255,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                 });
     }
 
-    private void SendChatRequest() {
+    private void SendRequestToPickUpRider() {
         PickUpRequestRef.child(senderUserID).child(receiveUserID)
                 .child("requeststatus").setValue("sent")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

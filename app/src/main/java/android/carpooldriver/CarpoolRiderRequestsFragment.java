@@ -69,6 +69,9 @@ public class CarpoolRiderRequestsFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
                                             int i, @NonNull RiderRequestTicketClass riderReqTickets) {
+
+
+
 //                String usersIDS = getRef(i).getKey();
 //                UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
 //                    @Override
@@ -76,6 +79,10 @@ public class CarpoolRiderRequestsFragment extends Fragment {
 //                        if (dataSnapshot.exists()) {
 //                            final String riderTo = dataSnapshot.child("To").getValue().toString();
 //                            final String riderFrom = dataSnapshot.child("From").getValue().toString();
+
+
+
+
                 riderticketholder.riderTo.setText(riderReqTickets.getticketto());
                 riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
 
