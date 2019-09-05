@@ -85,6 +85,11 @@ public class CarpoolRiderRequestsFragment extends Fragment {
 
                 riderticketholder.riderTo.setText(riderReqTickets.getticketto());
                 riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
+                riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
+                riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
+                riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
+                riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
+
 
                 riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -118,12 +123,16 @@ public class CarpoolRiderRequestsFragment extends Fragment {
 
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
-        TextView riderTo, riderFrom;
+        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
 
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
             riderFrom = itemView.findViewById(R.id.text_origin);
             riderTo = itemView.findViewById(R.id.text_destination);
+            riderDate = itemView.findViewById(R.id.text_date);
+            riderTime = itemView.findViewById(R.id.text_time);
+            riderNumberOfSeats = itemView.findViewById(R.id.text_passenger_number);
+            riderPrice = itemView.findViewById(R.id.text_earnings_entity);
         }
     }
 
