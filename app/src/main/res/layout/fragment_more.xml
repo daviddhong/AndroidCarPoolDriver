@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,7 +22,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Settings"
-                android:textColor="#302B54"
+                android:textColor="#2B4F81"
                 android:textSize="38sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/open_sans_bold" />
@@ -42,7 +42,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Hi"
-                android:textColor="#2B4F81"
+                android:textColor="#302B54"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/open_sans_bold" />
@@ -55,8 +55,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@id/welcometext"
                 android:hint="F"
-                android:textColor="#2B4F81"
-                android:textColorHint="#2B4F81"
+                android:textColor="#302B54"
+                android:textColorHint="#302B54"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/open_sans_bold" />
@@ -69,8 +69,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/firstnameofuser"
                 android:hint="L"
-                android:textColor="#2B4F81"
-                android:textColorHint="#2B4F81"
+                android:textColor="#302B54"
+                android:textColorHint="#302B54"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/open_sans_bold" />
@@ -389,4 +389,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -33,7 +33,32 @@
             android:layout_width="match_parent"
             android:layout_height="257dp"
             android:layout_below="@+id/carpool_request_header"
-            android:background="#CAE1FF">
+            android:background="#E0EEEE">
+
+            <TextView
+                android:id="@+id/title_carpool_requests"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:textColor="#2B4F81"
+                android:text="Carpool requests"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/open_sans_bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_below="@id/title_carpool_requests"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#2B4F81"
+                android:text="The following are a list of possible carpool routes requested by riders. Learn more about the
+by clicking on the top right corner."
+                android:textSize="17sp"
+                app:fontFamily="@font/open_sans"/>
 
 
         </RelativeLayout>
@@ -43,12 +68,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/carpool_request_header"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="188dp"
             android:background="@drawable/background_rectangle_rounded_border_top">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginLeft="118dp"
+                android:layout_marginRight="118dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_rectangle_fill_light"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rides_requested_recycler_view"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="28dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/layout_requested_ride_ticket_entity">

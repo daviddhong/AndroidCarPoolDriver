@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -15,33 +16,21 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#FFF">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Post Carpool"
-                android:textColor="#0A1C2A"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
             <ImageView
                 android:id="@+id/profile_post_carpool"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
-                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_account"
-                android:tint="#0A1C2A" />
+                android:tint="#2B4F81" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/post_carpool_toolbar"
-            android:layout_marginTop="25dp">
+            android:layout_below="@+id/post_carpool_toolbar">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/myposteddrivertickets"
@@ -56,20 +45,17 @@
         <RelativeLayout
             android:id="@+id/relative_layout_post_new_carpool"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="218dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="35dp"
-            android:background="@drawable/background_rectangle_fill">
+            android:background="#2B4F81">
 
             <RelativeLayout
                 android:id="@+id/post_new_carpool"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="18dp"
                 android:background="@drawable/border_rectangle_unfilled">
 
 
@@ -79,7 +65,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:text="Post new carpool"
-                    android:textColor="#78849E"
+                    android:textColor="#657189"
+                    app:fontFamily="@font/open_sans"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -97,9 +84,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/post_new_carpool"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="18dp"
                 android:layout_marginBottom="15dp">
 
                 <TextView
@@ -108,7 +95,8 @@
                     android:text="Post a carpool route that you will be driving. If matched with a
 rider, you can earn back an amount that do not exceed the cost of gas for the route."
                     android:textColor="#FFF"
-                    android:textSize="15sp" />
+                    android:textSize="17sp"
+                    app:fontFamily="@font/open_sans"/>
 
             </RelativeLayout>
 
