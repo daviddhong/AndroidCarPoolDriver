@@ -29,6 +29,7 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
     TextView earningsText;
     TextView dateText;
     TextView timeText;
+    private String seats, time, date, origin, destination, earnings;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference RootRef, RootKeyRef;
@@ -66,28 +67,28 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
 
     private void initSeats() {
         Bundle bundle = getIntent().getExtras();
-        String seats = bundle.getString("SEATS_STRING");
+        seats = bundle.getString("SEATS_STRING");
         seatsText = (TextView) findViewById(R.id.seats_confirm);
         seatsText.setText(seats);
     }
 
     private void initOriginText() {
         Bundle bundle = getIntent().getExtras();
-        String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+        origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
         carpoolOriginText = (TextView) findViewById(R.id.origin_data);
         carpoolOriginText.setText(origin);
     }
 
     private void initDestinationText() {
         Bundle bundle = getIntent().getExtras();
-        String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+        destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
         carpoolDestinationText = (TextView) findViewById(R.id.destination_data);
         carpoolDestinationText.setText(destination);
     }
 
     private void initEarningsText() {
         Bundle bundle = getIntent().getExtras();
-        String earnings = bundle.getString("EARNINGS_STRING_KEY");
+        earnings = bundle.getString("EARNINGS_STRING_KEY");
         earningsText = (TextView) findViewById(R.id.earnings_text_confirm);
         earningsText.setText(earnings);
     }
@@ -98,7 +99,7 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         String day = bundle.getString("DAY_STRING");
         String year = bundle.getString("YEAR_STRING");
         dateText = (TextView) findViewById(R.id.date_confirm);
-        String date = month + " " + day + ", " + year;
+        date = month + " " + day + ", " + year;
         dateText.setText(date);
     }
 
@@ -108,7 +109,7 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         String minutes = bundle.getString("MINUTES_STRING");
         String period = bundle.getString("PERIOD_STRING");
         timeText = (TextView) findViewById(R.id.time_confirm);
-        String time = hour + " " + ":" + " " + minutes + " " + period;
+        time = hour + " " + ":" + " " + minutes + " " + period;
         timeText.setText(time);
     }
 
@@ -135,17 +136,16 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         String messageKey = RootRef.push().getKey();
         HashMap<String, Object> riderTicketKey = new HashMap<>();
         RootRef.updateChildren(riderTicketKey);
-
         RootKeyRef = RootRef.child(messageKey);
-
         String currentUserID = mAuth.getCurrentUser().getUid();
         HashMap<String, Object> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);
-        profileMap.put("From", "Coquitlam");
-        profileMap.put("To", "UBC");
-        profileMap.put("NumberOfSeats", "2");
-        profileMap.put("Price", "$4");
-        profileMap.put("Date", "Jan/02/20");
+        profileMap.put("From", origin);
+        profileMap.put("To", destination);
+        profileMap.put("NumberOfSeats", seats);
+        profileMap.put("Price", earnings);
+        profileMap.put("Date", date);
+        profileMap.put("Time", time);
         RootKeyRef.updateChildren(profileMap);
     }
 

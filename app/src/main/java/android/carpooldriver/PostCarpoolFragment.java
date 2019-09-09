@@ -74,12 +74,20 @@ public class PostCarpoolFragment extends Fragment {
 //                .getInstance()
 //                .getReference()
 //                .orderByChild("uid")
-//                .equalTo(currentUserID);
-//                .child("RiderTickets")
+////                .equalTo(currentUserID);
+////                .child("RiderTickets")
 //                .child(currentUserID)
 //                .child("-LntmTHgjwt2m5fV020x")
 //                .child("uid")
 //                .equalTo(currentUserID.toString());
+
+        Query receiveQuery = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("DriverTickets")
+//                .child(uniquekey)
+                .orderByChild("To")
+                .equalTo("UBC");
 
         Query receiveriderQuery = FirebaseDatabase
                 .getInstance()
@@ -88,6 +96,7 @@ public class PostCarpoolFragment extends Fragment {
 //                .child(uniquekey)
                 .orderByChild("uid")
                 .equalTo(currentUserID);
+
 
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<DriverRequestTicketClass>()
