@@ -41,6 +41,10 @@
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

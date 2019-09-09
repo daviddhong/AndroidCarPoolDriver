@@ -10,11 +10,11 @@
         <shape
             android:shape="rectangle">
             <stroke
-                android:width="0.5dp"
-                android:color="#05D686"/>
+                android:width="1dp"
+                android:color="#302B54"/>
 
             <solid
-                android:color="#FFF"/>
+                android:color="#F5F5F5"/>
 
             <corners
                 android:radius="2dp"/>

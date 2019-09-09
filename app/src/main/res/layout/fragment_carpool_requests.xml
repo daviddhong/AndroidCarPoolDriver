@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -13,39 +14,41 @@
             android:id="@+id/carpool_request_header"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#FFF">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Carpool Rider Requests"
-                android:textColor="#0A1C2A"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            android:background="#F5F5F5">
 
             <ImageView
                 android:id="@+id/profile_carpool_requests"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
-                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/ic_account"
-                android:tint="#0A1C2A" />
+                android:tint="#2B4F81" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/description_carpool_request"
+            android:layout_width="match_parent"
+            android:layout_height="257dp"
+            android:layout_below="@+id/carpool_request_header"
+            android:background="#CAE1FF">
+
 
         </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/carpool_request_header"
-            android:layout_marginBottom="15dp">
+            android:layout_marginTop="220dp"
+            android:background="@drawable/background_rectangle_rounded_border_top">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rides_requested_recycler_view"
+                android:layout_marginTop="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/layout_requested_ride_ticket_entity">

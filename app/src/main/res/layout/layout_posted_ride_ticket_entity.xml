@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="158dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
@@ -18,8 +19,7 @@
             android:id="@+id/driverrl_date_time_post"
             android:layout_width="108dp"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:background="@drawable/background_rectangle_filled_rounded_one_side">
+            android:layout_centerVertical="true">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -29,17 +29,18 @@
                 <RelativeLayout
                     android:id="@+id/driverdate_entity_post"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
 
                     <TextView
                         android:id="@+id/drivertext_date_post"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Date"
-                        android:textStyle="bold"
-                        android:textColor="#FFF"
-                        android:textColorHint="#FFF"
-                        android:textSize="18sp" />
+                        android:textColor="#2B4F81"
+                        android:textColorHint="#2B4F81"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/open_sans"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -55,9 +56,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Time"
-                        android:textColor="#FFF"
-                        android:textColorHint="#FFF"
-                        android:textSize="15sp" />
+                        android:textColor="#2B4F81"
+                        android:textColorHint="#2B4F81"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/open_sans"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -70,10 +72,10 @@
 
                     <ImageView
                         android:id="@+id/driverpassenger_number_image_post"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/ic_person"
-                        android:tint="#FFF"/>
+                        android:tint="#2B4F81"/>
 
                     <TextView
                         android:id="@+id/drivertext_passenger_number_post"
@@ -83,9 +85,10 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/driverpassenger_number_image_post"
                         android:hint="#"
-                        android:textColor="#FFF"
-                        android:textColorHint="#FFF"
-                        android:textSize="10sp" />
+                        android:textColor="#2B4F81"
+                        android:textColorHint="#2B4F81"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/open_sans"/>
 
                 </RelativeLayout>
 
@@ -145,8 +148,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pickup location"
-                    android:textColor="#05D686"
-                    android:textSize="12sp" />
+                    android:textColor="#2B4F81"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/open_sans_bold"/>
 
                 <TextView
                     android:id="@+id/drivertext_origin_post"
@@ -157,9 +161,9 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
                     android:hint="Pickup Location Name"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    android:textSize="15sp" />
+                    android:textColor="#657189"
+                    android:textColorHint="#657189"
+                    android:textSize="12sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -177,8 +181,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Destination location"
-                    android:textColor="#05D686"
-                    android:textSize="12sp" />
+                    android:textColor="#2B4F81"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/open_sans_bold"/>
 
                 <TextView
                     android:id="@+id/drivertext_destination_post"
@@ -189,9 +194,10 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
                     android:hint="Destination Location Name"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    android:textSize="15sp" />
+                    android:textColor="#657189"
+                    android:textColorHint="#657189"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/open_sans"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -207,24 +213,28 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
 
-                <ImageView
-                    android:id="@+id/driverimage_earnings_entity_post"
+                <TextView
+                    android:id="@+id/driver_text_earnings_entity_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_monetization"
-                    android:tint="#05D686"/>
+                    android:text="Earnings:"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/open_sans_bold"
+                    android:textColor="#2B4F81"/>
+
 
                 <TextView
-                    android:layout_toRightOf="@+id/driverimage_earnings_entity_post"
+                    android:layout_toRightOf="@+id/driver_text_earnings_entity_post"
                     android:id="@+id/drivertext_earnings_entity_post"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Earnings"
-                    android:textSize="15sp"
+                    android:hint="$"
+                    android:textSize="12sp"
                     android:textColor="#78849E"
-                    android:textColorHint="#78849E" />
+                    android:textColorHint="#78849E"
+                    app:fontFamily="@font/open_sans"/>
 
                 <TextView
                     android:id="@+id/driverearningstextview"
@@ -232,10 +242,11 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/drivertext_earnings_entity_post"
                     android:text="(CAD)"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
                     android:layout_centerVertical="true"
-                    android:textColor="#05D686"/>
+                    android:textColor="#2B4F81"
+                    app:fontFamily="@font/open_sans"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -252,7 +263,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_close"
-                android:tint="#0A1C2A"/>
+                android:tint="#2B4F81"/>
 
 
         </RelativeLayout>

@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,8 +13,8 @@
         <RelativeLayout
             android:id="@+id/toolbar_settings"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FFF">
+            android:layout_height="70dp"
+            android:background="#F5F5F5">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -20,59 +22,66 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Settings"
-                android:textColor="#0A1C2A"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="#302B54"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/open_sans_bold" />
 
         </RelativeLayout>
-
-
-
 
         <RelativeLayout
             android:id="@+id/welcomeuser"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_below="@id/toolbar_settings"
-            android:background="@drawable/border_bottom">
+            android:layout_height="70dp"
+            android:layout_below="@id/toolbar_settings">
+
             <TextView
                 android:id="@+id/welcometext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="55dp"
-                android:text="Welcome"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
+                android:layout_marginLeft="15dp"
+                android:text="Hi"
+                android:textColor="#2B4F81"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/open_sans_bold" />
+
             <TextView
                 android:id="@+id/firstnameofuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/welcometext"
-                android:paddingLeft="10dp"
-                android:text="First name"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@id/welcometext"
+                android:hint="F"
+                android:textColor="#2B4F81"
+                android:textColorHint="#2B4F81"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/open_sans_bold" />
+
             <TextView
                 android:id="@+id/lastnameofuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/firstnameofuser"
-                android:paddingLeft="10dp"
-                android:text="lastname"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/firstnameofuser"
+                android:hint="L"
+                android:textColor="#2B4F81"
+                android:textColorHint="#2B4F81"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/open_sans_bold" />
+
         </RelativeLayout>
-
-
 
 
         <RelativeLayout
             android:id="@+id/settings_profile"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/welcomeuser">
 
             <RelativeLayout
@@ -82,31 +91,24 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_profile"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_account"
-                    android:tint="#0A1C2A" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_profile"
                     android:text="Profile"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans" />
 
             </RelativeLayout>
 
@@ -115,7 +117,7 @@
         <RelativeLayout
             android:id="@+id/settings_email"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/settings_profile">
 
             <RelativeLayout
@@ -126,30 +128,22 @@
                 android:background="@drawable/border_bottom">
 
                 <ImageView
-                    android:id="@+id/image_email"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_email_24dp"
-                    android:tint="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_email"
                     android:text="Email"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans" />
 
             </RelativeLayout>
 
@@ -158,7 +152,7 @@
         <RelativeLayout
             android:id="@+id/settings_phone"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/settings_email">
 
             <RelativeLayout
@@ -169,30 +163,22 @@
                 android:background="@drawable/border_bottom">
 
                 <ImageView
-                    android:id="@+id/image_phone"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_phone"
-                    android:tint="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_phone"
                     android:text="Phone number"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans"/>
 
             </RelativeLayout>
         </RelativeLayout>
@@ -200,7 +186,7 @@
         <RelativeLayout
             android:id="@+id/settings_password"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_phone">
 
             <RelativeLayout
@@ -211,30 +197,22 @@
                 android:background="@drawable/border_bottom">
 
                 <ImageView
-                    android:id="@+id/image_password"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_lock_24dp"
-                    android:tint="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_password"
                     android:text="Account password"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -243,7 +221,7 @@
         <RelativeLayout
             android:id="@+id/settings_payment"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_password">
 
             <RelativeLayout
@@ -254,30 +232,22 @@
                 android:background="@drawable/border_bottom">
 
                 <ImageView
-                    android:id="@+id/image_payment"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_credit_card"
-                    android:tint="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_payment"
                     android:text="Payment"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans" />
 
             </RelativeLayout>
 
@@ -287,7 +257,7 @@
         <RelativeLayout
             android:id="@+id/settings_help"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_payment">
 
             <RelativeLayout
@@ -298,30 +268,22 @@
                 android:background="@drawable/border_bottom">
 
                 <ImageView
-                    android:id="@+id/image_help"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_help"
-                    android:tint="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_help"
                     android:text="Help"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans" />
 
             </RelativeLayout>
 
@@ -331,7 +293,7 @@
         <RelativeLayout
             android:id="@+id/settings_open_source"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_help">
 
             <RelativeLayout
@@ -341,31 +303,24 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_license"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_open_source"
-                    android:tint="#0A1C2A" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_license"
                     android:text="Open source license"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans" />
 
             </RelativeLayout>
 
@@ -375,7 +330,7 @@
         <RelativeLayout
             android:id="@+id/settings_terms"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_open_source">
 
             <RelativeLayout
@@ -385,76 +340,24 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_terms"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_terms"
-                    android:tint="#0A1C2A" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#657189" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_terms"
                     android:text="Terms and policies"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
-
-            </RelativeLayout>
-
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/settings_legal"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_below="@+id/settings_terms">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/border_bottom">
-
-                <ImageView
-                    android:id="@+id/image_legal"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_legal"
-                    android:tint="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_next"
-                    android:tint="#0A1C2A" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:layout_toRightOf="@id/image_legal"
-                    android:text="Legal"
-                    android:textColor="#0A1C2A"
-                    android:textSize="17sp" />
+                    android:textColor="#657189"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/open_sans" />
 
             </RelativeLayout>
 
@@ -465,20 +368,22 @@
             android:id="@+id/sign_out_auth_button"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/settings_terms"
+            android:layout_marginBottom="28dp"
             android:layout_marginLeft="58dp"
             android:layout_marginRight="58dp"
-            android:layout_marginBottom="58dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border_clova">
+            android:layout_marginTop="28dp"
+            android:background="@drawable/border_rectangle_unfilled_with_border_settings">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Sign out"
-                android:textColor="#05D686"
+                android:textColor="#302B54"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="@font/open_sans"/>
 
         </RelativeLayout>
 
