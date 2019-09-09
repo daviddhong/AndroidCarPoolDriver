@@ -23,7 +23,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_account"
-                android:tint="#2B4F81" />
+                android:tint="#1778F2" />
 
         </RelativeLayout>
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="218dp"
             android:layout_alignParentBottom="true"
-            android:background="#2B4F81">
+            android:background="#1778F2">
 
             <RelativeLayout
                 android:id="@+id/post_new_carpool"
@@ -66,7 +66,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="Post new carpool"
                     android:textColor="#657189"
-                    app:fontFamily="@font/open_sans"
+                    app:fontFamily="@font/roboto"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -96,7 +96,7 @@
 rider, you can earn back an amount that do not exceed the cost of gas for the route."
                     android:textColor="#FFF"
                     android:textSize="17sp"
-                    app:fontFamily="@font/open_sans"/>
+                    app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 

@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="188dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="18dp"
-    android:layout_marginLeft="18dp"
-    android:layout_marginRight="18dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
     android:orientation="vertical"
     android:padding="2dp">
 
@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/border_rectangle_unfilled_with_border">
+        android:background="@drawable/border_rectangle_ticket">
 
         <RelativeLayout
             android:id="@+id/rl_date_time"
-            android:layout_width="118dp"
+            android:layout_width="128dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true">
 
