@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="188dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="8dp"
-    android:layout_marginLeft="2dp"
-    android:layout_marginRight="2dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
     android:orientation="vertical"
-    android:padding="4dp">
+    android:padding="2dp"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/border_rectangle_ticket">
+        android:layout_gravity="center">
 
         <RelativeLayout
             android:id="@+id/driverrl_date_time_post"
@@ -37,10 +38,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Date"
-                        android:textColor="#2B4F81"
-                        android:textColorHint="#2B4F81"
+                        android:textColor="#555B5B"
+                        android:textColorHint="#555B5B"
                         android:textSize="15sp"
-                        app:fontFamily="@font/open_sans_bold"/>
+                        app:fontFamily="@font/roboto_bold"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -56,10 +57,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Time"
-                        android:textColor="#2B4F81"
-                        android:textColorHint="#2B4F81"
+                        android:textColor="#555B5B"
+                        android:textColorHint="#555B5B"
                         android:textSize="15sp"
-                        app:fontFamily="@font/open_sans"/>
+                        app:fontFamily="@font/roboto"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -75,7 +76,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_person"
-                        android:tint="#2B4F81"/>
+                        android:tint="#262626"/>
 
                     <TextView
                         android:id="@+id/drivertext_passenger_number_post"
@@ -85,10 +86,10 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/driverpassenger_number_image_post"
                         android:hint="#"
-                        android:textColor="#2B4F81"
-                        android:textColorHint="#2B4F81"
+                        android:textColor="#555B5B"
+                        android:textColorHint="#555B5B"
                         android:textSize="12sp"
-                        app:fontFamily="@font/open_sans"/>
+                        app:fontFamily="@font/roboto"/>
 
                 </RelativeLayout>
 
@@ -114,11 +115,12 @@
                     android:layout_width="7dp"
                     android:layout_height="7dp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/background_oval_filled" />
+                    android:src="@drawable/background_oval_filled"
+                    android:tint="#262626"/>
 
                 <RelativeLayout
                     android:id="@+id/driververt_two_ticket_post"
-                    android:layout_width="3dp"
+                    android:layout_width="2dp"
                     android:layout_height="58dp"
                     android:layout_below="@id/driverorigin_ticket_post"
                     android:layout_centerInParent="true"
@@ -133,7 +135,8 @@
                     android:layout_below="@id/driververt_two_ticket_post"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
-                    android:src="@drawable/background_oval_filled" />
+                    android:src="@drawable/background_oval_filled"
+                    android:tint="#262626"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -149,9 +152,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pickup location"
-                    android:textColor="#2B4F81"
-                    android:textSize="10sp"
-                    app:fontFamily="@font/open_sans_bold"/>
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
                     android:id="@+id/drivertext_origin_post"
@@ -162,8 +165,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
                     android:hint="Pickup Location Name"
-                    android:textColor="#657189"
-                    android:textColorHint="#657189"
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
                     android:textSize="12sp" />
             </RelativeLayout>
 
@@ -182,9 +185,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Destination location"
-                    android:textColor="#2B4F81"
-                    android:textSize="10sp"
-                    app:fontFamily="@font/open_sans_bold"/>
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
                     android:id="@+id/drivertext_destination_post"
@@ -195,10 +198,10 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
                     android:hint="Destination Location Name"
-                    android:textColor="#657189"
-                    android:textColorHint="#657189"
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
                     android:textSize="12sp"
-                    app:fontFamily="@font/open_sans"/>
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -221,8 +224,9 @@
                     android:layout_height="wrap_content"
                     android:text="Earnings:"
                     android:textSize="12sp"
-                    app:fontFamily="@font/open_sans_bold"
-                    android:textColor="#2B4F81"/>
+                    android:layout_centerVertical="true"
+                    app:fontFamily="@font/roboto_bold"
+                    android:textColor="#262626"/>
 
 
                 <TextView
@@ -234,9 +238,9 @@
                     android:layout_height="wrap_content"
                     android:hint="$"
                     android:textSize="12sp"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    app:fontFamily="@font/open_sans"/>
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
+                    app:fontFamily="@font/roboto"/>
 
                 <TextView
                     android:id="@+id/driverearningstextview"
@@ -247,8 +251,8 @@
                     android:layout_marginLeft="5dp"
                     android:textSize="12sp"
                     android:layout_centerVertical="true"
-                    android:textColor="#2B4F81"
-                    app:fontFamily="@font/open_sans"/>
+                    android:textColor="#555B5B"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -265,7 +269,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_close"
-                android:tint="#2B4F81"/>
+                android:tint="#262626"/>
 
 
         </RelativeLayout>

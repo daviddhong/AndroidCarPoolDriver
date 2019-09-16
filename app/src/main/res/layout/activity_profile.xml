@@ -49,7 +49,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/camera"
-            android:background="@drawable/background_oval_unfilled"
+            android:background="@drawable/background_oval_unfilled_phone"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
             android:layout_marginTop="30dp">
@@ -59,7 +59,7 @@
                 android:layout_height="20dp"
                 android:id="@+id/profile_camera"
                 android:src="@drawable/ic_camera"
-                android:tint="#05D686"
+                android:tint="#00574B"
                 android:layout_centerInParent="true"/>
 
         </RelativeLayout>
@@ -85,8 +85,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:textColor="#05D686"
-                    android:textSize="12sp" />
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
                     android:id="@+id/name_profile"
@@ -94,9 +95,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/name_stable_profile"
                     android:layout_marginTop="7dp"
-                    android:textColor="#2A2E43"
+                    android:textColor="#555B5B"
                     android:textSize="15sp"
-                    android:hint="Name"/>
+                    android:hint="Name"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -122,8 +124,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phone number"
-                    android:textColor="#05D686"
-                    android:textSize="12sp" />
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
                     android:id="@+id/phone_number_profile"
@@ -131,9 +134,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/stable_phone_number"
                     android:layout_marginTop="7dp"
-                    android:textColor="#2A2E43"
+                    android:textColor="#555B5B"
                     android:textSize="15sp"
-                    android:hint="Phone number"/>
+                    android:hint="Phone number"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -159,8 +163,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Car model and year"
-                    android:textColor="#05D686"
-                    android:textSize="12sp" />
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
                     android:id="@+id/name_car_type"
@@ -168,9 +173,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/stable_car_type"
                     android:layout_marginTop="7dp"
-                    android:textColor="#2A2E43"
+                    android:textColor="#555B5B"
                     android:textSize="15sp"
-                    android:hint="Car model and year"/>
+                    android:hint="Car model and year"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>

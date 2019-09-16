@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -10,17 +11,19 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FFF">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Accept Pending Requests"
-                android:textColor="#0A1C2A"
+                android:text="Pending Requests"
+                android:textColor="#262626"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
 
             <ImageView
                 android:id="@+id/profile_rate_riders"
@@ -30,30 +33,10 @@
                 android:layout_marginRight="25dp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/ic_account"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
 
         </RelativeLayout>
 
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/background_rectangle_fill">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:layout_centerInParent="true"
-                android:text="My Pending Carpool Requests"
-                android:textColor="#FFF"
-                android:textStyle="bold"/>
-
-        </RelativeLayout>
 
     </RelativeLayout>
 

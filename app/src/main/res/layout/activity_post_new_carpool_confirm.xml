@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -15,19 +16,18 @@
 
             <RelativeLayout
                 android:id="@+id/rl_back_confirm"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/background_oval_filled">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:id="@+id/back_confirm"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#FFF" />
+                    android:tint="#262626" />
 
             </RelativeLayout>
 
@@ -56,9 +56,10 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:text="Carpool Posting"
-                    android:textColor="#0A1C2A"
+                    android:textColor="#262626"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"/>
 
             </RelativeLayout>
 
@@ -119,8 +120,10 @@
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="Pickup location"
-                           android:textColor="#05D686"
-                           android:textSize="12sp" />
+                           android:textColor="#262626"
+                           android:textSize="12sp"
+                           android:textStyle="bold"
+                           app:fontFamily="@font/roboto_bold"/>
 
                        <TextView
                            android:id="@+id/origin_data"
@@ -128,9 +131,10 @@
                            android:layout_height="wrap_content"
                            android:layout_below="@id/origin_location_text"
                            android:hint="Pickup Location Name"
-                           android:textColor="#78849E"
-                           android:textColorHint="#78849E"
-                           android:textSize="12sp" />
+                           android:textColor="#555B5B"
+                           android:textColorHint="#555B5B"
+                           android:textSize="12sp"
+                           app:fontFamily="@font/roboto"/>
                    </RelativeLayout>
 
                    <RelativeLayout
@@ -145,8 +149,10 @@
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="Destination location"
-                           android:textColor="#05D686"
-                           android:textSize="12sp" />
+                           android:textColor="#262626"
+                           android:textStyle="bold"
+                           android:textSize="12sp"
+                           app:fontFamily="@font/roboto_bold"/>
 
                        <TextView
                            android:id="@+id/destination_data"
@@ -154,9 +160,10 @@
                            android:layout_height="wrap_content"
                            android:layout_below="@id/destination_location_text"
                            android:hint="Destination Location Name"
-                           android:textColor="#78849E"
-                           android:textColorHint="#78849E"
-                           android:textSize="12sp" />
+                           android:textColor="#555B5B"
+                           android:textColorHint="#555B5B"
+                           android:textSize="12sp"
+                           app:fontFamily="@font/roboto"/>
                    </RelativeLayout>
                </RelativeLayout>
 
@@ -176,7 +183,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_person"
-                    android:tint="#0A1C2A"/>
+                    android:tint="#262626"/>
 
                 <TextView
                     android:id="@+id/seats_confirm"
@@ -186,9 +193,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_seat"
                     android:hint="#"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    android:textSize="12sp" />
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
 
@@ -205,7 +213,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_calendar"
-                    android:tint="#0A1C2A"/>
+                    android:tint="#262626"/>
 
                 <TextView
                     android:id="@+id/date_confirm"
@@ -215,9 +223,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_calendar"
                     android:hint="Date of carpool"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    android:textSize="12sp" />
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -234,7 +243,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_time"
-                    android:tint="#0A1C2A"/>
+                    android:tint="#262626"/>
 
                 <TextView
                     android:id="@+id/time_confirm"
@@ -244,9 +253,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_time"
                     android:hint="Time of carpool"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    android:textSize="12sp" />
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -262,7 +272,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_monetization"
-                    android:tint="#05D686"/>
+                    android:tint="#262626"/>
 
                 <TextView
                     android:id="@+id/earnings_text_confirm"
@@ -272,9 +282,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_monetization"
                     android:hint="$"
-                    android:textColor="#78849E"
-                    android:textColorHint="#78849E"
-                    android:textSize="12sp" />
+                    android:textColor="#555B5B"
+                    android:textColorHint="#555B5B"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,8 +294,9 @@
                     android:layout_toRightOf="@id/earnings_text_confirm"
                     android:layout_marginLeft="10dp"
                     android:text="(CAD)"
-                    android:textColor="#05D686"
-                    android:textSize="12sp" />
+                    android:textColor="#555B5B"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto"/>
 
 
             </RelativeLayout>
@@ -315,7 +327,8 @@
                     android:text="Post Carpool"
                     android:textColor="#FFF"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"/>
 
             </RelativeLayout>
 
@@ -336,7 +349,8 @@
                     android:text="Cancel"
                     android:textColor="#2A2E43"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"/>
 
             </RelativeLayout>
 

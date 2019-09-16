@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -25,7 +26,8 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#0A1C2A" />
+                    android:tint="#262626"
+                    app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -41,8 +43,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"
-                    android:textColor="#05D686"
-                    android:textSize="17sp" />
+                    android:textColor="#00574B"
+                    android:textSize="17sp"
+                    app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -51,7 +54,7 @@
         <RelativeLayout
             android:id="@+id/profile_car"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="58dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="88dp"
             android:layout_marginRight="15dp"
@@ -66,7 +69,7 @@
                 android:background="@android:color/transparent"
                 android:hint="eg. Hyundai KONA 2020"
                 android:inputType="textNoSuggestions"
-                android:textColor="#0A1C2A"
+                android:textColor="#555B5B"
                 android:textSize="15sp" />
 
             <ImageView
@@ -76,7 +79,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_car"
-                android:tint="#05D686" />
+                android:tint="#00574B" />
         </RelativeLayout>
 
     </RelativeLayout>

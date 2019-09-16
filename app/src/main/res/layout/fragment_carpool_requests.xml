@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
             android:id="@+id/carpool_request_header"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#F5F5F5">
+            android:background="#FFF">
 
             <ImageView
                 android:id="@+id/profile_carpool_requests"
@@ -24,41 +25,49 @@
                 android:layout_marginLeft="15dp"
                 android:layout_alignParentLeft="true"
                 android:src="@drawable/ic_account"
-                android:tint="#2B4F81" />
+                android:tint="#262626" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/description_carpool_request"
             android:layout_width="match_parent"
-            android:layout_height="257dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_height="188dp"
             android:layout_below="@+id/carpool_request_header"
-            android:background="#E0EEEE">
+            android:background="@drawable/border_bottom">
 
-            <TextView
-                android:id="@+id/title_carpool_requests"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="25dp"
-                android:textColor="#2B4F81"
-                android:text="Carpool requests"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/open_sans_bold"/>
+                android:layout_centerVertical="true">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:layout_below="@id/title_carpool_requests"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#2B4F81"
-                android:text="The following are a list of possible carpool routes requested by riders. Learn more about the
+                <TextView
+                    android:id="@+id/title_carpool_requests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#262626"
+                    android:text="Carpool requests"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@id/title_carpool_requests"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#555B5B"
+                    android:text="The following are a list of possible carpool routes requested by riders. Learn more about the
 by clicking on the top right corner."
-                android:textSize="17sp"
-                app:fontFamily="@font/open_sans"/>
+                    android:textSize="15sp"
+                    app:fontFamily="@font/roboto"/>
+
+            </RelativeLayout>
 
 
         </RelativeLayout>
@@ -67,21 +76,11 @@ by clicking on the top right corner."
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/carpool_request_header"
-            android:layout_marginTop="188dp"
-            android:background="@drawable/background_rectangle_rounded_border_top">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_marginLeft="118dp"
-                android:layout_marginRight="118dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/background_rectangle_fill_light"/>
+            android:layout_below="@+id/description_carpool_request">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rides_requested_recycler_view"
-                android:layout_marginTop="28dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/layout_requested_ride_ticket_entity">
