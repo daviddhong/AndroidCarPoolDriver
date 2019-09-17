@@ -30,43 +30,8 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/profile_pic_rl"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:layout_width="128dp"
-            android:layout_height="128dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/profile_picture"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FFF"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/camera"
-            android:background="@drawable/background_oval_unfilled_phone"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="30dp">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:id="@+id/profile_camera"
-                android:src="@drawable/ic_camera"
-                android:tint="#00574B"
-                android:layout_centerInParent="true"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/profile_name_rl"
-            android:layout_below="@+id/profile_pic_rl"
+            android:layout_below="@+id/close_button_profile"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="25dp"

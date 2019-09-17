@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"
-                    android:textColor="#00574B"
+                    android:textColor="#2B4F81"
                     android:textSize="17sp"
                     app:fontFamily="@font/roboto"/>
 
@@ -79,7 +79,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_car"
-                android:tint="#00574B" />
+                android:tint="#262626" />
         </RelativeLayout>
 
     </RelativeLayout>
