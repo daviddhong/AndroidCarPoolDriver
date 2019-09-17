@@ -328,28 +328,6 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/message_rider_post"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="39dp"
-                android:layout_marginRight="39dp"
-                android:layout_height="58dp"
-                android:layout_below="@id/request_cancel_carpool_post"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_rectangle_unfilled_with_border">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Message the Rider"
-                    android:textColor="#262626"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/roboto_bold"/>
-
-            </RelativeLayout>
-
         </RelativeLayout>
 
     </RelativeLayout>

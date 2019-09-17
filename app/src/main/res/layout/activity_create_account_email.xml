@@ -52,7 +52,7 @@
                 android:textSize="25sp"
                 android:textColor="#00574B"
                 android:hint="Person's Name"
-                android:textColorHint="#00574B"
+                android:textColorHint="#2B4F81"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -99,7 +99,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00574B"
+                android:textColor="#2B4F81"
                 android:text="Why work or school email?"
                 android:textSize="15sp"
                 app:fontFamily="@font/roboto"/>

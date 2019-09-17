@@ -88,7 +88,7 @@
                         android:layout_centerInParent="true"
                         android:layout_marginLeft="15dp"
                         android:src="@drawable/ic_person"
-                        android:tint="#00574B"/>
+                        android:tint="#2B4F81"/>
 
                 </RelativeLayout>
 
@@ -167,7 +167,7 @@
                         android:layout_centerInParent="true"
                         android:layout_marginLeft="15dp"
                         android:src="@drawable/ic_email_24dp"
-                        android:tint="#00574B"/>
+                        android:tint="#2B4F81"/>
 
                 </RelativeLayout>
 
@@ -257,7 +257,7 @@
                         android:layout_centerInParent="true"
                         android:layout_marginLeft="15dp"
                         android:src="@drawable/ic_phone"
-                        android:tint="#00574B"/>
+                        android:tint="#2B4F81"/>
 
                 </RelativeLayout>
 
@@ -348,7 +348,7 @@
                         android:layout_centerInParent="true"
                         android:layout_marginLeft="15dp"
                         android:src="@drawable/ic_lock_24dp"
-                        android:tint="#00574B"/>
+                        android:tint="#2B4F81"/>
 
                 </RelativeLayout>
 

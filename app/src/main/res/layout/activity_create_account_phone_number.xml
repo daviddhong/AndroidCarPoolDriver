@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#00574B"
+                android:textColor="#2B4F81"
                 android:text="Note that your phone number will be available to the riders."
                 android:textSize="15sp"
                 app:fontFamily="@font/roboto"/>
@@ -106,20 +106,18 @@
 
             <RelativeLayout
                 android:id="@+id/image_phone_number"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/background_oval_unfilled_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 >
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="15dp"
                     android:src="@drawable/ic_phone"
-                    android:tint="#00574B"/>
+                    android:tint="#262626"/>
 
             </RelativeLayout>
 

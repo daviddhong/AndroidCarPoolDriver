@@ -30,7 +30,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_requested_ride_ticket_expand_entity_post);
+        setContentView(R.layout.layout_requested_ride_ticket_expand_entity_pending);
         // initialize fields
         confirm_carpool_button_word = findViewById(R.id.request_cancel_button_word);
         confirmButton = findViewById(R.id.request_cancel_carpool_post);
