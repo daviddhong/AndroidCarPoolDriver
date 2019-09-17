@@ -19,9 +19,9 @@
 
     </item>
 
-    <item android:id="@+id/chat"
-        android:icon="@drawable/ic_chat"
-        android:title="Chat">
+    <item android:id="@+id/reply"
+        android:icon="@drawable/ic_reply"
+        android:title="Reply">
 
     </item>
 

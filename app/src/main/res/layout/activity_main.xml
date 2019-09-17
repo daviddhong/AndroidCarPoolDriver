@@ -12,16 +12,16 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/relative_layout_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/relative_layout_frame_layout"
-            android:layout_above="@+id/relative_layout_bottom_navigation_view">
+            android:layout_above="@+id/relative_layout_bottom_navigation_view"
+            android:layout_marginBottom="0dp">
 
             <FrameLayout
                 android:id="@+id/frame_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </FrameLayout>
+                android:layout_height="match_parent"></FrameLayout>
         </RelativeLayout>
 
         <RelativeLayout
