@@ -19,37 +19,26 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class IndividualRiderTicketActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUID, current_state, receiverUID, requestStatus;
-    private TextView ticketID, confirm_carpool_button_word;
     private RelativeLayout confirmButton;
-    private FirebaseAuth mAuth;
-    private DatabaseReference UserRef, DriverRequestingRiderRef, ConfirmedMatchRef, reff, asd;
+    private DatabaseReference UserRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderTicketsRef, asd;
+    private TextView confirm_carpool_button_word, riderPhoneNumber, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_requested_ride_ticket_expand_entity_pending);
-        // initialize fields
-        confirm_carpool_button_word = findViewById(R.id.request_cancel_button_word);
-        confirmButton = findViewById(R.id.request_cancel_carpool_post);
-        mAuth = FirebaseAuth.getInstance();
-        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
-        ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
-        current_state = "new_dontknoweachother";
+        setContentView(R.layout.layout_requested_ride_ticket_expand_entity);
+        initializeFields();
+        RetrieveTicketStatusInformation();
 
-//        receiverUID = dataSnapshot.child("RiderTicekts").child(receiverKeyID).child("uid").getValue().toString();
-        //should be the receiver's uid
-        receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
-        senderUID = mAuth.getCurrentUser().getUid();
+        extractReceiverUID();
+        fillTicketInformationFromDatabase();
 
-//        reff = FirebaseDatabase.getInstance().getReference().child("RiderTicekts").child(receiverKeyID);
-
-        reff = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-//         asd  = reff.child("RiderTicekts").child(receiverKeyID).child("uid");
-        reff.addValueEventListener(new ValueEventListener() {
+        RiderTicketsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String receiveruID = dataSnapshot
@@ -62,11 +51,95 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
             }
         });
 
-
-        RetrieveUserInformation();
     }
 
-    private void RetrieveUserInformation() {
+    private void extractReceiverUID() {
+
+        RiderTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    receiverUID = dataSnapshot.getValue().toString();
+
+                    // setting name in ticket
+                    UserRef.child(receiverUID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            final String ticketname = dataSnapshot.child("firstname").getValue().toString();
+                            riderName.setText(ticketname);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    private void fillTicketInformationFromDatabase() {
+        RiderTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+
+                riderTo.setText(ticketTo);
+                riderFrom.setText(ticketFrom);
+                riderDate.setText(ticketDate);
+                riderTime.setText(ticketTime);
+                riderPrice.setText(ticketPrice);
+                riderNumberOfSeats.setText(ticketNumberOfSeats);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+
+    private void initializeFields() {
+        // initialize fields
+        confirm_carpool_button_word = findViewById(R.id.request_cancel_button_word);
+        confirmButton = findViewById(R.id.request_cancel_carpool_post);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
+        ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
+        current_state = "new_dontknoweachother";
+//        receiverUID = dataSnapshot.child("RiderTicekts").child(receiverKeyID).child("uid").getValue().toString();
+        //should be the receiver's uid
+        receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
+        senderUID = mAuth.getCurrentUser().getUid();
+        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+
+        riderFrom = findViewById(R.id.origin_data);
+        riderTo = findViewById(R.id.destination_data);
+        riderDate = findViewById(R.id.date_data);
+        riderTime = findViewById(R.id.time_data);
+        riderNumberOfSeats = findViewById(R.id.passenger_seat_data);
+        riderPrice = findViewById(R.id.earnings_text_confirm);
+        riderName = findViewById(R.id.profile_name);
+        riderPhoneNumber = findViewById(R.id.phone_number_data);
+
+
+    }
+
+    private void RetrieveTicketStatusInformation() {
         UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -86,7 +159,6 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild(receiverKeyID)) {
 
-
                             String requestStatus = dataSnapshot.child(receiverKeyID)
                                     .child("requeststatus").getValue().toString();
 
@@ -95,44 +167,11 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
                             }
-                            // might not need this one because different layout will be for received possible
-//                            } else if (requestStatus.equals("received")) {
-//                                current_state = "requestisreceived";
-//                                confirm_carpool_button_word.setText("You have request! Confirm!");
-//                                sendfriendrequest.setText("Accept Friend Request");
-
-//                                DeclineFriendRequestButton.setVisibility(View.VISIBLE);
-//                                DeclineFriendRequestButton.setEnabled(true);
-//                                DeclineFriendRequestButton.setOnClickListener(new View.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(View v) {
-//                                        CancelCarpoolRequest();
-//                                    }
-//                                });
-//
-//                            }
-                        } else {
-                            ConfirmedMatchRef.child(senderUID)
-                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            if (dataSnapshot.hasChild(receiverKeyID)) {
-                                                current_state = "friendstatus";
-                                                confirm_carpool_button_word.setText("Remove Friend from Contacts");
-//                                                sendfriendrequest.setText("Remove Friend from Contacts");
-
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                                        }
-                                    });
                         }
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
 
@@ -149,98 +188,14 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                     if (current_state.equals("requestissent")) {
                         CancelCarpoolRequest();
                     }
-                    if (current_state.equals("requestisreceived")) {
-                        ConfirmCarpoolRequest();
-                    }
-                    if (current_state.equals("friendstatus")) {
-                        RemoveSpecificContact();
-                    }
                 }
             });
         } else {
 //            confirmButton.setVisibility(View.INVISIBLE);
+            // todo shouldnt be called
             confirm_carpool_button_word.setText("My own request... cannot request!");
             confirmButton.setEnabled(false);
         }
-
-
-    }
-
-
-    private void RemoveSpecificContact() {
-        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
-                .removeValue()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
-                                    .removeValue()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                confirmButton.setEnabled(true);
-                                                current_state = "new_dontknoweachother";
-                                                confirm_carpool_button_word.setText("Send a request");
-//                                                sendfriendrequest.setText("Send a Friend Request");
-//
-//                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-//                                                DeclineFriendRequestButton.setEnabled(false);
-                                            }
-                                        }
-                                    });
-                        }
-                    }
-                });
-    }
-
-    private void ConfirmCarpoolRequest() {
-
-        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
-                .child("Friends").setValue("Saved")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
-                                    .child("Friends").setValue("Saved")
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-
-                                                // remove chat requests
-                                                DriverRequestingRiderRef.child(senderUID).child(receiverKeyID)
-                                                        .removeValue()
-                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
-                                                                if (task.isSuccessful()) {
-                                                                    DriverRequestingRiderRef.child(receiverKeyID).child(senderUID)
-                                                                            .removeValue()
-                                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                                                @Override
-                                                                                public void onComplete(@NonNull Task<Void> task) {
-                                                                                    if (task.isSuccessful()) {
-                                                                                        confirmButton.setEnabled(true);
-                                                                                        current_state = "friendstatus";
-                                                                                        confirm_carpool_button_word.setText("Remove Friend from Contacts");
-//                                                                                        sendfriendrequest.setText("Remove Friend from Contacts");
-//                                                                                        DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-//                                                                                        DeclineFriendRequestButton.setEnabled(false);
-                                                                                    }
-                                                                                }
-                                                                            });
-                                                                }
-                                                            }
-                                                        });
-                                            }
-                                        }
-                                    });
-                        }
-                    }
-                });
     }
 
     private void CancelCarpoolRequest() {
@@ -250,6 +205,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+
                             DriverRequestingRiderRef.child(receiverKeyID).child(senderUID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -260,10 +216,6 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 current_state = "new_dontknoweachother";
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
-
-//                                                sendfriendrequest.setText("Send a Friend Request");
-//                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-//                                                DeclineFriendRequestButton.setEnabled(false);
                                             }
                                         }
                                     });
@@ -279,6 +231,13 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+
+                            //putting the receivers uid
+                            HashMap<String, Object> ticketuserMap = new HashMap<>();
+                            ticketuserMap.put("receiverUID", receiverUID);
+                            DriverRequestingRiderRef.child(senderUID)
+                                    .child(receiverKeyID).updateChildren(ticketuserMap);
+
                             //recieved should be the UID
                             DriverRequestingRiderRef.child(receiverKeyID).child(senderUID)
                                     .child("requeststatus").setValue("received")
@@ -286,6 +245,13 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
+
+                                                //putting the sender uid
+                                                HashMap<String, Object> ticketuserMap = new HashMap<>();
+                                                ticketuserMap.put("senderUID", senderUID);
+                                                DriverRequestingRiderRef.child(receiverUID)
+                                                        .child(receiverKeyID).updateChildren(ticketuserMap);
+
                                                 confirmButton.setEnabled(true);
                                                 current_state = "requestissent";
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
@@ -299,4 +265,80 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                     }
                 });
     }
+
+//    private void RemoveSpecificContact() {
+//        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
+//                .removeValue()
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
+//                                    .removeValue()
+//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//                                            if (task.isSuccessful()) {
+//                                                confirmButton.setEnabled(true);
+//                                                current_state = "new_dontknoweachother";
+//                                                confirm_carpool_button_word.setText("Send a request");
+////                                                sendfriendrequest.setText("Send a Friend Request");
+////
+////                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
+////                                                DeclineFriendRequestButton.setEnabled(false);
+//                                            }
+//                                        }
+//                                    });
+//                        }
+//                    }
+//                });
+//    }
+//
+//    private void ConfirmCarpoolRequest() {
+//
+//        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
+//                .child("Friends").setValue("Saved")
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
+//                                    .child("Friends").setValue("Saved")
+//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//                                            if (task.isSuccessful()) {
+//
+//                                                // remove chat requests
+//                                                DriverRequestingRiderRef.child(senderUID).child(receiverKeyID)
+//                                                        .removeValue()
+//                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                                            @Override
+//                                                            public void onComplete(@NonNull Task<Void> task) {
+//                                                                if (task.isSuccessful()) {
+//                                                                    DriverRequestingRiderRef.child(receiverKeyID).child(senderUID)
+//                                                                            .removeValue()
+//                                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                                                                @Override
+//                                                                                public void onComplete(@NonNull Task<Void> task) {
+//                                                                                    if (task.isSuccessful()) {
+//                                                                                        confirmButton.setEnabled(true);
+//                                                                                        current_state = "friendstatus";
+//                                                                                        confirm_carpool_button_word.setText("Remove Friend from Contacts");
+////                                                                                        sendfriendrequest.setText("Remove Friend from Contacts");
+////                                                                                        DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
+////                                                                                        DeclineFriendRequestButton.setEnabled(false);
+//                                                                                    }
+//                                                                                }
+//                                                                            });
+//                                                                }
+//                                                            }
+//                                                        });
+//                                            }
+//                                        }
+//                                    });
+//                        }
+//                    }
+//                });
+//    }
 }

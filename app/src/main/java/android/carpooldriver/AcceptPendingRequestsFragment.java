@@ -1,27 +1,56 @@
 package android.carpooldriver;
 
+import android.carpooldriver.CarpoolRiderRequests.RiderRequestTicketClass;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class AcceptPendingRequestsFragment extends Fragment {
-
-    View mRequestView;
+    private RecyclerView receivedFriendRequest;
+    private DatabaseReference DriverTicketsRef;
+    private String currentUserID, clicked_user_id;
+    private View mRequestView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRequestView = inflater.inflate(R.layout.fragment_my_request, container, false);
+        initializeFields();
         initAcceptedCarpoolRequestActivity();
+        goToMyProfileByProfileImageView();
         return mRequestView;
     }
+
+    private void initializeFields() {
+        //initialize fields
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        currentUserID = mAuth.getCurrentUser().getUid();
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+        //initialize recycler view for received
+        receivedFriendRequest = (RecyclerView) mRequestView.findViewById(R.id.rides_requested_recycler_view);
+        receivedFriendRequest.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
 
     private void initAcceptedCarpoolRequestActivity() {
         TextView clickHere = (TextView) mRequestView.findViewById(R.id.text_pending_request_three);
@@ -33,4 +62,136 @@ public class AcceptPendingRequestsFragment extends Fragment {
             }
         });
     }
+
+    // EFFECTS: Set OnClickActivity for ProfileActivity.
+    private void goToMyProfileByProfileImageView() {
+        ImageView profileImageView = (ImageView) mRequestView.findViewById(R.id.profile_rate_riders);
+        profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // todo name of profile activity
+//                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+//                startActivity(intent);
+                // EFFECTS: Animation to Profile Activity
+//                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+            }
+        });
+    }
+
+    // Display the list of all my sent carpool requests with FireBase recycler
+    @Override
+    public void onStart() {
+        super.onStart();
+        Query mySentRequestQuery = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("RiderRequestingDriver")
+                .child(currentUserID)
+                .orderByChild("requeststatus")
+                .equalTo("sent");
+
+        FirebaseRecyclerOptions options =
+                new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
+                        .setQuery(mySentRequestQuery, RiderRequestTicketClass.class)
+                        .build();
+        final FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder> adapter
+                = new FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull riderTicketHolder holder,
+                                            int i, @NonNull RiderRequestTicketClass riderReqTickets) {
+                //get all friend request list and then get their information from FireBase Users node to tickets
+                final String list_user_id = getRef(i).getKey();
+                DatabaseReference getTypeRef = getRef(i).child("requeststatus").getRef();
+                getTypeRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            String type = dataSnapshot.getValue().toString();
+                            if (type.equals("sent")) {
+                                DriverTicketsRef.child(list_user_id).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                        final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                        final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                        final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                        final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                        final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                                        holder.riderTo.setText(ticketTo);
+                                        holder.riderFrom.setText(ticketFrom);
+                                        holder.riderDate.setText(ticketDate);
+                                        holder.riderTime.setText(ticketTime);
+                                        holder.riderPrice.setText(ticketPrice);
+                                        holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+
+                                        holder.confirmCarPoolButton.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                //todo confirm the carpool
+//                                                clicked_user_id = getRef(i).getKey();
+//                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
+//                                                intent.putExtra("clicked_user_id", clicked_user_id);
+//                                                startActivity(intent);
+                                            }
+                                        });
+
+                                        holder.declineCarPoolButton.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                // todo delete the carpool
+//                                                clicked_user_id = getRef(i).getKey();
+//                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
+//                                                intent.putExtra("clicked_user_id", clicked_user_id);
+//                                                startActivity(intent);
+                                            }
+                                        });
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
+                            }
+                            if (type.equals("received")) {
+                                holder.itemView.setVisibility(View.GONE);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+
+            @NonNull
+            @Override
+            public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_accepted_request_carpool_ticket_entity, parent, false);
+                riderTicketHolder viewHolder = new riderTicketHolder(view);
+                return viewHolder;
+            }
+        };
+        receivedFriendRequest.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+    public static class riderTicketHolder extends RecyclerView.ViewHolder {
+        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, confirmCarPoolButton, declineCarPoolButton;
+
+        public riderTicketHolder(@NonNull View itemView) {
+            super(itemView);
+            riderFrom = itemView.findViewById(R.id.drivertext_origin_post_accepted);
+            riderTo = itemView.findViewById(R.id.drivertext_destination_post_accepted);
+            riderDate = itemView.findViewById(R.id.drivertext_date_post_accepted);
+            riderTime = itemView.findViewById(R.id.drivertext_time_post_accepted);
+            riderNumberOfSeats = itemView.findViewById(R.id.drivertext_passenger_number_post_accepted);
+            riderPrice = itemView.findViewById(R.id.drivertext_earnings_entity_post_accepted);
+            confirmCarPoolButton = itemView.findViewById(R.id.confirm_carpool_accept);
+            declineCarPoolButton = itemView.findViewById(R.id.confirm_carpool_decline);
+
+        }
+    }
+
 }

@@ -46,6 +46,7 @@
             android:layout_below="@id/relative_layout_toolbar">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/confirmed_carpool_fragment_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#FFF"

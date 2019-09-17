@@ -26,37 +26,28 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CarpoolRiderRequestsFragment extends Fragment {
-
     private View mCarpoolRequestsView;
     private RecyclerView FriendRecyclerView;
-    private DatabaseReference RiderTicketsRef, UsersRef, DriverTicketsRef, reff;
-    private FirebaseAuth mAuth;
-    private String currentUserID, clicked_user_id, clicked_user_uid, usersIDS, uniquekey, THEUID;
+    private DatabaseReference RiderTicketsRef, DriverTicketsRef, reff;
+    private String currentUserID, clicked_user_uid, usersIDS, uniquekey, THEUID;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mCarpoolRequestsView = inflater.inflate(R.layout.fragment_carpool_requests, container, false);
-        displaysFriendsListbyRecyclerView();
+        initializeFields();
         initProfile();
         return mCarpoolRequestsView;
     }
 
     //use recycler view and friend list adapter to display list of friends
-    private void displaysFriendsListbyRecyclerView() {
-
-        mAuth = FirebaseAuth.getInstance();
+    private void initializeFields() {
+        // initialize FireBase
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-
-        // todo check to get all rider tickets
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
-//        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-
+        // initialize recylerView
         FriendRecyclerView = (RecyclerView) mCarpoolRequestsView.findViewById(R.id.rides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
@@ -65,7 +56,6 @@ public class CarpoolRiderRequestsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
         FirebaseRecyclerOptions<RiderRequestTicketClass> options
                 = new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
                 .setQuery(RiderTicketsRef, RiderRequestTicketClass.class)
@@ -75,24 +65,10 @@ public class CarpoolRiderRequestsFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
                                             int i, @NonNull RiderRequestTicketClass riderReqTickets) {
-//              String usersIDS = getRef(i).getKey();
                 RiderTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-//                            if (!(clicked_user_id == null)){
-//                                THEUID = dataSnapshot.child(clicked_user_id).child("uid").getValue().toString();
-//                            } else {
-//                            List<String> keys = new ArrayList<>();
-//                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-//                                keys.add(childSnapshot.getKey());
-//                            }
-//                            final String clicked_user_uid = getRef(i).getKey();
-//                                uniquekey = childSnapshot.getKey();
-//                                uniquekey = childSnapshot.child(clicked_user_uid).child("uid").getValue().toString();
-//                                String type = dataSnapshot.child(uniquekey).child("uid").getValue().toString();
-//                                final String riderTo = dataSnapshot.child("uid").getValue().toString();
-//                            final String riderFrom = dataSnapshot.child("From").getValue().toString();
                             riderticketholder.riderTo.setText(riderReqTickets.getticketto());
                             riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
                             riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
@@ -102,35 +78,13 @@ public class CarpoolRiderRequestsFragment extends Fragment {
                             riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    String usersIDS = getRef(i).getKey();
-                                    // todo get the UID
                                     clicked_user_uid = getRef(i).getKey();
-//                                    for (String key: keys) {
-//                                        if (clicked_user_id.equals(key)){
-//                                            THEUID = dataSnapshot.child(clicked_user_id).child("uid").getValue().toString();
-//                                        }
-//                                    }
-//                                        clicked_user_id = getRef(i).getParent().getKey();
-//                                         THEUID = RiderTicketsRef.child(clicked_user_id).child("uid").getValue().toString();
-//                                        clicked_user_uid = ;
-//                                        RiderTicketsRef.addValueEventListener(new ValueEventListener() {
-//                                            @Override
-//                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                                                uniquekey = getRef(i).child("uid").getValue().toString();
-//                                            }
-//                                            @Override
-//                                            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                                            }
-//                                        });
                                     Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
-                                    //send currentUserID or usersIDS
                                     intent.putExtra("clicked_user_id", clicked_user_uid);
                                     startActivity(intent);
                                 }
                             });
                         }
-                        // remove here for getchildren()
-//                        }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -168,6 +122,7 @@ public class CarpoolRiderRequestsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
             }
         });
     }

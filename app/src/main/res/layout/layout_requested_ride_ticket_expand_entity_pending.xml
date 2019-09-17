@@ -49,6 +49,7 @@
                 android:layout_height="50dp">
 
                 <TextView
+                    android:id="@+id/CHANGETHIS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -183,6 +184,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/passenger_data_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -212,6 +214,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/date_data_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -241,6 +244,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/time_data_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
