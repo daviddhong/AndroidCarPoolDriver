@@ -5,6 +5,7 @@ import android.carpooldriver.Settings.OpenSourceLicenseActivity;
 import android.carpooldriver.Settings.PhoneNumberActivity;
 import android.carpooldriver.Settings.Password.CurrentPasswordActivity;
 import android.carpooldriver.Settings.Profile.ProfileActivity;
+import android.carpooldriver.StartFromLogIn.InitialScreenActivity;
 import android.carpooldriver.StartFromLogIn.LogInActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -80,7 +81,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                Intent intent = new Intent(getActivity(), LogInActivity.class);
+                Intent intent = new Intent(getActivity(), InitialScreenActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from SettingsActivity to EditProfileActivity.

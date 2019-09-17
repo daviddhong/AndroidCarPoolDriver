@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartFromLogIn.LogInActivity">
+        <activity android:name=".StartFromLogIn.InitialScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StartFromLogIn.LogInActivity"/>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".BottomNavigationMainActivity"/>
@@ -41,6 +42,10 @@
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
+        <activity android:name=".AcceptedCarpoolRequestActivity"/>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

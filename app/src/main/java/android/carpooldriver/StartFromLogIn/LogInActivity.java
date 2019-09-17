@@ -1,6 +1,5 @@
 package android.carpooldriver.StartFromLogIn;
 
-
 import android.carpooldriver.BottomNavigationMainActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
@@ -38,6 +37,7 @@ public class LogInActivity extends AppCompatActivity {
         goToMakeAccountPage();
         forgotPassword();
         resendVerificationEmail();
+        initCloseLogIn();
     }
 
 
@@ -152,6 +152,17 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(LogInActivity.this,
                         "TODO resend verification email", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    // EFFECTS: Returns to initial screen activity.
+    private void initCloseLogIn() {
+        RelativeLayout closeRelativeLayout = findViewById(R.id.rl_close_login);
+        closeRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

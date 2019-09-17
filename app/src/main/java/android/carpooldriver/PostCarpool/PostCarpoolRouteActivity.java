@@ -1,8 +1,5 @@
 package android.carpooldriver.PostCarpool;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
-
 import android.app.Activity;
 import android.carpooldriver.R;
 import android.content.Context;
@@ -13,6 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.MapboxDirections;
@@ -45,11 +46,8 @@ import retrofit2.Response;
 import timber.log.Timber;
 
 import static com.mapbox.core.constants.Constants.PRECISION_6;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconOffset;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconSize;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineCap;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineColor;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
@@ -104,7 +102,9 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
         mapView.getMapAsync(this);
 
         initBack();
+
         initNextActivity();
+
     }
 
     private void initBack() {
@@ -538,22 +538,27 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
         nextRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PostCarpoolRouteActivity.this,
-                        PostCarpoolSeatsActivity.class);
 
-                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", textViewOrigin.getText());
-                intent.putExtra("ORIGIN_LATITUDE_KEY", originLatitudeData);
-                intent.putExtra("ORIGIN_LONGITUDE_KEY", originLongitudeData);
+                textViewCost = (TextView) findViewById(R.id.text_view_cost);
+                if (textViewCost.getText().toString().length() > 0) {
+                    Intent intent = new Intent(PostCarpoolRouteActivity.this,
+                            PostCarpoolSeatsActivity.class);
 
-                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", textViewDestination.getText());
-                intent.putExtra("DESTINATION_LATITUDE_KEY", destinationLatitudeData);
-                intent.putExtra("DESTINATION_LONGITUDE_KEY", destinationLongitudeData);
+                    intent.putExtra("ORIGIN_LOCATION_STRING_KEY", textViewOrigin.getText());
+                    intent.putExtra("ORIGIN_LATITUDE_KEY", originLatitudeData);
+                    intent.putExtra("ORIGIN_LONGITUDE_KEY", originLongitudeData);
 
-                intent.putExtra("EARNINGS_STRING_KEY", textViewCost.getText());
+                    intent.putExtra("DESTINATION_LOCATION_STRING_KEY", textViewDestination.getText());
+                    intent.putExtra("DESTINATION_LATITUDE_KEY", destinationLatitudeData);
+                    intent.putExtra("DESTINATION_LONGITUDE_KEY", destinationLongitudeData);
 
-                startActivity(intent);
+                    intent.putExtra("EARNINGS_STRING_KEY", textViewCost.getText());
+                    startActivity(intent);
 
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                } else {
+                    Toast.makeText(PostCarpoolRouteActivity.this, "Enter both origin and destination", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

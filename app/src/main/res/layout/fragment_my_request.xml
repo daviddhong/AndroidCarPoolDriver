@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -9,18 +11,21 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/header_pending_request"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FFF">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Accept Pending Requests"
-                android:textColor="#0A1C2A"
+                android:text="Pending Requests"
+                android:textColor="#262626"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
 
             <ImageView
                 android:id="@+id/profile_rate_riders"
@@ -30,30 +35,94 @@
                 android:layout_marginRight="25dp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/ic_account"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/description_carpool_request_pending"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_height="218dp"
+            android:layout_below="@+id/header_pending_request"
+            android:background="@drawable/border_bottom">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/title_carpool_requests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#262626"
+                    android:text="Accepted carpool posts"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"/>
+
+                <TextView
+                    android:id="@+id/text_pending_request_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@id/title_carpool_requests"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#555B5B"
+                    android:text="The following are a list of your carpool postings that have been accepted by a rider. Accept or decline the rider's request in accepting your carpool post."
+                    android:textSize="15sp"
+                    app:fontFamily="@font/roboto"/>
+
+                <TextView
+                    android:id="@+id/text_pending_request_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@id/text_pending_request_one"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#2B4F81"
+                    android:text="For the list of carpool requests that you have accepted."
+                    android:textSize="15sp"
+                    app:fontFamily="@font/roboto"/>
+
+                <TextView
+                    android:id="@+id/text_pending_request_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@id/text_pending_request_two"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#2B4F81"
+                    android:text="Click here."
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/roboto_bold"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/background_rectangle_fill">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description_carpool_request_pending">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:layout_centerInParent="true"
-                android:text="My Pending Carpool Requests"
-                android:textColor="#FFF"
-                android:textStyle="bold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rides_requested_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/layout_accepted_request_carpool_ticket_entity">
 
+            </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
+
 
     </RelativeLayout>
 

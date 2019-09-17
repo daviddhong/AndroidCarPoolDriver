@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -22,7 +23,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
 
         </RelativeLayout>
 
@@ -39,8 +40,9 @@
                 android:layout_height="wrap_content"
                 android:text="What is your "
                 android:textSize="25sp"
-                android:textColor="#0A1C2A"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,8 +51,9 @@
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
                 android:text="phone number?"
-                android:textColor="#0A1C2A"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
@@ -66,10 +69,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#05D686"
+                android:textColor="#555B5B"
                 android:text="The rider will communicate with you through phone."
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
@@ -84,29 +88,38 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#78849E"
+                android:textColor="#2B4F81"
                 android:text="Note that your phone number will be available to the riders."
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="58dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
             android:background="@drawable/border_rectangle_unfilled_with_border">
 
-            <ImageView
+            <RelativeLayout
                 android:id="@+id/image_phone_number"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:src="@drawable/ic_phone"
-                android:tint="#05D686"/>
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_phone"
+                    android:tint="#262626"/>
+
+            </RelativeLayout>
 
             <EditText
                 android:id="@+id/editText_password_sign_up"
@@ -117,8 +130,9 @@
                 android:background="@android:color/transparent"
                 android:hint="Enter phone number"
                 android:inputType="phone"
-                android:textColor="#454F63"
-                android:textSize="15sp" />
+                android:textColor="#555B5B"
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto"/>
 
 
         </RelativeLayout>
@@ -130,8 +144,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="188dp"
-            android:layout_marginRight="58dp"
-            android:layout_marginLeft="58dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/background_rectangle_fill">
 
             <TextView
@@ -141,7 +155,8 @@
                 android:layout_centerInParent="true"
                 android:text="Continue"
                 android:textColor="#FFF"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
 
 
         </RelativeLayout>
