@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,8 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AcceptPendingRequestsFragment extends Fragment {
     private RecyclerView receivedFriendRequest;
-    private DatabaseReference DriverTicketsRef;
-    private String currentUserID, clicked_user_id;
+    private DatabaseReference DriverTicketsRef, DriverRequestingRiderRef, ConfirmedMatchRef;
+    private String senderUIDme, receiverUID;
     private View mRequestView;
 
     @Nullable
@@ -44,8 +47,10 @@ public class AcceptPendingRequestsFragment extends Fragment {
     private void initializeFields() {
         //initialize fields
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        currentUserID = mAuth.getCurrentUser().getUid();
+        senderUIDme = mAuth.getCurrentUser().getUid();
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
+        ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         //initialize recycler view for received
         receivedFriendRequest = (RecyclerView) mRequestView.findViewById(R.id.rides_requested_recycler_view);
         receivedFriendRequest.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -86,7 +91,7 @@ public class AcceptPendingRequestsFragment extends Fragment {
                 .getInstance()
                 .getReference()
                 .child("RiderRequestingDriver")
-                .child(currentUserID)
+                .child(senderUIDme)
                 .orderByChild("requeststatus")
                 .equalTo("sent");
 
@@ -100,7 +105,7 @@ public class AcceptPendingRequestsFragment extends Fragment {
             protected void onBindViewHolder(@NonNull riderTicketHolder holder,
                                             int i, @NonNull RiderRequestTicketClass riderReqTickets) {
                 //get all friend request list and then get their information from FireBase Users node to tickets
-                final String list_user_id = getRef(i).getKey();
+                final String receiverKeyID = getRef(i).getKey();
                 DatabaseReference getTypeRef = getRef(i).child("requeststatus").getRef();
                 getTypeRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -108,7 +113,7 @@ public class AcceptPendingRequestsFragment extends Fragment {
                         if (dataSnapshot.exists()) {
                             String type = dataSnapshot.getValue().toString();
                             if (type.equals("sent")) {
-                                DriverTicketsRef.child(list_user_id).addValueEventListener(new ValueEventListener() {
+                                DriverTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         final String ticketTo = dataSnapshot.child("To").getValue().toString();
@@ -124,11 +129,20 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                         holder.riderPrice.setText(ticketPrice);
                                         holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
 
+
+//                                      todo  get reciverUID
+                                        receiverUID="UID";
+
+
+
+
                                         holder.confirmCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
                                                 //todo confirm the carpool
-//                                                clicked_user_id = getRef(i).getKey();
+                                                createCarpoolConfirmMatchNodeInFireBase(receiverKeyID);
+                                                //todo ask are you sure before finalizing finish
+                                                deletingDatabase(receiverKeyID);//                                                clicked_user_id = getRef(i).getKey();
 //                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
 //                                                intent.putExtra("clicked_user_id", clicked_user_id);
 //                                                startActivity(intent);
@@ -139,6 +153,7 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                             @Override
                                             public void onClick(View view) {
                                                 // todo delete the carpool
+                                                deletingDatabase(receiverKeyID);
 //                                                clicked_user_id = getRef(i).getKey();
 //                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
 //                                                intent.putExtra("clicked_user_id", clicked_user_id);
@@ -192,6 +207,45 @@ public class AcceptPendingRequestsFragment extends Fragment {
             declineCarPoolButton = itemView.findViewById(R.id.confirm_carpool_decline);
 
         }
+    }
+
+
+
+    private void createCarpoolConfirmMatchNodeInFireBase(String receiverKeyID) {
+        ConfirmedMatchRef.child(senderUIDme).child(receiverKeyID)
+                .child("with").setValue(receiverUID)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            ConfirmedMatchRef.child(receiverUID).child(receiverKeyID)
+                                    .child("with").setValue(senderUIDme);
+                        }
+                    }
+                });
+    }
+
+    private void deletingDatabase(String receiverKeyID) {
+        DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            DriverRequestingRiderRef.child(senderUIDme).child(receiverKeyID)
+                                    .removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
+
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
     }
 
 }

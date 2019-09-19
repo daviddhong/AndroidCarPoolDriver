@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ConfirmedCarpoolFragment extends Fragment {
 
+    private String senderUIDme;
     private View mYourCarpoolView;
     private RecyclerView DriverRecyclerView;
     private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef;
@@ -44,9 +48,9 @@ public class ConfirmedCarpoolFragment extends Fragment {
 
     private void initializeFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        String currentUserID = mAuth.getCurrentUser().getUid();
+        senderUIDme = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        ConfirmedTicketsRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch").child(currentUserID);
+        ConfirmedTicketsRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch").child(senderUIDme);
         DriverRecyclerView = (RecyclerView) mYourCarpoolView.findViewById(R.id.confirmed_carpool_fragment_recycler_view);
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
@@ -67,8 +71,8 @@ public class ConfirmedCarpoolFragment extends Fragment {
             protected void onBindViewHolder(@NonNull driverTicketHolder driverticketholder,
                                             int i, @NonNull DriverRequestTicketClass driverReqTickets) {
 
-                String usersIDS = getRef(i).getKey();
-                RiderTicketsRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
+                String riderKeyID = getRef(i).getKey();
+                RiderTicketsRef.child(riderKeyID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
@@ -90,7 +94,7 @@ public class ConfirmedCarpoolFragment extends Fragment {
                                 public void onClick(View v) {
 
                                     //todo cancel when button pressed
-
+                                    RemoveSpecificContact(riderKeyID);
 //                                    final String usersIDS = getRef(i).getKey();
 //                                    Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
 //                                    intent.putExtra("clicked_user_id", usersIDS);
@@ -132,7 +136,30 @@ public class ConfirmedCarpoolFragment extends Fragment {
         }
     }
 
+    // todo fix this so database removes the matchedRides realtime.
+    private void RemoveSpecificContact(String receiverKeyID) {
+        ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
 
+                            ConfirmedTicketsRef.child(receiverKeyID).child(senderUIDme)
+                                    .removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                // toast deleted
+                                                Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+    }
 
 
     private void initProfile() {

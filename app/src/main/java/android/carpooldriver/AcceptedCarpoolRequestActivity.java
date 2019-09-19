@@ -1,13 +1,14 @@
 package android.carpooldriver;
 
 import android.carpooldriver.CarpoolRiderRequests.DriverRequestTicketClass;
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,8 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
-    private DatabaseReference RiderTicketsRef;
-    private String currentUserID;
+    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef;
+    private String senderUIDme;
     private RecyclerView FriendRecyclerView;
 
     @Override
@@ -41,10 +44,12 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
     private void initiateFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        currentUserID = mAuth.getCurrentUser().getUid();
+        senderUIDme = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         FriendRecyclerView = (RecyclerView) findViewById(R.id.rrides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
+
     }
 
     private void initBack() {
@@ -65,7 +70,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                 .getInstance()
                 .getReference()
                 .child("DriverRequestingRider")
-                .child(currentUserID)
+                .child(senderUIDme)
                 .orderByChild("requeststatus")
                 .equalTo("received");
 
@@ -81,7 +86,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                             int i, @NonNull DriverRequestTicketClass riderReqTickets) {
 
                 //get all friend request list and then get their information from Users node
-                final String list_user_id = getRef(i).getKey();
+                final String receiverKeyID = getRef(i).getKey();
                 DatabaseReference getTypeRef = getRef(i).child("requeststatus").getRef();
                 getTypeRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -91,7 +96,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                             String type = dataSnapshot.getValue().toString();
 
                             if (type.equals("received")) {
-                                RiderTicketsRef.child(list_user_id).addValueEventListener(new ValueEventListener() {
+                                RiderTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -113,6 +118,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                             @Override
                                             public void onClick(View view) {
                                                 //todo delete firebase
+                                                CancelCarpoolRequest(receiverKeyID);
 //                                                clicked_user_id = getRef(i).getKey();
 //                                                Intent intent = new Intent(AcceptRequestActivity.this, IndividualAcceptDeclineRequestActivity.class);
 //                                                intent.putExtra("clicked_user_id", clicked_user_id);
@@ -164,6 +170,31 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
             riderPrice = itemView.findViewById(R.id.drivertext_earnings_entity_post_accepted_rider);
             cancelButtonForRiderRequest = itemView.findViewById(R.id.confirm_carpool_accept_rider);
         }
+    }
+
+    private void CancelCarpoolRequest(String receiverKeyID) {
+        DriverRequestingRiderRef.child(senderUIDme).child(receiverKeyID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+
+                            DriverRequestingRiderRef.child(receiverKeyID).child(senderUIDme)
+                                    .removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(AcceptedCarpoolRequestActivity.this, "TicketButtonPressed", Toast.LENGTH_LONG).show();
+//                                                confirm_carpool_button_word.setText("Request to Pickup Rider");
+//                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
     }
 
 
