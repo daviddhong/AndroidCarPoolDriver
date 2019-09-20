@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ConfirmedCarpoolFragment extends Fragment {
 
-    private String senderUIDme;
+    private String senderUIDme, receiverUID;
     private View mYourCarpoolView;
     private RecyclerView DriverRecyclerView;
     private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef;
@@ -138,6 +138,21 @@ public class ConfirmedCarpoolFragment extends Fragment {
 
     // todo fix this so database removes the matchedRides realtime.
     private void RemoveSpecificContact(String receiverKeyID) {
+
+
+        RiderTicketsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String receiveruID = dataSnapshot
+                        .child(receiverKeyID).child("uid").getValue().toString();
+                receiverUID = receiveruID;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
         ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -145,7 +160,7 @@ public class ConfirmedCarpoolFragment extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
 
-                            ConfirmedTicketsRef.child(receiverKeyID).child(senderUIDme)
+                            ConfirmedTicketsRef.child(receiverUID).child(receiverKeyID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

@@ -115,7 +115,7 @@
             android:layout_below="@+id/description_carpool_request_pending">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rides_requested_recycler_view"
+                android:id="@+id/arides_requested_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/layout_accepted_request_carpool_ticket_entity">

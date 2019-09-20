@@ -15,6 +15,7 @@
             android:layout_height="70dp">
 
             <RelativeLayout
+                android:id="@+id/backButtonOniTicket"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
@@ -376,7 +377,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Accept carpool request"
+                    android:text="Request carpool request"
                     android:textColor="#FFF"
                     android:textSize="17sp"
                     android:textStyle="bold"

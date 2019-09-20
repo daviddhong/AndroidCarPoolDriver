@@ -126,7 +126,8 @@ public class PostCarpoolFragment extends Fragment {
 
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
-        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, xDeletingButton;
+        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
+        RelativeLayout xDeletingButton;
 
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
@@ -140,6 +141,7 @@ public class PostCarpoolFragment extends Fragment {
         }
 
     }
+
     // EFFECTS: Initialize the post new carpool activity.
     private void initPostNewCarpool() {
         RelativeLayout mPostCarpoolRelativeLayout = (RelativeLayout) mPostCarpoolView.findViewById(R.id.post_new_carpool);

@@ -1,6 +1,7 @@
 package android.carpooldriver;
 
 import android.carpooldriver.CarpoolRiderRequests.DriverRequestTicketClass;
+import android.carpooldriver.CarpoolRiderRequests.RiderRequestTicketClass;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
-    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef;
+    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef,UserRef,DriverTicketsRef;
     private String senderUIDme;
     private RecyclerView FriendRecyclerView;
 
@@ -46,6 +47,10 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         senderUIDme = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+
         FriendRecyclerView = (RecyclerView) findViewById(R.id.rrides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
@@ -72,18 +77,23 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                 .child("DriverRequestingRider")
                 .child(senderUIDme)
                 .orderByChild("requeststatus")
-                .equalTo("received");
+                .equalTo("sent");
+
+//        Query rreceiveriderQuery = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child("RiderTickets");
 
         FirebaseRecyclerOptions options =
-                new FirebaseRecyclerOptions.Builder<DriverRequestTicketClass>()
-                        .setQuery(rreceiveriderQuery, DriverRequestTicketClass.class)
+                new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
+                        .setQuery(rreceiveriderQuery, RiderRequestTicketClass.class)
                         .build();
 
-        final FirebaseRecyclerAdapter<DriverRequestTicketClass, riderTicketHolder> adapter
-                = new FirebaseRecyclerAdapter<DriverRequestTicketClass, riderTicketHolder>(options) {
+        final FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder> adapter
+                = new FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder holder,
-                                            int i, @NonNull DriverRequestTicketClass riderReqTickets) {
+                                            int i, @NonNull RiderRequestTicketClass riderReqTickets) {
 
                 //get all friend request list and then get their information from Users node
                 final String receiverKeyID = getRef(i).getKey();
@@ -95,7 +105,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                         if (dataSnapshot.exists()) {
                             String type = dataSnapshot.getValue().toString();
 
-                            if (type.equals("received")) {
+                            if (type.equals("sent")) {
                                 RiderTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -118,7 +128,12 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                             @Override
                                             public void onClick(View view) {
                                                 //todo delete firebase
-                                                CancelCarpoolRequest(receiverKeyID);
+
+                                                final String receiverUID = dataSnapshot.child("uid").getValue().toString();
+
+
+
+                                                CancelCarpoolRequest(receiverUID, receiverKeyID);
 //                                                clicked_user_id = getRef(i).getKey();
 //                                                Intent intent = new Intent(AcceptRequestActivity.this, IndividualAcceptDeclineRequestActivity.class);
 //                                                intent.putExtra("clicked_user_id", clicked_user_id);
@@ -133,7 +148,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                 });
                             }
 
-                            if (type.equals("sent")) {
+                            if (type.equals("received")) {
                                 holder.itemView.setVisibility(View.GONE);
                             }
                         }
@@ -158,7 +173,8 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
     }
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
-        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, cancelButtonForRiderRequest;
+        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
+        RelativeLayout cancelButtonForRiderRequest;
 
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
@@ -172,7 +188,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
         }
     }
 
-    private void CancelCarpoolRequest(String receiverKeyID) {
+    private void CancelCarpoolRequest(String receiverUID, String receiverKeyID) {
         DriverRequestingRiderRef.child(senderUIDme).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -180,7 +196,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
 
-                            DriverRequestingRiderRef.child(receiverKeyID).child(senderUIDme)
+                            DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
