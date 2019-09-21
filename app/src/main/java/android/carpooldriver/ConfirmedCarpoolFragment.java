@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class ConfirmedCarpoolFragment extends Fragment {
     private String senderUIDme, receiverUID;
     private View mYourCarpoolView;
     private RecyclerView DriverRecyclerView;
-    private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef;
+    private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef, DriverTicketsRef;
 
     @Nullable
     @Override
@@ -46,11 +47,13 @@ public class ConfirmedCarpoolFragment extends Fragment {
         return mYourCarpoolView;
     }
 
+
     private void initializeFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         senderUIDme = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        ConfirmedTicketsRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch").child(senderUIDme);
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+        ConfirmedTicketsRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         DriverRecyclerView = (RecyclerView) mYourCarpoolView.findViewById(R.id.confirmed_carpool_fragment_recycler_view);
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
@@ -63,7 +66,7 @@ public class ConfirmedCarpoolFragment extends Fragment {
 
         FirebaseRecyclerOptions<DriverRequestTicketClass> options
                 = new FirebaseRecyclerOptions.Builder<DriverRequestTicketClass>()
-                .setQuery(ConfirmedTicketsRef, DriverRequestTicketClass.class)
+                .setQuery(ConfirmedTicketsRef.child(senderUIDme), DriverRequestTicketClass.class)
                 .build();
         FirebaseRecyclerAdapter<DriverRequestTicketClass, driverTicketHolder> adapter
                 = new FirebaseRecyclerAdapter<DriverRequestTicketClass, driverTicketHolder>(options) {
@@ -72,6 +75,7 @@ public class ConfirmedCarpoolFragment extends Fragment {
                                             int i, @NonNull DriverRequestTicketClass driverReqTickets) {
 
                 String riderKeyID = getRef(i).getKey();
+
                 RiderTicketsRef.child(riderKeyID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -101,6 +105,61 @@ public class ConfirmedCarpoolFragment extends Fragment {
 //                                    startActivity(intent);
                                 }
                             });
+                        } else {
+                            DriverTicketsRef.child(riderKeyID).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()) {
+                                        final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                        final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                        final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                        final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                        final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                        final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                                        driverticketholder.riderTo.setText(ticketTo);
+                                        driverticketholder.riderFrom.setText(ticketFrom);
+                                        driverticketholder.riderDate.setText(ticketDate);
+                                        driverticketholder.riderTime.setText(ticketTime);
+                                        driverticketholder.riderPrice.setText(ticketPrice);
+                                        driverticketholder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+
+                                        driverticketholder.cancelCarPoolButton.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+
+
+                                                ConfirmedTicketsRef.child(senderUIDme).child(riderKeyID).child("with").addValueEventListener(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        if (dataSnapshot.exists()) {
+                                                            receiverUID = dataSnapshot.getValue().toString();
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                    }
+                                                });
+
+
+                                                //todo cancel when button pressed
+                                                RemoveSpecificContact(riderKeyID);
+//                                    final String usersIDS = getRef(i).getKey();
+//                                    Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
+//                                    intent.putExtra("clicked_user_id", usersIDS);
+//                                    startActivity(intent);
+                                            }
+                                        });
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
                         }
                     }
 
@@ -122,7 +181,8 @@ public class ConfirmedCarpoolFragment extends Fragment {
     }
 
     public static class driverTicketHolder extends RecyclerView.ViewHolder {
-        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, cancelCarPoolButton;
+        TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
+        RelativeLayout cancelCarPoolButton;
 
         private driverTicketHolder(@NonNull View itemView) {
             super(itemView);
@@ -140,18 +200,54 @@ public class ConfirmedCarpoolFragment extends Fragment {
     private void RemoveSpecificContact(String receiverKeyID) {
 
 
-        RiderTicketsRef.addValueEventListener(new ValueEventListener() {
+//        RiderTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    String receiveruID = dataSnapshot.
+//                            getValue().toString();
+//                    receiverUID = receiveruID;
+//                } else {
+//                    DriverTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                            if (dataSnapshot.exists()) {
+//                                String receiveruID = dataSnapshot.
+//                                        getValue().toString();
+//                                receiverUID = receiveruID;
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                        }
+//                    });
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
+
+
+        ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String receiveruID = dataSnapshot
-                        .child(receiverKeyID).child("uid").getValue().toString();
-                receiverUID = receiveruID;
+                if (dataSnapshot.exists()) {
+                    receiverUID = dataSnapshot.child("with").getValue().toString();
+
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
+
         });
+
 
         ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID)
                 .removeValue()

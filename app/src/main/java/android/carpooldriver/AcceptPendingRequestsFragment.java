@@ -32,7 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AcceptPendingRequestsFragment extends Fragment {
     private RecyclerView receivedFriendRequest;
     private DatabaseReference DriverTicketsRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderRequestingDriverRef;
-    private String senderUIDme;
+    private String senderUIDme, receiverUID;
     private View mRequestView;
 
     @Nullable
@@ -137,17 +137,29 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                         holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
 
 
+                                        RiderRequestingDriverRef.child(senderUIDme).child(receiverKeyID).child("senderUID").addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                if (dataSnapshot.exists()) {
+                                                    receiverUID = dataSnapshot.getValue().toString();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
 
 
                                         holder.confirmCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-                                                final String receiverUID = dataSnapshot.child("uid").getValue().toString();
                                                 //todo confirm the carpool
                                                 createCarpoolConfirmMatchNodeInFireBase(receiverUID, receiverKeyID);
                                                 //todo ask are you sure before finalizing finish
 //                                                deletingDatabase(receiverKeyID);
-                                                CancelCarpoolRequest(receiverUID,receiverKeyID);
+                                                CancelCarpoolRequest(receiverUID, receiverKeyID);
 
                                                 //                                                clicked_user_id = getRef(i).getKey();
 //                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
@@ -159,7 +171,6 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                         holder.declineCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-                                                final String receiverUID = dataSnapshot.child("uid").getValue().toString();
 
                                                 // todo delete the carpool
 //                                                deletingDatabase(receiverKeyID);

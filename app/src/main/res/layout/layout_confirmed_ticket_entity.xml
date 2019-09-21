@@ -249,7 +249,6 @@
                         app:fontFamily="@font/roboto"/>
 
                     <TextView
-                        android:id="@+id/driverearningstextview_accepted_confirm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/drivertext_earnings_entity_post_accepted_confirm"
