@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -96,9 +98,15 @@ public class PostCarpoolFragment extends Fragment {
                             riderticketholder.xDeletingButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    //todo should delete firebase when xDeletingButton pressed.
-                                    // does nothing when clicked yet (probably want to delete it)
-//                                    Toast.makeText(, "test", Toast.LENGTH_LONG).show();
+
+                                    DriverTicketsRef.child(usersIDS).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(getContext(), "Deleted My Ticket", Toast.LENGTH_LONG).show();
+
+                                        }
+                                    });
+
                                 }
                             });
                         }
