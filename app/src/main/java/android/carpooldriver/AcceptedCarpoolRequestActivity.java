@@ -109,37 +109,38 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                 RiderTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.exists()) {
 
-                                        final String ticketTo = dataSnapshot.child("To").getValue().toString();
-                                        final String ticketFrom = dataSnapshot.child("From").getValue().toString();
-                                        final String ticketDate = dataSnapshot.child("Date").getValue().toString();
-                                        final String ticketTime = dataSnapshot.child("Time").getValue().toString();
-                                        final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
-                                        final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                                            final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                            final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                            final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                            final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                            final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                            final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
 
-                                        holder.riderTo.setText(ticketTo);
-                                        holder.riderFrom.setText(ticketFrom);
-                                        holder.riderDate.setText(ticketDate);
-                                        holder.riderTime.setText(ticketTime);
-                                        holder.riderPrice.setText(ticketPrice);
-                                        holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+                                            holder.riderTo.setText(ticketTo);
+                                            holder.riderFrom.setText(ticketFrom);
+                                            holder.riderDate.setText(ticketDate);
+                                            holder.riderTime.setText(ticketTime);
+                                            holder.riderPrice.setText(ticketPrice);
+                                            holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
 
-                                        holder.cancelButtonForRiderRequest.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                //todo delete firebase
+                                            holder.cancelButtonForRiderRequest.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View view) {
+                                                    //todo delete firebase
 
-                                                final String receiverUID = dataSnapshot.child("uid").getValue().toString();
+                                                    final String receiverUID = dataSnapshot.child("uid").getValue().toString();
 
 
-
-                                                CancelCarpoolRequest(receiverUID, receiverKeyID);
+                                                    CancelCarpoolRequest(receiverUID, receiverKeyID);
 //                                                clicked_user_id = getRef(i).getKey();
 //                                                Intent intent = new Intent(AcceptRequestActivity.this, IndividualAcceptDeclineRequestActivity.class);
 //                                                intent.putExtra("clicked_user_id", clicked_user_id);
 //                                                startActivity(intent);
-                                            }
-                                        });
+                                                }
+                                            });
+                                        }
                                     }
 
                                     @Override

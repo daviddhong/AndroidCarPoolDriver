@@ -51,9 +51,11 @@ public class SettingsFragment extends Fragment {
         RootRef.child("Users").child(currentUID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
 
-                firstName.setText(dataSnapshot.child("firstname").getValue().toString());
-                lastName.setText(dataSnapshot.child("lastname").getValue().toString());
+                    firstName.setText(dataSnapshot.child("firstname").getValue().toString());
+                    lastName.setText(dataSnapshot.child("lastname").getValue().toString());
+                }
             }
 
             @Override

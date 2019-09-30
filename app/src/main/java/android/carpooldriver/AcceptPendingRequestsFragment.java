@@ -123,6 +123,8 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                 DriverTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.exists()){
+
                                         final String ticketTo = dataSnapshot.child("To").getValue().toString();
                                         final String ticketFrom = dataSnapshot.child("From").getValue().toString();
                                         final String ticketDate = dataSnapshot.child("Date").getValue().toString();
@@ -183,6 +185,7 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                         });
 
                                     }
+                                }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
