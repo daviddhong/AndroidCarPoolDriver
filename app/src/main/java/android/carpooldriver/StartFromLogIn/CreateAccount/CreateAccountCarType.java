@@ -4,17 +4,21 @@ import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateAccountCarType extends AppCompatActivity {
+    private EditText carmakemodel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account_car_type);
+        carmakemodel = findViewById(R.id.editText_car_name);
+
         initContinue();
         initBack();
     }
