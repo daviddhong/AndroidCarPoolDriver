@@ -2,6 +2,7 @@ package android.carpooldriver.StartFromLogIn;
 
 import android.carpooldriver.BottomNavigationMainActivity;
 import android.carpooldriver.R;
+import android.carpooldriver.StartFromLogIn.CreateAccount.CreateAccountName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class InitialScreenActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,7 @@ public class InitialScreenActivity extends AppCompatActivity {
         signUpRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InitialScreenActivity.this, MakeAccountActivity.class);
+                Intent intent = new Intent(InitialScreenActivity.this, CreateAccountName.class);
                 startActivity(intent);
             }
         });
