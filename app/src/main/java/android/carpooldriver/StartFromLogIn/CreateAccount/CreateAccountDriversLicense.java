@@ -27,7 +27,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
     private String fname, lname, uemail, upw, ucar;
     private RelativeLayout create_account_button;
     private FirebaseAuth mAuth;
-    //    private FirebaseUser currentUser;
+    private FirebaseUser currentUser;
     private DatabaseReference RootRef;
 
 
@@ -39,7 +39,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
-//        currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         Bundle gotname = getIntent().getExtras();
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
@@ -85,7 +85,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
     private void SendVerificationEmail() {
 
         try {
-            final FirebaseUser currentUser = mAuth.getCurrentUser();
+//            final FirebaseUser currentUser = mAuth.getCurrentUser();
             currentUser.sendEmailVerification()
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -105,7 +105,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
                         }
                     });
 
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             Toast.makeText(CreateAccountDriversLicense.this,
                     "NOT sent!!" + e.toString(), Toast.LENGTH_LONG).show();
 
@@ -122,7 +122,6 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
         profileMap.put("carModelMake", userCar);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
     }
-
 
 
     private void initBack() {

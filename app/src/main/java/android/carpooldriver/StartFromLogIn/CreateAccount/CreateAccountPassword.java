@@ -76,7 +76,7 @@ public class CreateAccountPassword extends AppCompatActivity {
     }
 
     private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_settings_password);
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_settings_password_account);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

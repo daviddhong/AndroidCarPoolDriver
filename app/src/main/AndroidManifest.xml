@@ -19,6 +19,12 @@
         <activity android:name=".StartFromLogIn.LogInActivity"/>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountDriversLicense"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountCarType"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
         <activity android:name=".BottomNavigationMainActivity"/>
         <activity android:name=".CarpoolRiderRequests.IndividualRiderTicketActivity"/>
         <activity android:name=".Settings.OpenSourceLicenseActivity"/>
@@ -35,12 +41,6 @@
         <activity android:name=".Settings.Profile.ProfileEditPhoneNumberActivity"/>
         <activity android:name=".Settings.Profile.ProfileEditCarModelActivity"/>
         <activity android:name=".Settings.Profile.ProfileEditNameActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountDriversLicense"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountCarType"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
         <activity android:name=".AcceptedCarpoolRequestActivity"/>
         <meta-data
             android:name="preloaded_fonts"
