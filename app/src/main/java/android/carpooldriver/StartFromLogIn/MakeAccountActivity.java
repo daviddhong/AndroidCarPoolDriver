@@ -97,7 +97,6 @@ public class MakeAccountActivity extends AppCompatActivity {
                                 // if account is not made
                                 Toast.makeText(MakeAccountActivity.this,
                                         task.getException().toString(), Toast.LENGTH_LONG).show();
-                                Log.i(TAG, "ACCOUNT NOT MADE");
                             }
                         }
                     });
@@ -116,31 +115,21 @@ public class MakeAccountActivity extends AppCompatActivity {
         profileMap.put("lastname", lastN);
         profileMap.put("email", email);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
-        Log.i(TAG, "SHOULD STORE TO REALTIME DATABASE");
     }
 
 
     // send to phone number activity
     private void SendVerificationEmail() {
-
         currentUser.sendEmailVerification()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.i(TAG, "SHOULD HAVE SENT EMAIL VERI");
                             Intent intent = new Intent(MakeAccountActivity.this, LogInActivity.class);
-//                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
-                            // EFFECTS: Animation from MakeAccountActivity to PhoneNumberActivity.
-//                            MakeAccountActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
                             Toast.makeText(MakeAccountActivity.this,
                                     "Verification email sent!!", Toast.LENGTH_LONG).show();
-
                         } else {
-                            Log.i(TAG, "EMAIL VERI NOT SENT");
-
                             Toast.makeText(MakeAccountActivity.this,
                                     "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                         }

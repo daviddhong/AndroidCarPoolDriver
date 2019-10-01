@@ -2,6 +2,7 @@ package android.carpooldriver.StartFromLogIn;
 
 import android.carpooldriver.BottomNavigationMainActivity;
 import android.carpooldriver.R;
+import android.carpooldriver.StartFromLogIn.CreateAccount.CreateAccountName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -107,7 +108,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void SendToMakeAccountActivity() {
-        Intent intent = new Intent(LogInActivity.this, MakeAccountActivity.class);
+        Intent intent = new Intent(LogInActivity.this, CreateAccountName.class);
         startActivity(intent);
         // EFFECTS: Animation from LogInActivity to MakeAccountActivity.
 //        LogInActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -44,12 +44,38 @@
                 app:fontFamily="@font/roboto_bold"/>
 
             <TextView
+                android:id="@+id/yourdirverlicence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_row_one"
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
                 android:text="your driver's license."
+                android:textColor="#262626"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
+
+
+            <TextView
+                android:id="@+id/confirming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/yourdirverlicence"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="This is just for us confirming"
+                android:textColor="#262626"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_bold"/>
+
+            <TextView
+                android:id="@+id/ident"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/confirming"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="your identification."
                 android:textColor="#262626"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>

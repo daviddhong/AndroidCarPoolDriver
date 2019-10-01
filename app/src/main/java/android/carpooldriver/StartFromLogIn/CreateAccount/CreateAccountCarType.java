@@ -6,18 +6,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateAccountCarType extends AppCompatActivity {
-    private EditText carmakemodel;
+    private EditText car_make_model;
+    private String fname, lname, uemail, upw;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account_car_type);
-        carmakemodel = findViewById(R.id.editText_car_name);
+        car_make_model = findViewById(R.id.editText_car_name);
+
+
+        Bundle gotname = getIntent().getExtras();
+        fname = gotname.getString("first_name");
+        lname = gotname.getString("last_name");
+        uemail = gotname.getString("user_email");
+        upw = gotname.getString("user_pw");
+
 
         initContinue();
         initBack();
@@ -28,8 +38,22 @@ public class CreateAccountCarType extends AppCompatActivity {
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateAccountCarType.this, CreateAccountDriversLicense.class);
-                startActivity(intent);
+                String carmakemodel = car_make_model.getText().toString();
+                if (!(carmakemodel.isEmpty())) {
+                    Intent intent = new Intent(CreateAccountCarType.this, CreateAccountDriversLicense.class);
+
+                    Bundle dataBundle = new Bundle();
+                    dataBundle.putString("first_name", fname);
+                    dataBundle.putString("last_name", lname);
+                    dataBundle.putString("user_email", uemail);
+                    dataBundle.putString("user_pw", upw);
+                    dataBundle.putString("user_car", carmakemodel);
+
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(CreateAccountCarType.this, "Please Fill in the model and year of your car", Toast.LENGTH_LONG).show();
+
+                }
             }
         });
     }
