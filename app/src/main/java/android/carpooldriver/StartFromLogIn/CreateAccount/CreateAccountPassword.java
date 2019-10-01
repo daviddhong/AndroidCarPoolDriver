@@ -41,6 +41,15 @@ public class CreateAccountPassword extends AppCompatActivity {
                 String upw = userpw.getText().toString();
                 String cpw = confirmpw.getText().toString();
 
+                //   todo:
+                //    if (not pwd =~ /[0-9]/) return false;
+                //    if (not pwd =~ /[a-z]/) return false;
+                //    if (not pwd =~ /[A-Z]/) return false;
+                //    if (not pwd =~ /[%@$^]/) return false;
+                //    if (pwd =~ /\s/) return false;
+                //    if (pw.contains(" ")) return false;
+                //    https://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
+
                 if (upw.isEmpty()) {
                     Toast.makeText(CreateAccountPassword.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
                 } else if (cpw.isEmpty()) {

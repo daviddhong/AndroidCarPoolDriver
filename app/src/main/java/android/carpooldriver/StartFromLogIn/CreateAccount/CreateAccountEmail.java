@@ -25,8 +25,8 @@ import java.util.List;
 public class CreateAccountEmail extends AppCompatActivity {
 
     private TextView personname;
-    EditText uemail;
-    private String fname, lname, fullname, email;
+    private EditText uemail;
+    private String fname, lname, fullname;
     private FirebaseAuth firebaseAuth;
 
 
@@ -38,8 +38,7 @@ public class CreateAccountEmail extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         uemail = findViewById(R.id.editText_email_login_create);
 
-
-        //getting the datbundel from other activity incoming
+        //getting the data bundle from other activity incoming
         Bundle gotname = getIntent().getExtras();
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
@@ -82,7 +81,7 @@ public class CreateAccountEmail extends AppCompatActivity {
 
                                         } else if (signInMethods.contains(EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD)) {
                                             // User can sign in with email/link
-                                            Toast.makeText(CreateAccountEmail.this, "Email link in use ", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(CreateAccountEmail.this, "Email link in use", Toast.LENGTH_SHORT).show();
 
                                         }
                                     } else {

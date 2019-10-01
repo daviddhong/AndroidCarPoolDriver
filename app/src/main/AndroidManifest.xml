@@ -21,7 +21,6 @@
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".BottomNavigationMainActivity"/>
         <activity android:name=".CarpoolRiderRequests.IndividualRiderTicketActivity"/>
-        <activity android:name=".StartFromLogIn.InitActivity"/>
         <activity android:name=".Settings.OpenSourceLicenseActivity"/>
         <activity android:name=".Settings.EmailActivity"/>
         <activity android:name=".Settings.Profile.ProfileActivity"/>
