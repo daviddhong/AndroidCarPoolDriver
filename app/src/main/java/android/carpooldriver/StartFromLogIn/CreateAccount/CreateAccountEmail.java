@@ -25,6 +25,7 @@ import java.util.List;
 public class CreateAccountEmail extends AppCompatActivity {
 
     private TextView personname;
+    EditText uemail;
     private String fname, lname, fullname, email;
     private FirebaseAuth firebaseAuth;
 
@@ -35,10 +36,7 @@ public class CreateAccountEmail extends AppCompatActivity {
         setContentView(R.layout.activity_create_account_email);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
-
-        EditText uemail = findViewById(R.id.editText_email_login_create);
-        email = uemail.getText().toString();
+        uemail = findViewById(R.id.editText_email_login_create);
 
 
         //getting the datbundel from other activity incoming
@@ -59,6 +57,7 @@ public class CreateAccountEmail extends AppCompatActivity {
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = uemail.getText().toString();
                 if (!(email.isEmpty())) {
                     firebaseAuth.fetchSignInMethodsForEmail(email)
                             .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
