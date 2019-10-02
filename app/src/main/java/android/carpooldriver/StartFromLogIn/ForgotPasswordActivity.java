@@ -31,9 +31,19 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         sendResetPasswordEmailButton = findViewById(R.id.button_reset_password);
         Email = findViewById(R.id.text_view_layout_email_reset);
 
+        backbutton();
         forgotpassword();
     }
 
+    private void backbutton() {
+        RelativeLayout back = findViewById(R.id.relative_layout_ic_back_activity_rest_password);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
     private void forgotpassword() {
 
