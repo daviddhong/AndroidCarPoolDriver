@@ -78,10 +78,6 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                 .orderByChild("requeststatus")
                 .equalTo("sent");
 
-//        Query rreceiveriderQuery = FirebaseDatabase
-//                .getInstance()
-//                .getReference()
-//                .child("RiderTickets");
 
         FirebaseRecyclerOptions options =
                 new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
@@ -133,10 +129,6 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
 
                                                     CancelCarpoolRequest(receiverUID, receiverKeyID);
-//                                                clicked_user_id = getRef(i).getKey();
-//                                                Intent intent = new Intent(AcceptRequestActivity.this, IndividualAcceptDeclineRequestActivity.class);
-//                                                intent.putExtra("clicked_user_id", clicked_user_id);
-//                                                startActivity(intent);
                                                 }
                                             });
                                         }
@@ -203,8 +195,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(AcceptedCarpoolRequestActivity.this, "TicketButtonPressed", Toast.LENGTH_LONG).show();
-//                                                confirm_carpool_button_word.setText("Request to Pickup Rider");
-//                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+
                                             }
                                         }
                                     });

@@ -1,6 +1,6 @@
 package android.carpooldriver.StartFromLogIn;
 
-import android.carpooldriver.AppFragment.ZBottomNavigationMainActivity;
+import android.carpooldriver.AppFragment.BottomNavigationMainActivity;
 import android.carpooldriver.R;
 import android.carpooldriver.StartFromLogIn.CreateAccount.CreateAccountName;
 import android.content.Intent;
@@ -64,10 +64,10 @@ public class InitialScreenActivity extends AppCompatActivity {
     }
 
     private void SendToMainActivity() {
-        Intent intent = new Intent(InitialScreenActivity.this, ZBottomNavigationMainActivity.class);
+        Intent intent = new Intent(InitialScreenActivity.this, BottomNavigationMainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        // EFFECTS: Animation from LogInActivity to ZBottomNavigationMainActivity.
+        // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
         InitialScreenActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         //why is there finnish
         finish();

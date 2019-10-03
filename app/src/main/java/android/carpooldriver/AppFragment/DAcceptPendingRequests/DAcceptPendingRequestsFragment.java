@@ -98,10 +98,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                 .child(senderUIDme)
                 .orderByChild("requeststatus")
                 .equalTo("received");
-//        Query mySentRequestQuery = FirebaseDatabase
-//                .getInstance()
-//                .getReference()
-//                .child("RiderTickets");
+
 
 
         FirebaseRecyclerOptions options =
@@ -165,10 +162,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
 //                                                deletingDatabase(receiverKeyID);
                                                 CancelCarpoolRequest(receiverUID, receiverKeyID);
 
-                                                //                                                clicked_user_id = getRef(i).getKey();
-//                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
-//                                                intent.putExtra("clicked_user_id", clicked_user_id);
-//                                                startActivity(intent);
                                             }
                                         });
 
@@ -177,12 +170,8 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                                             public void onClick(View view) {
 
                                                 // todo delete the carpool
-//                                                deletingDatabase(receiverKeyID);
                                                 CancelCarpoolRequest(receiverUID, receiverKeyID);
-//                                                clicked_user_id = getRef(i).getKey();
-//                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
-//                                                intent.putExtra("clicked_user_id", clicked_user_id);
-//                                                startActivity(intent);
+
                                             }
                                         });
 
@@ -236,7 +225,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
         }
     }
 
-
     private void createCarpoolConfirmMatchNodeInFireBase(String receiverUID, String receiverKeyID) {
         ConfirmedMatchRef.child(senderUIDme).child(receiverKeyID)
                 .child("with").setValue(receiverUID)
@@ -250,29 +238,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                     }
                 });
     }
-//
-//    private void deletingDatabase(String receiverKeyID) {
-//        DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
-//                .removeValue()
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            DriverRequestingRiderRef.child(senderUIDme).child(receiverKeyID)
-//                                    .removeValue()
-//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task<Void> task) {
-//                                            if (task.isSuccessful()) {
-//                                                Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
-//
-//                                            }
-//                                        }
-//                                    });
-//                        }
-//                    }
-//                });
-//    }
 
 
     private void CancelCarpoolRequest(String receiverUID, String receiverKeyID) {
@@ -290,8 +255,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(getContext(), "TicketButtonPressed", Toast.LENGTH_LONG).show();
-//                                                confirm_carpool_button_word.setText("Request to Pickup Rider");
-//                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+
                                             }
                                         }
                                     });

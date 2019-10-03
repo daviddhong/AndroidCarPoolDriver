@@ -31,8 +31,6 @@ public class CurrentPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.app_esettings_content_password_activity_current_password);
 
         initBack();
-//        initContinue();
-
 
         initFields();
         resetpassword();
@@ -61,7 +59,7 @@ public class CurrentPasswordActivity extends AppCompatActivity {
 //                                    Intent intent = new Intent(CurrentPasswordActivity.this, LogInActivity.class);
 //                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 //                                    startActivity(intent);
-                                    // EFFECTS: Animation from LogInActivity to ZBottomNavigationMainActivity.
+                                    // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
 //                                    CurrentPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                     Toast.makeText(CurrentPasswordActivity.this,
                                             "sent email to reset PW", Toast.LENGTH_LONG).show();

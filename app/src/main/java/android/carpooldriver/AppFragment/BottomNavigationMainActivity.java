@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ZBottomNavigationMainActivity extends AppCompatActivity {
+public class BottomNavigationMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

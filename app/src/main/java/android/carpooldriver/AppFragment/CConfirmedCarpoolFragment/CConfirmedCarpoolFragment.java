@@ -100,10 +100,6 @@ public class CConfirmedCarpoolFragment extends Fragment {
 
                                     //todo cancel when button pressed
                                     RemoveSpecificContact(riderKeyID);
-//                                    final String usersIDS = getRef(i).getKey();
-//                                    Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
-//                                    intent.putExtra("clicked_user_id", usersIDS);
-//                                    startActivity(intent);
                                 }
                             });
                         } else {
@@ -146,10 +142,6 @@ public class CConfirmedCarpoolFragment extends Fragment {
 
                                                 //todo cancel when button pressed
                                                 RemoveSpecificContact(riderKeyID);
-//                                    final String usersIDS = getRef(i).getKey();
-//                                    Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
-//                                    intent.putExtra("clicked_user_id", usersIDS);
-//                                    startActivity(intent);
                                             }
                                         });
                                     }
@@ -200,37 +192,6 @@ public class CConfirmedCarpoolFragment extends Fragment {
     // todo fix this so database removes the matchedRides realtime.
     private void RemoveSpecificContact(String receiverKeyID) {
 
-
-//        RiderTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    String receiveruID = dataSnapshot.
-//                            getValue().toString();
-//                    receiverUID = receiveruID;
-//                } else {
-//                    DriverTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                            if (dataSnapshot.exists()) {
-//                                String receiveruID = dataSnapshot.
-//                                        getValue().toString();
-//                                receiverUID = receiveruID;
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                        }
-//                    });
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
 
 
         ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID).addValueEventListener(new ValueEventListener() {

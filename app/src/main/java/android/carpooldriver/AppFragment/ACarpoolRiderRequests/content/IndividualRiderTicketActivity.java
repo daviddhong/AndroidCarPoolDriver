@@ -156,6 +156,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 
     }
 
+    //todo check the USERREF.recieverkeyID
     private void RetrieveTicketStatusInformation() {
         UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
