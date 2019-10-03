@@ -37,7 +37,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/myposteddrivertickets"
-                tools:listitem="@layout/layout_posted_ride_ticket_entity"
+                tools:listitem="@layout/app_bpostcarpool_layout_posted_ride_ticket_entity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

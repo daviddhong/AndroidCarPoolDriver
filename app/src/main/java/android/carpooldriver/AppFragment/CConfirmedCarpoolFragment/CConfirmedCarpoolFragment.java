@@ -173,7 +173,7 @@ public class CConfirmedCarpoolFragment extends Fragment {
             @NonNull
             @Override
             public driverTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_confirmed_ticket_entity, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_cconfirmedcarpool_layout_confirmed_ticket_entity, parent, false);
                 return new driverTicketHolder(view);
             }
         };

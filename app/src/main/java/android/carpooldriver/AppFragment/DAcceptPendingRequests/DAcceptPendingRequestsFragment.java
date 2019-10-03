@@ -209,7 +209,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_accepted_request_carpool_ticket_entity, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_dacceptpendingrequests_layout_accepted_request_carpool_ticket_entity, parent, false);
                 riderTicketHolder viewHolder = new riderTicketHolder(view);
                 return viewHolder;
             }

@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#FFF"
-                tools:listitem="@layout/layout_confirmed_ticket_entity">
+                tools:listitem="@layout/app_cconfirmedcarpool_layout_confirmed_ticket_entity">
 
             </androidx.recyclerview.widget.RecyclerView>
 

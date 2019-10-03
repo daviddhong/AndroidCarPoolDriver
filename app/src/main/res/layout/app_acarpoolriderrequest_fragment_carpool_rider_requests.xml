@@ -82,7 +82,7 @@ by clicking on the top right corner."
                 android:id="@+id/rides_requested_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/layout_requested_ride_ticket_entity">
+                tools:listitem="@layout/app_acarpoolriderrequest_layout_requested_ride_ticket_entity">
 
             </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>

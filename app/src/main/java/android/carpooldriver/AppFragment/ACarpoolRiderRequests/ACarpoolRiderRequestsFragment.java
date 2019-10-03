@@ -95,7 +95,7 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_requested_ride_ticket_entity, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_acarpoolriderrequest_layout_requested_ride_ticket_entity, parent, false);
                 riderTicketHolder viewHolder = new riderTicketHolder(view);
                 return viewHolder;
             }
