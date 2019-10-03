@@ -103,7 +103,7 @@ public class BPostCarpoolFragment extends Fragment {
                                     DriverTicketsRef.child(usersIDS).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(getContext(), "Deleted My Ticket", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getContext(), "Deleted my posted ticket", Toast.LENGTH_LONG).show();
 
                                         }
                                     });

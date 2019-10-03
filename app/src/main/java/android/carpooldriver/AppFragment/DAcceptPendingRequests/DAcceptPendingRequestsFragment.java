@@ -234,6 +234,9 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                         if (task.isSuccessful()) {
                             ConfirmedMatchRef.child(receiverUID).child(receiverKeyID)
                                     .child("with").setValue(senderUIDme);
+
+                            Toast.makeText(getContext(), "Accepted ticket offer", Toast.LENGTH_LONG).show();
+
                         }
                     }
                 });
@@ -254,7 +257,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(getContext(), "TicketButtonPressed", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getContext(), "Declined ticket offer", Toast.LENGTH_LONG).show();
 
                                             }
                                         }

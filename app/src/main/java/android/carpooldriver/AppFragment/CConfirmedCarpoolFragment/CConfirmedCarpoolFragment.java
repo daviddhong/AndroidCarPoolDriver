@@ -225,7 +225,7 @@ public class CConfirmedCarpoolFragment extends Fragment {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 // toast deleted
-                                                Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getContext(), "Canceled confirmed ticket", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });

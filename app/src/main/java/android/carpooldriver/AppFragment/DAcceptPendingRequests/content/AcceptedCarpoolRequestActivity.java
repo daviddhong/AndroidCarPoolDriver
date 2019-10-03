@@ -194,7 +194,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(AcceptedCarpoolRequestActivity.this, "TicketButtonPressed", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(AcceptedCarpoolRequestActivity.this, "Canceled ticket request", Toast.LENGTH_LONG).show();
 
                                             }
                                         }

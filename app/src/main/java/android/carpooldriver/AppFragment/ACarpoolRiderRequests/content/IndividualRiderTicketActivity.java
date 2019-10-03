@@ -1,11 +1,13 @@
 package android.carpooldriver.AppFragment.ACarpoolRiderRequests.content;
 
+import android.carpooldriver.AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity;
 import android.carpooldriver.R;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -234,6 +236,8 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 current_state = "new_dontknoweachother";
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+                                                Toast.makeText(IndividualRiderTicketActivity.this, "Canceled request to driver", Toast.LENGTH_LONG).show();
+
                                             }
                                         }
                                     });
@@ -274,7 +278,8 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 current_state = "requestissent";
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
-//                                                sendfriendrequest.setText("Cancel Friend Request");
+                                                Toast.makeText(IndividualRiderTicketActivity.this, "Sent request to driver", Toast.LENGTH_LONG).show();
+
 
                                             }
                                         }
