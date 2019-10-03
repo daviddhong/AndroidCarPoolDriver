@@ -30,8 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 public class ACarpoolRiderRequestsFragment extends Fragment {
     private View mCarpoolRequestsView;
     private RecyclerView FriendRecyclerView;
-    private DatabaseReference RiderTicketsRef, DriverTicketsRef, reff;
-    private String currentUserID, clicked_user_uid, usersIDS, uniquekey, THEUID;
+    private DatabaseReference RiderTicketsRef;
+    private String currentUserID, clicked_user_uid;
 
     @Nullable
     @Override

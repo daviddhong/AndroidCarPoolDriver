@@ -36,7 +36,7 @@ public class BPostCarpoolFragment extends Fragment {
 
     private View mPostCarpoolView;
     private RecyclerView FriendRecyclerView;
-    private DatabaseReference DriverTicketsRef, UsersRef;
+    private DatabaseReference DriverTicketsRef;
     private String currentUserID;
     private String usersIDS;
 
