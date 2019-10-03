@@ -16,32 +16,41 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartFromLogIn.LogInActivity"/>
-        <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
-        <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountDriversLicense"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountCarType"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
-        <activity android:name=".AppFragment.ZBottomNavigationMainActivity"/>
-        <activity android:name=".AppFragment.ACarpoolRiderRequests.IndividualRiderTicketActivity"/>
-        <activity android:name=".AppFragment.ESettings.OpenSourceLicenseActivity"/>
-        <activity android:name=".AppFragment.ESettings.EmailActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileActivity"/>
+
+        <activity android:name=".AppFragment.ACarpoolRiderRequests.content.IndividualRiderTicketActivity"/>
+        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolConfirmActivity"/>
+        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolDateActivity"/>
+        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolRouteActivity"/>
+        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolSeatsActivity"/>
+        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolTimeActivity"/>
+        <activity android:name=".AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Password.CurrentPasswordActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Password.NewPasswordActivity"/>
-        <activity android:name=".AppFragment.ESettings.PhoneNumberActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.PostCarpoolRouteActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.PostCarpoolConfirmActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.PostCarpoolDateActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.PostCarpoolTimeActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.PostCarpoolSeatsActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditPhoneNumberActivity"/>
+        <activity android:name=".AppFragment.ESettings.content.payment.PaymentActivity"/>
+        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditCarModelActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditNameActivity"/>
-        <activity android:name=".AppFragment.DAcceptpendingRequests.DDDAcceptedCarpoolRequestActivity"/>
+        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditPhoneNumberActivity"/>
+        <activity android:name=".AppFragment.ESettings.content.EmailActivity"/>
+        <activity android:name=".AppFragment.ESettings.content.OpenSourceLicenseActivity"/>
+        <activity android:name=".AppFragment.ESettings.content.PhoneNumberActivity"/>
+        <activity android:name=".AppFragment.ZBottomNavigationMainActivity"/>
+
+        <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountCarType"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountDriversLicense"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
+        <activity android:name=".StartFromLogIn.LogInActivity"/>
+        <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
+
+
+
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

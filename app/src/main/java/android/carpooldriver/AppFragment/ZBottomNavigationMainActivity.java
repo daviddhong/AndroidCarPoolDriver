@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.ACarpoolRiderRequestsFragment;
 import android.carpooldriver.AppFragment.BPostCarpool.BPostCarpoolFragment;
 import android.carpooldriver.AppFragment.CConfirmedCarpoolFragment.CConfirmedCarpoolFragment;
-import android.carpooldriver.AppFragment.DAcceptpendingRequests.DAcceptPendingRequestsFragment;
+import android.carpooldriver.AppFragment.DAcceptPendingRequests.DAcceptPendingRequestsFragment;
 import android.carpooldriver.AppFragment.ESettings.ESettingsFragment;
 import android.carpooldriver.R;
 import android.os.Bundle;

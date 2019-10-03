@@ -1,6 +1,6 @@
-package android.carpooldriver.AppFragment.DAcceptpendingRequests;
+package android.carpooldriver.AppFragment.DAcceptPendingRequests;
 
-import android.carpooldriver.AppFragment.DAcceptpendingRequests.content.AcceptedCarpoolRequestActivity;
+import android.carpooldriver.AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity;
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.RiderRequestTicketClass;
 import android.carpooldriver.R;
 import android.content.Intent;
