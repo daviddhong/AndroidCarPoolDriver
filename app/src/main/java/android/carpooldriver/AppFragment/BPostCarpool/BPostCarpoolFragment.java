@@ -45,7 +45,7 @@ public class BPostCarpoolFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mPostCarpoolView = inflater.inflate(R.layout.fragment_carpooldriver_post_carpool, container, false);
+        mPostCarpoolView = inflater.inflate(R.layout.app_bpostcarpool_fragment_post_carpool, container, false);
         initPostNewCarpool();
         initProfile();
         displaysFriendsListbyRecyclerView();

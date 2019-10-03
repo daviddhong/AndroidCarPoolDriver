@@ -19,7 +19,7 @@ public class CreateAccountPassword extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_password);
+        setContentView(R.layout.startfromlogin_createaccount_activity_create_account_password);
         userpw = findViewById(R.id.editText_password_sign_up);
         confirmpw = findViewById(R.id.editText_password_sign_up_confirm_pw);
 

@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class DDDAcceptedCarpoolRequestActivity extends AppCompatActivity {
+public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
     private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef,UserRef,DriverTicketsRef;
     private String senderUIDme;
@@ -37,7 +37,7 @@ public class DDDAcceptedCarpoolRequestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_carpooldriver_your_accepted_carpool_requests);
+        setContentView(R.layout.app_dacceptpendingrequests_content_activity_accepted_carpool_requests);
         initBack();
         initiateFields();
     }
@@ -202,7 +202,7 @@ public class DDDAcceptedCarpoolRequestActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(DDDAcceptedCarpoolRequestActivity.this, "TicketButtonPressed", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(AcceptedCarpoolRequestActivity.this, "TicketButtonPressed", Toast.LENGTH_LONG).show();
 //                                                confirm_carpool_button_word.setText("Request to Pickup Rider");
 //                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
                                             }

@@ -19,7 +19,7 @@ public class PostCarpoolSeatsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_new_carpool_seats);
+        setContentView(R.layout.app_bpostcarpool_content_activity_carpool_seats);
         initSeatNumberPicker();
         initNext();
         initBack();

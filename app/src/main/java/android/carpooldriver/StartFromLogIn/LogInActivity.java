@@ -32,7 +32,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_startfromlogin_login);
+        setContentView(R.layout.startfromlogin_activity_login);
         initializeFields();
         logInWithEmailAndPassword();
         goToMakeAccountPage();

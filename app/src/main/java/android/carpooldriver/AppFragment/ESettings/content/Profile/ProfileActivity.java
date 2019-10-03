@@ -28,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.app_esettings_content_profile_activity_profile);
         initFields();
         setFields();
         initEditCar();

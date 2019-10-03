@@ -40,7 +40,7 @@ public class CConfirmedCarpoolFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mYourCarpoolView = inflater.inflate(R.layout.fragment_carpooldriver_your_carpool, container, false);
+        mYourCarpoolView = inflater.inflate(R.layout.app_cconfirmedcarpool_fragment_confirmed_carpool, container, false);
 
         initProfile();
         initializeFields();

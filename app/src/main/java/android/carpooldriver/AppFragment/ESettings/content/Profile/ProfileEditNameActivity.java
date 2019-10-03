@@ -13,7 +13,7 @@ public class ProfileEditNameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_edit_name);
+        setContentView(R.layout.app_esettings_content_profile_activity_edit_name);
 
         backButton();
     }

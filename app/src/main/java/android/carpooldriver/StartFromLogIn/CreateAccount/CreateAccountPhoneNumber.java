@@ -14,7 +14,7 @@ public class CreateAccountPhoneNumber extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_phone_number);
+        setContentView(R.layout.startfromlogin_createaccount_activity_create_account_phone_number);
 
         initContinue();
         initBack();

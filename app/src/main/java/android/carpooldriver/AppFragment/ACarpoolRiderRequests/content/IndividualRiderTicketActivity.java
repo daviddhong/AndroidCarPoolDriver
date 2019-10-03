@@ -31,7 +31,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_requested_ride_ticket_expand_entity);
+        setContentView(R.layout.app_acarpoolriderrequest_content_layout_individual_rider_ticket);
         initializeFields();
         backButtonInit();
         RetrieveTicketStatusInformation();

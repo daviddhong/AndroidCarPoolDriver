@@ -18,7 +18,7 @@ public class CreateAccountCarType extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_car_type);
+        setContentView(R.layout.startfromlogin_createaccount_activity_create_account_car_type);
         car_make_model = findViewById(R.id.editText_car_name);
 
 

@@ -11,6 +11,6 @@ public class NewPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_enter_new_password);
+        setContentView(R.layout.app_esettings_content_password_activity_new_password);
     }
 }

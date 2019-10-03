@@ -28,7 +28,7 @@ public class CurrentPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_enter_current_password);
+        setContentView(R.layout.app_esettings_content_password_activity_current_password);
 
         initBack();
 //        initContinue();

@@ -1,9 +1,9 @@
 package android.carpooldriver.StartFromLogIn.CreateAccount;
 
 import android.carpooldriver.R;
+import android.carpooldriver.StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -33,7 +33,7 @@ public class CreateAccountEmail extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_email);
+        setContentView(R.layout.startfromlogin_createaccount_activity_create_account_email);
 
         firebaseAuth = FirebaseAuth.getInstance();
         uemail = findViewById(R.id.editText_email_login_create);
@@ -49,6 +49,18 @@ public class CreateAccountEmail extends AppCompatActivity {
 
         initContinue();
         backButton();
+        whySelectiveEmail();
+    }
+
+    private void whySelectiveEmail() {
+        RelativeLayout email = findViewById(R.id.whyselectiveemailinfo);
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateAccountEmail.this, WhySelectiveEmail.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initContinue() {

@@ -13,7 +13,7 @@ public class ProfileEditPhoneNumberActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_edit_phone_number);
+        setContentView(R.layout.app_esettings_content_profile_activity_edit_phone_number);
 
         initBack();
     }

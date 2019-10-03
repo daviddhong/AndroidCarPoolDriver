@@ -1,7 +1,6 @@
 package android.carpooldriver.StartFromLogIn.CreateAccount;
 
 import android.carpooldriver.R;
-import android.carpooldriver.StartFromLogIn.MakeAccountActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +18,7 @@ public class CreateAccountName extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_name);
+        setContentView(R.layout.startfromlogin_createaccount_activity_create_account_name);
 
         first_name = findViewById(R.id.editText_first_name_create_login);
         last_name = findViewById(R.id.editText_last_name_create_login);

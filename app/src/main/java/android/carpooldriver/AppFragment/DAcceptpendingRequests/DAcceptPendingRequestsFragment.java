@@ -1,6 +1,6 @@
 package android.carpooldriver.AppFragment.DAcceptpendingRequests;
 
-import android.carpooldriver.AppFragment.DAcceptpendingRequests.content.DDDAcceptedCarpoolRequestActivity;
+import android.carpooldriver.AppFragment.DAcceptpendingRequests.content.AcceptedCarpoolRequestActivity;
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.RiderRequestTicketClass;
 import android.carpooldriver.R;
 import android.content.Intent;
@@ -40,7 +40,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mRequestView = inflater.inflate(R.layout.fragment_carpooldriver_my_request, container, false);
+        mRequestView = inflater.inflate(R.layout.app_dacceptpendingrequests_fragment_accept_pending_request, container, false);
         initializeFields();
         initAcceptedCarpoolRequestActivity();
         goToMyProfileByProfileImageView();
@@ -66,7 +66,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
         clickHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DDDAcceptedCarpoolRequestActivity.class);
+                Intent intent = new Intent(getActivity(), AcceptedCarpoolRequestActivity.class);
                 startActivity(intent);
             }
         });

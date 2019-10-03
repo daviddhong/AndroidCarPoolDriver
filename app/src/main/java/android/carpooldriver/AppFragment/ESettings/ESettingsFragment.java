@@ -39,7 +39,7 @@ public class ESettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mMoreView = inflater.inflate(R.layout.fragment_carpooldriver_settings, container, false);
+        mMoreView = inflater.inflate(R.layout.app_esettings_fragment_settings, container, false);
         mAuth = FirebaseAuth.getInstance();
 
 

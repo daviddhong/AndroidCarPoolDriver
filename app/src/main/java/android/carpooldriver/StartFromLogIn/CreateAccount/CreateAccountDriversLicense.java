@@ -34,7 +34,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_drivers_license);
+        setContentView(R.layout.startfromlogin_createaccount_activity_create_account_drivers_license);
         create_account_button = findViewById(R.id.continue_sign_up_id_picture);
 
         mAuth = FirebaseAuth.getInstance();

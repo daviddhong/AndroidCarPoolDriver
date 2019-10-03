@@ -93,7 +93,7 @@ public class PostCarpoolRouteActivity extends AppCompatActivity implements OnMap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.MAP_BOX_API_KEY));
-        setContentView(R.layout.activity_post_new_carpool_route);
+        setContentView(R.layout.app_bpostcarpool_content_activity_carpool_route);
 
         // MODIFIES: this
         // EFFECTS: Generate map from Mapbox API.

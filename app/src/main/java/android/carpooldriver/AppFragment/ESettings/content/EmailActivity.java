@@ -26,7 +26,7 @@ public class EmailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_email);
+        setContentView(R.layout.app_esettings_content_activity_email);
 
         initBack();
 

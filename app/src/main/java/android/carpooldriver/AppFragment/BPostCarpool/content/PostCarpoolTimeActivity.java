@@ -23,7 +23,7 @@ public class PostCarpoolTimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_new_carpool_time);
+        setContentView(R.layout.app_bpostcarpool_content_activity_carpool_time);
         initHourPicker();
         initMinutePicker();
         initPeriodPicker();

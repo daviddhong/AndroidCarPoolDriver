@@ -13,7 +13,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_phone_number);
+        setContentView(R.layout.app_esettings_content_activity_phone_number);
 
         initBack();
     }

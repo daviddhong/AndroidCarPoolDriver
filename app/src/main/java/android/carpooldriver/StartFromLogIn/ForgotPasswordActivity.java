@@ -25,7 +25,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_startfromlogin_forgot_password);
+        setContentView(R.layout.startfromlogin_activity_forgot_password);
 
         mAuth = FirebaseAuth.getInstance();
         sendResetPasswordEmailButton = findViewById(R.id.button_reset_password);

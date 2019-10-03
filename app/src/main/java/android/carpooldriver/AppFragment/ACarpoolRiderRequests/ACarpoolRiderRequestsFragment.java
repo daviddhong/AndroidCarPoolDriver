@@ -36,7 +36,7 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mCarpoolRequestsView = inflater.inflate(R.layout.fragment_carpooldriver_carpool_requests, container, false);
+        mCarpoolRequestsView = inflater.inflate(R.layout.app_acarpoolriderrequest_fragment_carpool_rider_requests, container, false);
         initializeFields();
         initProfile();
         return mCarpoolRequestsView;

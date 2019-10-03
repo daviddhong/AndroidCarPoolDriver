@@ -23,7 +23,7 @@ public class InitialScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_startfromlogin_initial_screen);
+        setContentView(R.layout.startfromlogin_activity_initial_screen);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         initSignUp();

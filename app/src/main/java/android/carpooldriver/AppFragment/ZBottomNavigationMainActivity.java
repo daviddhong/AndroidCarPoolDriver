@@ -20,7 +20,7 @@ public class ZBottomNavigationMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_carpooldriver_main);
+        setContentView(R.layout.app_activity_bottom_navigation_main);
 
         initFragment();
 
