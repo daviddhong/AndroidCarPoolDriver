@@ -25,18 +25,27 @@
                 android:layout_marginLeft="15dp"
                 android:layout_alignParentLeft="true"
                 android:src="@drawable/ic_account"
-                android:tint="#262626" />
+                android:tint="#00205b" />
+
+            <ImageView
+                android:id="@+id/chat_carpool_requests"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_chat"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:tint="#00205b"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/description_carpool_request"
             android:layout_width="match_parent"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
             android:layout_height="188dp"
             android:layout_below="@+id/carpool_request_header"
-            android:background="@drawable/border_bottom">
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -47,8 +56,8 @@
                     android:id="@+id/title_carpool_requests"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="#262626"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#00205b"
                     android:text="Carpool requests"
                     android:textSize="28sp"
                     android:textStyle="bold"
@@ -60,8 +69,8 @@
                     android:layout_marginRight="15dp"
                     android:layout_below="@id/title_carpool_requests"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="#555B5B"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#a7a9ac"
                     android:text="The following are a list of possible carpool routes requested by riders. Learn more about the
 by clicking on the top right corner."
                     android:textSize="15sp"

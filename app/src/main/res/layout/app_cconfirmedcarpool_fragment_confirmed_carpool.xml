@@ -29,13 +29,23 @@
 
             <ImageView
                 android:id="@+id/profile_your_carpool"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="25dp"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/ic_account"
                 android:tint="#262626" />
+
+            <ImageView
+                android:id="@+id/chat_confirmed_carpool"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_chat"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/profile_your_carpool"
+                android:layout_marginRight="15dp"
+                android:tint="#262626"/>
 
 
         </RelativeLayout>
