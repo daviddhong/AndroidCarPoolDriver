@@ -1,9 +1,7 @@
 package android.carpooldriver.AppFragment.DAcceptPendingRequests;
 
-import android.carpooldriver.AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity;
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.RiderRequestTicketClass;
 import android.carpooldriver.R;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +40,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRequestView = inflater.inflate(R.layout.app_dacceptpendingrequests_fragment_accept_pending_request, container, false);
         initializeFields();
-        initAcceptedCarpoolRequestActivity();
         goToMyProfileByProfileImageView();
         return mRequestView;
     }
@@ -61,16 +58,7 @@ public class DAcceptPendingRequestsFragment extends Fragment {
     }
 
 
-    private void initAcceptedCarpoolRequestActivity() {
-        TextView clickHere = (TextView) mRequestView.findViewById(R.id.text_pending_request_three);
-        clickHere.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AcceptedCarpoolRequestActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
     // EFFECTS: Set OnClickActivity for ProfileActivity.
     private void goToMyProfileByProfileImageView() {
@@ -118,6 +106,8 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
                             String type = dataSnapshot.getValue().toString();
+
+
                             if (type.equals("received")) {
                                 DriverTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override

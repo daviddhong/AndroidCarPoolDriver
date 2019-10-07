@@ -1,6 +1,6 @@
 package android.carpooldriver.AppFragment.ACarpoolRiderRequests.content;
 
-import android.carpooldriver.AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity;
+import android.carpooldriver.AppFragment.ACarpoolRiderRequests.ACarpoolRiderRequestsFragment;
 import android.carpooldriver.R;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -105,6 +105,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+
                     final String ticketTo = dataSnapshot.child("To").getValue().toString();
                     final String ticketFrom = dataSnapshot.child("From").getValue().toString();
                     final String ticketDate = dataSnapshot.child("Date").getValue().toString();
@@ -236,6 +237,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 current_state = "new_dontknoweachother";
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(IndividualRiderTicketActivity.this, "Canceled request to driver", Toast.LENGTH_LONG).show();
 
                                             }
@@ -278,7 +280,9 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 current_state = "requestissent";
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
+                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
                                                 Toast.makeText(IndividualRiderTicketActivity.this, "Sent request to driver", Toast.LENGTH_LONG).show();
+
 
 
                                             }

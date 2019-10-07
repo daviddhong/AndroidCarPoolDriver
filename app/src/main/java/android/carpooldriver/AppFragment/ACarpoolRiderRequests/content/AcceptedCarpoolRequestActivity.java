@@ -1,6 +1,6 @@
-package android.carpooldriver.AppFragment.DAcceptPendingRequests.content;
+package android.carpooldriver.AppFragment.ACarpoolRiderRequests.content;
 
-import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.RiderRequestTicketClass;
+import android.carpooldriver.AppFragment.ACarpoolRiderRequests.ACarpoolRiderRequestsFragment;
 import android.carpooldriver.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -194,6 +194,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
+                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(AcceptedCarpoolRequestActivity.this, "Canceled ticket request", Toast.LENGTH_LONG).show();
 
                                             }

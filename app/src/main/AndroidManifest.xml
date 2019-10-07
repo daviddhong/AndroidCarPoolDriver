@@ -23,7 +23,7 @@
         <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolRouteActivity"/>
         <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolSeatsActivity"/>
         <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolTimeActivity"/>
-        <activity android:name=".AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity"/>
+        <activity android:name=".AppFragment.ACarpoolRiderRequests.content.AcceptedCarpoolRequestActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Password.CurrentPasswordActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Password.NewPasswordActivity"/>
         <activity android:name=".AppFragment.ESettings.content.payment.PaymentActivity"/>

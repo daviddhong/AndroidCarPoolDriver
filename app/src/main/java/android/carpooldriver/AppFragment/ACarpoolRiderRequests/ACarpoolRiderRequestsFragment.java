@@ -2,6 +2,7 @@ package android.carpooldriver.AppFragment.ACarpoolRiderRequests;
 
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.RiderRequestTicketClass;
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.IndividualRiderTicketActivity;
+import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.AcceptedCarpoolRequestActivity;
 import android.carpooldriver.AppFragment.ESettings.content.Profile.ProfileActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ACarpoolRiderRequestsFragment extends Fragment {
+
     private View mCarpoolRequestsView;
     private RecyclerView FriendRecyclerView;
     private DatabaseReference RiderTicketsRef;
@@ -39,7 +41,19 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
         mCarpoolRequestsView = inflater.inflate(R.layout.app_acarpoolriderrequest_fragment_carpool_rider_requests, container, false);
         initializeFields();
         initProfile();
+        initAcceptedCarpoolRequestActivity();
         return mCarpoolRequestsView;
+    }
+
+    private void initAcceptedCarpoolRequestActivity() {
+        TextView clickHere = (TextView) mCarpoolRequestsView.findViewById(R.id.text_pending_request_threee);
+        clickHere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AcceptedCarpoolRequestActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //use recycler view and friend list adapter to display list of friends
@@ -70,28 +84,35 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            riderticketholder.riderTo.setText(riderReqTickets.getticketto());
-                            riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
-                            riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
-                            riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
-                            riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
-                            riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
-                            riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    clicked_user_uid = getRef(i).getKey();
-                                    Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
-                                    intent.putExtra("clicked_user_id", clicked_user_uid);
-                                    startActivity(intent);
-                                }
-                            });
+                            if (riderticketholder.FILTER == 1) {
+                                riderticketholder.riderTo.setText(riderReqTickets.getticketto());
+                                riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
+                                riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
+                                riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
+                                riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
+                                riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
+                                riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        clicked_user_uid = getRef(i).getKey();
+                                        Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
+                                        intent.putExtra("clicked_user_id", clicked_user_uid);
+                                        startActivity(intent);
+                                    }
+                                });
+                            }
+                            if (riderticketholder.FILTER == 2) {
+                                riderticketholder.itemView.setVisibility(View.GONE);
+                            }
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
             }
+
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -106,6 +127,8 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
+        public static Integer FILTER = 1;
+
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
             riderFrom = itemView.findViewById(R.id.text_origin);
@@ -115,7 +138,9 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
             riderNumberOfSeats = itemView.findViewById(R.id.text_passenger_number);
             riderPrice = itemView.findViewById(R.id.text_earnings_entity);
         }
+
     }
+
     private void initProfile() {
         ImageView profileImageView = (ImageView) mCarpoolRequestsView.findViewById(R.id.profile_carpool_requests);
         profileImageView.setOnClickListener(new View.OnClickListener() {

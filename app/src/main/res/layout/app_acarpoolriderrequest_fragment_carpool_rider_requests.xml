@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
-            android:layout_height="188dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/carpool_request_header"
             android:background="@drawable/border_bottom">
 
@@ -55,6 +55,7 @@
                     app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
+                    android:id="@+id/textt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
@@ -66,6 +67,33 @@
 by clicking on the top right corner."
                     android:textSize="15sp"
                     app:fontFamily="@font/roboto"/>
+                <TextView
+                    android:id="@+id/text_pending_request_twoo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@id/textt"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#2B4F81"
+                    android:text="For the list of carpool requests that you have requested."
+                    android:textSize="15sp"
+                    app:fontFamily="@font/roboto"/>
+
+                <TextView
+                    android:id="@+id/text_pending_request_threee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_below="@id/text_pending_request_twoo"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#2B4F81"
+                    android:text="Click here."
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    app:fontFamily="@font/roboto_bold"/>
 
             </RelativeLayout>
 
