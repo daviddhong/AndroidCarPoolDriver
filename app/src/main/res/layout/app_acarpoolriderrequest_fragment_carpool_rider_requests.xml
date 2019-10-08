@@ -39,16 +39,18 @@
 
         </RelativeLayout>
 
+        <!--            android:layout_marginLeft="7dp"-->
+        <!--            android:layout_marginRight="7dp"-->
+        <!--            android:layout_height="188dp"-->
+
+
         <RelativeLayout
             android:id="@+id/description_carpool_request"
             android:layout_width="match_parent"
-<<<<<<< HEAD
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
+
             android:layout_height="wrap_content"
-=======
-            android:layout_height="188dp"
->>>>>>> 030dc0dad255b16df9173256ac39c4b092bd114b
+
+
             android:layout_below="@+id/carpool_request_header"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp">
