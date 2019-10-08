@@ -84,7 +84,7 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            if (riderticketholder.FILTER == 1) {
+//                            if (riderticketholder.FILTER == 1) {
                                 riderticketholder.riderTo.setText(riderReqTickets.getticketto());
                                 riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
                                 riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
@@ -101,11 +101,11 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
                                     }
                                 });
                             }
-                            if (riderticketholder.FILTER == 2) {
-                                riderticketholder.itemView.setVisibility(View.GONE);
-                            }
+//                            if (riderticketholder.FILTER == 2) {
+//                                riderticketholder.itemView.setVisibility(View.GONE);
+//                            }
                         }
-                    }
+//                    }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -127,7 +127,7 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
-        public static Integer FILTER = 1;
+//        public static Integer FILTER = 1;
 
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);

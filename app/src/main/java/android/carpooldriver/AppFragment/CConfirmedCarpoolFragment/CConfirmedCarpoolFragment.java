@@ -100,7 +100,7 @@ public class CConfirmedCarpoolFragment extends Fragment {
                                 public void onClick(View v) {
 
                                     //todo cancel when button pressed
-                                    ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
+//                                    ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
                                     RemoveSpecificContact(riderKeyID);
                                 }
                             });

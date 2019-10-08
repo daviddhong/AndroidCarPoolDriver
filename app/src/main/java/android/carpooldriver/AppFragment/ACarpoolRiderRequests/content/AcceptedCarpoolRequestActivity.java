@@ -194,7 +194,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
+//                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(AcceptedCarpoolRequestActivity.this, "Canceled ticket request", Toast.LENGTH_LONG).show();
 
                                             }
