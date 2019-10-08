@@ -25,7 +25,17 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_account"
-                android:tint="#262626" />
+                android:tint="#33396A" />
+
+            <ImageView
+                android:id="@+id/chat_post_carpool"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_chat"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:tint="#33396A"/>
 
         </RelativeLayout>
 
@@ -48,17 +58,15 @@
         <RelativeLayout
             android:id="@+id/relative_layout_post_new_carpool"
             android:layout_width="match_parent"
-            android:layout_height="188dp"
+            android:layout_height="208dp"
             android:layout_below="@+id/post_carpool_toolbar"
-            android:background="@drawable/background_rectangle_fill"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
+            android:background="#33396A"
             android:elevation="25dp">
 
             <RelativeLayout
                 android:id="@+id/post_new_carpool"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="58dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="15dp"
@@ -71,7 +79,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:text="Post new carpool"
-                    android:textColor="#555B5B"
+                    android:textColor="#a7a9ac"
                     app:fontFamily="@font/roboto"
                     android:textSize="20sp" />
 
@@ -82,7 +90,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B"/>
+                    android:tint="#33396A"/>
 
             </RelativeLayout>
 
@@ -91,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/post_new_carpool"
                 android:layout_marginLeft="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginRight="18dp"
                 android:layout_marginBottom="15dp">
 
@@ -99,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Post a carpool route that you will be driving. If matched with a
-rider, you can earn back an amount that do not exceed the cost of gas for the route."
+rider, you can earn back an amount that do not exceed the cost of gas for the ride."
                     android:textColor="#FFF"
                     android:textSize="15sp"
                     app:fontFamily="@font/roboto"/>

@@ -11,7 +11,7 @@
             android:shape="rectangle">
             <stroke
                 android:width="0.2dp"
-                android:color="#555B5B"/>
+                android:color="#F1F3F2"/>
             <solid
                 android:color="#FFF"/>
         </shape>
