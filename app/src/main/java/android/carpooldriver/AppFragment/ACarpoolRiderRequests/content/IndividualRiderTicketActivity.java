@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class IndividualRiderTicketActivity extends AppCompatActivity {
 
@@ -185,6 +186,17 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 
                             if (requestStatus.equals("sent")) {
                                 current_state = "requestissent";
+
+
+//                                todo
+
+                                Map<String, Object> profileMap = new HashMap<>();
+                                String status = "1";
+                                profileMap.put("status", status);
+                                profileMap.put("status_uid", status+receiverUID);
+
+                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
                             }
@@ -235,6 +247,15 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 confirmButton.setEnabled(true);
                                                 current_state = "new_dontknoweachother";
+
+                                                // todo
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "0";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status+receiverUID);
+                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
 //                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
@@ -278,6 +299,17 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 
                                                 confirmButton.setEnabled(true);
                                                 current_state = "requestissent";
+
+
+                                                // todo
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "1";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status+receiverUID);
+
+                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
 //                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;

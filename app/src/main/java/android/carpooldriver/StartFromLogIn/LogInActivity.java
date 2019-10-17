@@ -2,7 +2,7 @@ package android.carpooldriver.StartFromLogIn;
 
 import android.carpooldriver.AppFragment.BottomNavigationMainActivity;
 import android.carpooldriver.R;
-import android.carpooldriver.StartFromLogIn.CreateAccount.CreateAccountName;
+import android.carpooldriver.StartFromLogIn.CreateAccount.ACreateAccountName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -74,7 +74,7 @@ public class LogInActivity extends AppCompatActivity {
                                     SendToMainActivity();
                                 } else {
                                     Toast.makeText(LogInActivity.this, "please verify email", Toast.LENGTH_LONG).show();
-                                    ResendVerificationEmail.setVisibility(View.VISIBLE);
+//                                    ResendVerificationEmail.setVisibility(View.VISIBLE);
                                 }
                             } else {
                                 Toast.makeText(LogInActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
@@ -108,7 +108,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void SendToMakeAccountActivity() {
-        Intent intent = new Intent(LogInActivity.this, CreateAccountName.class);
+        Intent intent = new Intent(LogInActivity.this, ACreateAccountName.class);
         startActivity(intent);
         // EFFECTS: Animation from LogInActivity to MakeAccountActivity.
 //        LogInActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

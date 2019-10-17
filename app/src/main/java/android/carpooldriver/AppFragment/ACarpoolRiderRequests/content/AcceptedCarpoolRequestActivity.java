@@ -28,6 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
     private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef,UserRef,DriverTicketsRef;
@@ -194,6 +197,15 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "0";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status+receiverUID);
+
+                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
+
 //                                                ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(AcceptedCarpoolRequestActivity.this, "Canceled ticket request", Toast.LENGTH_LONG).show();
 

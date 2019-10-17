@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateAccountPassword extends AppCompatActivity {
+public class CCreateAccountPassword extends AppCompatActivity {
 
     private String fname, lname, uemail;
     private EditText userpw, confirmpw;
@@ -51,16 +51,17 @@ public class CreateAccountPassword extends AppCompatActivity {
                 //    https://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
 
                 if (upw.isEmpty()) {
-                    Toast.makeText(CreateAccountPassword.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CCreateAccountPassword.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
                 } else if (cpw.isEmpty()) {
-                    Toast.makeText(CreateAccountPassword.this, "Please Confirm Your Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CCreateAccountPassword.this, "Please Confirm Your Password", Toast.LENGTH_LONG).show();
                 } else if (!(upw.equals(cpw))) {
-                    Toast.makeText(CreateAccountPassword.this, "Passwords do not match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CCreateAccountPassword.this, "Passwords do not match", Toast.LENGTH_LONG).show();
                 } else if (upw.length() < 7) {
-                    Toast.makeText(CreateAccountPassword.this,
+                    Toast.makeText(CCreateAccountPassword.this,
                             "Password must be at least 7 characters long", Toast.LENGTH_LONG).show();
                 } else {
-                    Intent intent = new Intent(CreateAccountPassword.this, CreateAccountCarType.class);
+                    Intent intent = new Intent(CCreateAccountPassword.this, DCreateAccountCarType.class);
+
                     Bundle dataBundle = new Bundle();
 
                     dataBundle.putString("first_name", fname);

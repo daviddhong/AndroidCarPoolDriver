@@ -2,7 +2,7 @@ package android.carpooldriver.StartFromLogIn;
 
 import android.carpooldriver.AppFragment.BottomNavigationMainActivity;
 import android.carpooldriver.R;
-import android.carpooldriver.StartFromLogIn.CreateAccount.CreateAccountName;
+import android.carpooldriver.StartFromLogIn.CreateAccount.ACreateAccountName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +36,7 @@ public class InitialScreenActivity extends AppCompatActivity {
         signUpRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InitialScreenActivity.this, CreateAccountName.class);
+                Intent intent = new Intent(InitialScreenActivity.this, ACreateAccountName.class);
                 startActivity(intent);
             }
         });

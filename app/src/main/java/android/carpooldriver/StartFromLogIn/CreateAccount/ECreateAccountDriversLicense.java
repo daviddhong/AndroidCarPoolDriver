@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class CreateAccountDriversLicense extends AppCompatActivity {
+public class ECreateAccountDriversLicense extends AppCompatActivity {
 
     private String fname, lname, uemail, upw, ucar;
     private RelativeLayout create_account_button;
@@ -40,6 +40,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
         currentUser = mAuth.getCurrentUser();
+
         Bundle gotname = getIntent().getExtras();
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
@@ -52,7 +53,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
     }
 
     private void initContinue() {
-        RelativeLayout continueActivity = (RelativeLayout) findViewById(R.id.continue_sign_up_car_name);
+        RelativeLayout continueActivity = (RelativeLayout) findViewById(R.id.continue_sign_up_id_picture);
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,12 +70,14 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
+                    CollectFirstLastNameEmailIntoRealTimeDatabase(fname, lname, uemail, ucar);
                     SendVerificationEmail();
 
 
                 } else {
                     // if account is not made
-                    Toast.makeText(CreateAccountDriversLicense.this,
+                    Toast.makeText(ECreateAccountDriversLicense.this,
                             task.getException().toString(), Toast.LENGTH_LONG).show();
                 }
             }
@@ -84,32 +87,31 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
 
     private void SendVerificationEmail() {
 
-        try {
+//        try {
 //            final FirebaseUser currentUser = mAuth.getCurrentUser();
             currentUser.sendEmailVerification()
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                CollectFirstLastNameEmailIntoRealTimeDatabase(fname, lname, uemail, ucar);
 
-                                Intent intent = new Intent(CreateAccountDriversLicense.this, LogInActivity.class);
+                                Intent intent = new Intent(ECreateAccountDriversLicense.this, LogInActivity.class);
                                 startActivity(intent);
 
-                                Toast.makeText(CreateAccountDriversLicense.this,
+                                Toast.makeText(ECreateAccountDriversLicense.this,
                                         "Verification email sent to \n" + uemail, Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(CreateAccountDriversLicense.this,
+                                Toast.makeText(ECreateAccountDriversLicense.this,
                                         "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
 
-        } catch (NullPointerException e) {
-            Toast.makeText(CreateAccountDriversLicense.this,
-                    "NOT sent!!" + e.toString(), Toast.LENGTH_LONG).show();
-
-        }
+//        } catch (NullPointerException e) {
+//            Toast.makeText(ECreateAccountDriversLicense.this,
+//                    "NOT sent!!" + e.toString(), Toast.LENGTH_LONG).show();
+//
+//        }
     }
 
     private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String userEmail, String userCar) {
@@ -119,7 +121,7 @@ public class CreateAccountDriversLicense extends AppCompatActivity {
         profileMap.put("firstname", firstN);
         profileMap.put("lastname", lastN);
         profileMap.put("email", userEmail);
-        profileMap.put("carModelMake", userCar);
+        profileMap.put("carmodelmake", userCar);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
     }
 

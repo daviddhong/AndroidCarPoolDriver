@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateAccountPhoneNumber extends AppCompatActivity {
+public class ZCreateAccountPhoneNumber extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class CreateAccountPhoneNumber extends AppCompatActivity {
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateAccountPhoneNumber.this, CreateAccountCarType.class);
+                Intent intent = new Intent(ZCreateAccountPhoneNumber.this, DCreateAccountCarType.class);
                 startActivity(intent);
             }
         });

@@ -29,6 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DAcceptPendingRequestsFragment extends Fragment {
     private RecyclerView receivedFriendRequest;
     private DatabaseReference DriverTicketsRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderRequestingDriverRef;
@@ -150,7 +153,9 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                                                 createCarpoolConfirmMatchNodeInFireBase(receiverUID, receiverKeyID);
                                                 //todo ask are you sure before finalizing finish
 //                                                deletingDatabase(receiverKeyID);
-                                                CancelCarpoolRequest(receiverUID, receiverKeyID);
+                                                DeleteSentRequestDatabase(receiverUID, receiverKeyID);
+                                                Toast.makeText(getContext(), "Accepted ticket offer", Toast.LENGTH_LONG).show();
+
 
                                             }
                                         });
@@ -159,8 +164,16 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                                             @Override
                                             public void onClick(View view) {
 
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "0";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status+senderUIDme);
+                                                DriverTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                                 // todo delete the carpool
-                                                CancelCarpoolRequest(receiverUID, receiverKeyID);
+                                                DeleteSentRequestDatabase(receiverUID, receiverKeyID);
+                                                Toast.makeText(getContext(), "Declined ticket offer", Toast.LENGTH_LONG).show();
+
 
                                             }
                                         });
@@ -224,16 +237,13 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                         if (task.isSuccessful()) {
                             ConfirmedMatchRef.child(receiverUID).child(receiverKeyID)
                                     .child("with").setValue(senderUIDme);
-
-                            Toast.makeText(getContext(), "Accepted ticket offer", Toast.LENGTH_LONG).show();
-
                         }
                     }
                 });
     }
 
 
-    private void CancelCarpoolRequest(String receiverUID, String receiverKeyID) {
+    private void DeleteSentRequestDatabase(String receiverUID, String receiverKeyID) {
         RiderRequestingDriverRef.child(senderUIDme).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -247,8 +257,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(getContext(), "Declined ticket offer", Toast.LENGTH_LONG).show();
-
                                             }
                                         }
                                     });

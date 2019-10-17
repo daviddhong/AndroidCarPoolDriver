@@ -68,12 +68,21 @@ public class BPostCarpoolFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+//        Query rreceiveriderQuery = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child("DriverTickets")
+//                .orderByChild("status")
+//                .equalTo("0");
+
+        String UidToString = FirebaseAuth.getInstance().getUid().toString();
+        String status_uid = "0" + UidToString;
         Query receiveriderQuery = FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("DriverTickets")
-                .orderByChild("uid")
-                .equalTo(currentUserID);
+                .orderByChild("status_uid")
+                .equalTo(status_uid);
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<DriverRequestTicketClass>()
                 .setQuery(receiveriderQuery, DriverRequestTicketClass.class)
