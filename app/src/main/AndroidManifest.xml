@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="android.carpooldriver">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartFromLogIn.InitialScreenActivity">
+        <activity android:name=".Initial.InitialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,43 +22,46 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AppFragment.ACarpoolRiderRequests.content.IndividualRiderTicketActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolConfirmActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolDateActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolRouteActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolSeatsActivity"/>
-        <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolTimeActivity"/>
-        <activity android:name=".AppFragment.ACarpoolRiderRequests.content.AcceptedCarpoolRequestActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Password.CurrentPasswordActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Password.NewPasswordActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.payment.PaymentActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditCarModelActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditNameActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.Profile.ProfileEditPhoneNumberActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.EmailActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.OpenSourceLicenseActivity"/>
-        <activity android:name=".AppFragment.ESettings.content.PhoneNumberActivity"/>
-        <activity android:name=".AppFragment.BottomNavigationMainActivity"/>
+        <activity android:name=".Fragments.CarpoolRiderRequestsFragment.Content.IndividualRiderTicketActivity"/>
+        <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolConfirmActivity"/>
+        <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolDateActivity"/>
+        <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolRouteActivity"/>
+        <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolSeatsActivity"/>
+        <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolTimeActivity"/>
+        <activity android:name=".Fragments.CarpoolRiderRequestsFragment.Content.AcceptedCarpoolRequestActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.PasswordActivities.CurrentPasswordActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.PasswordActivities.NewPasswordActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.PaymentActivities.PaymentActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.ProfileActivities.ProfileActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.ProfileActivities.ProfileEditCarModelActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.ProfileActivities.ProfileEditNameActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.ProfileActivities.ProfileEditPhoneNumberActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.EmailActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.OpenSourceLicenseActivity"/>
+        <activity android:name=".Fragments.SettingsFragment.Content.PhoneNumberActivity"/>
+        <activity android:name=".Fragments.NavigationDrawerMainActivity"/>
 
-        <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.DCreateAccountCarType"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.ECreateAccountDriversLicense"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.BCreateAccountEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.ACreateAccountName"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CCreateAccountPassword"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.ZCreateAccountPhoneNumber"/>
-        <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
-        <activity android:name=".StartFromLogIn.LogInActivity"/>
-        <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
-
-
-
-
+        <activity android:name=".Initial.CreateAccount.WhySelectiveEmail.SelectiveEmailDescriptionActivity"/>
+        <activity android:name=".Initial.CreateAccount.CreateAccountCarTypeActivity"/>
+        <activity android:name=".Initial.CreateAccount.CreateAccountDriversLicenseActivity"/>
+        <activity android:name=".Initial.CreateAccount.CreateAccountEmailActivity"/>
+        <activity android:name=".Initial.CreateAccount.CreateAccountNameActivity"/>
+        <activity android:name=".Initial.CreateAccount.CreateAccountPasswordActivity"/>
+        <activity android:name=".Initial.CreateAccount.CreateAccountPhoneNumberActivity"/>
+        <activity android:name=".Initial.ForgotPasswordActivity"/>
+        <activity android:name=".Initial.LogInActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <receiver android:name=".SMSReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
