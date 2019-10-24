@@ -3,4 +3,7 @@
 
     <!--PLUG IN MAPBOX API KEY HERE-->
     <string name="MAP_BOX_API_KEY">pk.eyJ1IjoiZWt5aG8iLCJhIjoiY2p5ZmpsYTZ2MWQyZDNvcGJvcXplcHFoZCJ9.FzB6BW3bJr8Exh9zshNwfw</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

@@ -1,14 +1,11 @@
 package android.carpooldriver.AppFragment.CConfirmedCarpoolFragment;
 
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.DriverRequestTicketClass;
-import android.carpooldriver.AppFragment.ESettings.content.Profile.ProfileActivity;
 import android.carpooldriver.R;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +39,6 @@ public class CConfirmedCarpoolFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mYourCarpoolView = inflater.inflate(R.layout.app_cconfirmedcarpool_fragment_confirmed_carpool, container, false);
 
-        initProfile();
         initializeFields();
 
         return mYourCarpoolView;
@@ -234,16 +230,5 @@ public class CConfirmedCarpoolFragment extends Fragment {
                 });
     }
 
-
-    private void initProfile() {
-        ImageView profileImageView = (ImageView) mYourCarpoolView.findViewById(R.id.profile_your_carpool);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
 
 }

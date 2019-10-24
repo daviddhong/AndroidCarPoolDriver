@@ -43,7 +43,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
         mRequestView = inflater.inflate(R.layout.app_dacceptpendingrequests_fragment_accept_pending_request, container, false);
         initializeFields();
         initAcceptedCarpoolRequestActivity();
-        goToMyProfileByProfileImageView();
         return mRequestView;
     }
 
@@ -68,21 +67,6 @@ public class DAcceptPendingRequestsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AcceptedCarpoolRequestActivity.class);
                 startActivity(intent);
-            }
-        });
-    }
-
-    // EFFECTS: Set OnClickActivity for ProfileActivity.
-    private void goToMyProfileByProfileImageView() {
-        ImageView profileImageView = (ImageView) mRequestView.findViewById(R.id.profile_rate_riders);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // todo name of profile activity
-//                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-//                startActivity(intent);
-                // EFFECTS: Animation to Profile Activity
-//                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
             }
         });
     }

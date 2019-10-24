@@ -11,52 +11,11 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/header_pending_request"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FFF">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Pending Requests"
-                android:textColor="#262626"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/roboto_bold"/>
-
-            <ImageView
-                android:id="@+id/profile_rate_riders"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/ic_account"
-                android:tint="#262626" />
-
-            <ImageView
-                android:id="@+id/chat_pending_requests"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_chat"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/profile_rate_riders"
-                android:layout_marginRight="15dp"
-                android:tint="#262626"/>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/description_carpool_request_pending"
             android:layout_width="match_parent"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_height="218dp"
-            android:layout_below="@+id/header_pending_request"
             android:background="@drawable/border_bottom">
 
             <RelativeLayout

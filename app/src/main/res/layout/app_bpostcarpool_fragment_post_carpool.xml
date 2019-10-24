@@ -13,36 +13,9 @@
         android:background="#FFF">
 
         <RelativeLayout
-            android:id="@+id/post_carpool_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FFF">
-
-            <ImageView
-                android:id="@+id/profile_post_carpool"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/ic_account"
-                android:tint="#33396A" />
-
-            <ImageView
-                android:id="@+id/chat_post_carpool"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_chat"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
-                android:tint="#33396A"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/relative_layout_post_new_carpool"
+            android:layout_above="@+id/relative_layout_post_new_carpool"
             android:background="#FFF">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -58,8 +31,8 @@
         <RelativeLayout
             android:id="@+id/relative_layout_post_new_carpool"
             android:layout_width="match_parent"
-            android:layout_height="208dp"
-            android:layout_below="@+id/post_carpool_toolbar"
+            android:layout_alignParentBottom="true"
+            android:layout_height="198dp"
             android:background="#33396A"
             android:elevation="25dp">
 

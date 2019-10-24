@@ -47,7 +47,6 @@ public class BPostCarpoolFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mPostCarpoolView = inflater.inflate(R.layout.app_bpostcarpool_fragment_post_carpool, container, false);
         initPostNewCarpool();
-        initProfile();
         displaysFriendsListbyRecyclerView();
         return mPostCarpoolView;
     }
@@ -161,18 +160,6 @@ public class BPostCarpoolFragment extends Fragment {
                 startActivity(intent);
                 // EFFECTS: Animation to Profile Activity
                 getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
-    }
-
-    private void initProfile() {
-        ImageView profileImageView = (ImageView) mPostCarpoolView.findViewById(R.id.profile_post_carpool);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-
             }
         });
     }
