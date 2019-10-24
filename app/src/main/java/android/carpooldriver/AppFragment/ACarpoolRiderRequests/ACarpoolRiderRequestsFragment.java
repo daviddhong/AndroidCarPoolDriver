@@ -38,6 +38,7 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mCarpoolRequestsView = inflater.inflate(R.layout.app_acarpoolriderrequest_fragment_carpool_rider_requests, container, false);
         initializeFields();
+        initProfile();
         return mCarpoolRequestsView;
     }
 
@@ -114,5 +115,16 @@ public class ACarpoolRiderRequestsFragment extends Fragment {
             riderNumberOfSeats = itemView.findViewById(R.id.text_passenger_number);
             riderPrice = itemView.findViewById(R.id.text_earnings_entity);
         }
+    }
+    private void initProfile() {
+        ImageView profileImageView = (ImageView) mCarpoolRequestsView.findViewById(R.id.profile_carpool_requests);
+        profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+            }
+        });
     }
 }

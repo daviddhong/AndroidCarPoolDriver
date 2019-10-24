@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateAccountCarType extends AppCompatActivity {
+public class DCreateAccountCarType extends AppCompatActivity {
     private EditText car_make_model;
     private String fname, lname, uemail, upw;
 
@@ -40,7 +40,7 @@ public class CreateAccountCarType extends AppCompatActivity {
             public void onClick(View v) {
                 String carmakemodel = car_make_model.getText().toString();
                 if (!(carmakemodel.isEmpty())) {
-                    Intent intent = new Intent(CreateAccountCarType.this, CreateAccountDriversLicense.class);
+                    Intent intent = new Intent(DCreateAccountCarType.this, ECreateAccountDriversLicense.class);
 
                     Bundle dataBundle = new Bundle();
                     dataBundle.putString("first_name", fname);
@@ -48,10 +48,11 @@ public class CreateAccountCarType extends AppCompatActivity {
                     dataBundle.putString("user_email", uemail);
                     dataBundle.putString("user_pw", upw);
                     dataBundle.putString("user_car", carmakemodel);
-
+                    intent.putExtras(dataBundle);
                     startActivity(intent);
+
                 } else {
-                    Toast.makeText(CreateAccountCarType.this, "Please Fill in the model and year of your car", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DCreateAccountCarType.this, "Please Fill in the model and year of your car", Toast.LENGTH_LONG).show();
 
                 }
             }

@@ -23,7 +23,7 @@
         <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolRouteActivity"/>
         <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolSeatsActivity"/>
         <activity android:name=".AppFragment.BPostCarpool.content.PostCarpoolTimeActivity"/>
-        <activity android:name=".AppFragment.DAcceptPendingRequests.content.AcceptedCarpoolRequestActivity"/>
+        <activity android:name=".AppFragment.ACarpoolRiderRequests.content.AcceptedCarpoolRequestActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Password.CurrentPasswordActivity"/>
         <activity android:name=".AppFragment.ESettings.content.Password.NewPasswordActivity"/>
         <activity android:name=".AppFragment.ESettings.content.payment.PaymentActivity"/>
@@ -37,12 +37,12 @@
         <activity android:name=".AppFragment.BottomNavigationMainActivity"/>
 
         <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountCarType"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountDriversLicense"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.DCreateAccountCarType"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.ECreateAccountDriversLicense"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.BCreateAccountEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.ACreateAccountName"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CCreateAccountPassword"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.ZCreateAccountPhoneNumber"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".StartFromLogIn.LogInActivity"/>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>

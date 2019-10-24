@@ -22,7 +22,7 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 
 import java.util.List;
 
-public class CreateAccountEmail extends AppCompatActivity {
+public class BCreateAccountEmail extends AppCompatActivity {
 
     private TextView personname;
     private EditText uemail;
@@ -57,7 +57,7 @@ public class CreateAccountEmail extends AppCompatActivity {
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateAccountEmail.this, WhySelectiveEmail.class);
+                Intent intent = new Intent(BCreateAccountEmail.this, WhySelectiveEmail.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +79,7 @@ public class CreateAccountEmail extends AppCompatActivity {
                                         List<String> signInMethods = result.getSignInMethods();
 
                                         if (signInMethods.isEmpty()) {
-                                            Intent intent = new Intent(CreateAccountEmail.this, CreateAccountPassword.class);
+                                            Intent intent = new Intent(BCreateAccountEmail.this, CCreateAccountPassword.class);
                                             Bundle dataBundle = new Bundle();
                                             dataBundle.putString("first_name", fname);
                                             dataBundle.putString("last_name", lname);
@@ -89,20 +89,20 @@ public class CreateAccountEmail extends AppCompatActivity {
 
                                         } else if (signInMethods.contains(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)) {
                                             // User can sign in with email/password
-                                            Toast.makeText(CreateAccountEmail.this, "Email Already In Use", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(BCreateAccountEmail.this, "Email Already In Use", Toast.LENGTH_SHORT).show();
 
                                         } else if (signInMethods.contains(EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD)) {
                                             // User can sign in with email/link
-                                            Toast.makeText(CreateAccountEmail.this, "Email link in use", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(BCreateAccountEmail.this, "Email link in use", Toast.LENGTH_SHORT).show();
 
                                         }
                                     } else {
-                                        Toast.makeText(CreateAccountEmail.this, "Email Invalid", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(BCreateAccountEmail.this, "Email Invalid", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
                 } else {
-                    Toast.makeText(CreateAccountEmail.this, "Please Enter Your Email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BCreateAccountEmail.this, "Please Enter Your Email", Toast.LENGTH_LONG).show();
                 }
             }
         });

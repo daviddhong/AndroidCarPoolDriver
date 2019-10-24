@@ -1,5 +1,6 @@
 package android.carpooldriver.AppFragment.CConfirmedCarpoolFragment;
 
+import android.carpooldriver.AppFragment.ACarpoolRiderRequests.ACarpoolRiderRequestsFragment;
 import android.carpooldriver.AppFragment.ACarpoolRiderRequests.content.DriverRequestTicketClass;
 import android.carpooldriver.R;
 import android.os.Bundle;
@@ -26,6 +27,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CConfirmedCarpoolFragment extends Fragment {
 
@@ -95,6 +99,7 @@ public class CConfirmedCarpoolFragment extends Fragment {
                                 public void onClick(View v) {
 
                                     //todo cancel when button pressed
+//                                    ACarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
                                     RemoveSpecificContact(riderKeyID);
                                 }
                             });
@@ -228,6 +233,29 @@ public class CConfirmedCarpoolFragment extends Fragment {
                         }
                     }
                 });
+
+        RiderTicketsRef.child(receiverKeyID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Map<String, Object> profileMap = new HashMap<>();
+                    String status = "0";
+                    profileMap.put("status", status);
+                    profileMap.put("status_uid", status + receiverUID);
+                    RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+                } else {
+                    Map<String, Object> profileMap = new HashMap<>();
+                    String status = "0";
+                    profileMap.put("status", status);
+                    profileMap.put("status_uid", status + senderUIDme);
+                    DriverTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
     }
 
 

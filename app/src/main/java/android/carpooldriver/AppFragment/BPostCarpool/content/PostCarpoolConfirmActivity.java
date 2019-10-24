@@ -146,6 +146,8 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
         profileMap.put("Price", earnings);
         profileMap.put("Date", date);
         profileMap.put("Time", time);
+        profileMap.put("status", "0");
+        profileMap.put("status_uid", "0"+currentUserID);
         RootKeyRef.updateChildren(profileMap);
     }
 
