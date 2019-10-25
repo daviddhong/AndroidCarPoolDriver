@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateAccountPasswordActivity extends AppCompatActivity {
 
-    private String fname, lname, uemail;
+    private String fname, lname, uemail, pnumb;
     private EditText userpw, confirmpw;
 
     @Override
@@ -28,6 +28,7 @@ public class CreateAccountPasswordActivity extends AppCompatActivity {
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
         uemail = gotname.getString("user_email");
+        pnumb = gotname.getString("phone_number");
 
         initContinue();
         initBack();
@@ -63,10 +64,10 @@ public class CreateAccountPasswordActivity extends AppCompatActivity {
                     Intent intent = new Intent(CreateAccountPasswordActivity.this, CreateAccountCarTypeActivity.class);
 
                     Bundle dataBundle = new Bundle();
-
                     dataBundle.putString("first_name", fname);
                     dataBundle.putString("last_name", lname);
                     dataBundle.putString("user_email", uemail);
+                    dataBundle.putString("phone_number", pnumb);
                     dataBundle.putString("user_pw", upw);
 
                     intent.putExtras(dataBundle);

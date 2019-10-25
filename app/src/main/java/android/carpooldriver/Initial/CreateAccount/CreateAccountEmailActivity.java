@@ -79,7 +79,7 @@ public class CreateAccountEmailActivity extends AppCompatActivity {
                                         List<String> signInMethods = result.getSignInMethods();
 
                                         if (signInMethods.isEmpty()) {
-                                            Intent intent = new Intent(CreateAccountEmailActivity.this, CreateAccountPasswordActivity.class);
+                                            Intent intent = new Intent(CreateAccountEmailActivity.this, CreateAccountPhoneNumberActivity.class);
                                             Bundle dataBundle = new Bundle();
                                             dataBundle.putString("first_name", fname);
                                             dataBundle.putString("last_name", lname);

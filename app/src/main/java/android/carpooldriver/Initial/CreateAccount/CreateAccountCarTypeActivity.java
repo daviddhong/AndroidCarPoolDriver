@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateAccountCarTypeActivity extends AppCompatActivity {
     private EditText car_make_model;
-    private String fname, lname, uemail, upw;
+    private String fname, lname, uemail, pnumb, upw;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class CreateAccountCarTypeActivity extends AppCompatActivity {
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
         uemail = gotname.getString("user_email");
+        pnumb = gotname.getString("phone_number");
         upw = gotname.getString("user_pw");
 
 
@@ -46,6 +47,7 @@ public class CreateAccountCarTypeActivity extends AppCompatActivity {
                     dataBundle.putString("first_name", fname);
                     dataBundle.putString("last_name", lname);
                     dataBundle.putString("user_email", uemail);
+                    dataBundle.putString("phone_number", pnumb);
                     dataBundle.putString("user_pw", upw);
                     dataBundle.putString("user_car", carmakemodel);
                     intent.putExtras(dataBundle);

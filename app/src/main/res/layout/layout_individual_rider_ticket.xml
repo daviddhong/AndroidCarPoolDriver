@@ -370,8 +370,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:hint="Phone number"
-                        android:visibility="invisible"
+                        android:text="123-456-7890"
+                        android:visibility="visible"
                         android:layout_centerVertical="true"/>
 
                 </RelativeLayout>
@@ -404,11 +404,11 @@
                         android:onClick="callNumber">
 
                         <ImageView
-                            android:layout_width="17dp"
-                            android:layout_height="17dp"
-                            android:src="@drawable/ic_phone"
+                            android:layout_width="11dp"
+                            android:layout_height="14dp"
                             android:layout_centerInParent="true"
-                            android:tint="#FFF"/>
+                            android:src="@drawable/ic_phone"
+                            android:tint="#FFF" />
 
                     </RelativeLayout>
                 </RelativeLayout>

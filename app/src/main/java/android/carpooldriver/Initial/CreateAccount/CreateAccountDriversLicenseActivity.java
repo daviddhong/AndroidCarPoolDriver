@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class CreateAccountDriversLicenseActivity extends AppCompatActivity {
 
-    private String fname, lname, uemail, upw, ucar;
+    private String fname, lname, uemail, pnumb, upw, ucar;
     private RelativeLayout create_account_button;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -45,6 +45,7 @@ public class CreateAccountDriversLicenseActivity extends AppCompatActivity {
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
         uemail = gotname.getString("user_email");
+        pnumb = gotname.getString("phone_number");
         upw = gotname.getString("user_pw");
         ucar = gotname.getString("user_car");
 
@@ -71,7 +72,7 @@ public class CreateAccountDriversLicenseActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
 
-                    CollectFirstLastNameEmailIntoRealTimeDatabase(fname, lname, uemail, ucar);
+                    CollectFirstLastNameEmailIntoRealTimeDatabase(fname, lname, uemail, pnumb, ucar);
                     SendVerificationEmail();
 
 
@@ -89,23 +90,23 @@ public class CreateAccountDriversLicenseActivity extends AppCompatActivity {
 
 //        try {
 //            final FirebaseUser currentUser = mAuth.getCurrentUser();
-            currentUser.sendEmailVerification()
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
+        currentUser.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
 
-                                Intent intent = new Intent(CreateAccountDriversLicenseActivity.this, LogInActivity.class);
-                                startActivity(intent);
+                            Intent intent = new Intent(CreateAccountDriversLicenseActivity.this, LogInActivity.class);
+                            startActivity(intent);
 
-                                Toast.makeText(CreateAccountDriversLicenseActivity.this,
-                                        "Verification email sent to \n" + uemail, Toast.LENGTH_LONG).show();
-                            } else {
-                                Toast.makeText(CreateAccountDriversLicenseActivity.this,
-                                        "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
-                            }
+                            Toast.makeText(CreateAccountDriversLicenseActivity.this,
+                                    "Verification email sent to \n" + uemail, Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(CreateAccountDriversLicenseActivity.this,
+                                    "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                         }
-                    });
+                    }
+                });
 
 //        } catch (NullPointerException e) {
 //            Toast.makeText(CreateAccountDriversLicenseActivity.this,
@@ -114,13 +115,14 @@ public class CreateAccountDriversLicenseActivity extends AppCompatActivity {
 //        }
     }
 
-    private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String userEmail, String userCar) {
+    private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String userEmail, String phoneNumber, String userCar) {
         String currentUserID = mAuth.getCurrentUser().getUid();
         HashMap<String, String> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);
         profileMap.put("firstname", firstN);
         profileMap.put("lastname", lastN);
         profileMap.put("email", userEmail);
+        profileMap.put("phone_number", phoneNumber);
         profileMap.put("carmodelmake", userCar);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
     }
