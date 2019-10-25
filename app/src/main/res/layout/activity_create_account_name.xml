@@ -23,7 +23,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_close"
-                android:tint="#0A1C2A" />
+                android:tint="#00A699" />
 
         </RelativeLayout>
 
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Start by telling us"
                 android:textSize="25sp"
-                android:textColor="#262626"
+                android:textColor="#00A699"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -52,7 +52,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
                 android:text="your name."
-                android:textColor="#262626"
+                android:textColor="#00A699"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#555B5B"
+                android:textColor="#484848"
                 android:text="The name has to be same as the name on your driver's license"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -83,8 +83,8 @@
             android:layout_marginTop="40dp"
             android:id="@+id/sign_up_name"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border"
+            android:layout_height="58dp"
+            android:background="@drawable/background_rectangle_babu_border"
             android:layout_centerInParent="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
@@ -97,7 +97,7 @@
                 android:background="@android:color/transparent"
                 android:hint="Enter First Name"
                 android:inputType="textPersonName"
-                android:textColor="#555B5B"
+                android:textColor="#767676"
                 android:textSize="15sp"
                 app:fontFamily="@font/roboto"/>
         </RelativeLayout>
@@ -107,8 +107,8 @@
             android:layout_below="@id/sign_up_name"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border"
+            android:layout_height="58dp"
+            android:background="@drawable/background_rectangle_babu_border"
             android:layout_centerInParent="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
@@ -121,7 +121,7 @@
                 android:background="@android:color/transparent"
                 android:hint="Enter Last Name"
                 android:inputType="textPersonName"
-                android:textColor="#555B5B"
+                android:textColor="#767676"
                 android:textSize="15sp"
                 app:fontFamily="@font/roboto"/>
         </RelativeLayout>
@@ -135,7 +135,8 @@
             android:layout_marginBottom="188dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/background_rectangle_fill">
+            android:background="@drawable/background_rectangle_fill"
+            android:backgroundTint="#00A699">
 
             <TextView
                 android:layout_width="wrap_content"

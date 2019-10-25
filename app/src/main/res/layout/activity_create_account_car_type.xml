@@ -23,7 +23,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#0A1C2A" />
+                android:tint="#5087E4" />
 
         </RelativeLayout>
 
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Provide us with some details"
                 android:textSize="25sp"
-                android:textColor="#262626"
+                android:textColor="#5087E4"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -50,7 +50,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
                 android:text="about your car."
-                android:textColor="#262626"
+                android:textColor="#5087E4"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -71,7 +71,7 @@
                     android:id="@+id/name_year_car"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#555B5B"
+                    android:textColor="#484848"
                     android:text="Your car name and year"
                     android:textSize="17sp"
                     android:textStyle="bold"
@@ -82,7 +82,7 @@
                 android:id="@+id/sign_up_car"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:background="@drawable/border_rectangle_unfilled_with_border"
+                android:background="@drawable/background_rectangle_fill_light"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
@@ -96,7 +96,7 @@
                     android:background="@android:color/transparent"
                     android:hint="eg. Hyundai KONA 2020"
                     android:inputType="textNoSuggestions"
-                    android:textColor="#555B5B"
+                    android:textColor="#767676"
                     android:textSize="15sp"
                     app:fontFamily="@font/roboto"/>
 
@@ -113,7 +113,8 @@
             android:layout_marginBottom="188dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/background_rectangle_fill">
+            android:background="@drawable/background_rectangle_fill"
+            android:backgroundTint="#5087E4">
 
             <TextView
                 android:layout_width="wrap_content"
