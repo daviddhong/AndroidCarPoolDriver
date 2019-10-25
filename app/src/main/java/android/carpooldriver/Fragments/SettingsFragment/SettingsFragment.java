@@ -31,9 +31,9 @@ public class SettingsFragment extends Fragment {
     View mMoreView;
     private RelativeLayout sign_out_button;
     FirebaseAuth mAuth;
-
-    private DatabaseReference RootRef;
     String currentUID;
+    private DatabaseReference RootRef;
+
     private TextView firstName, lastName;
 
     @Nullable

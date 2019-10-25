@@ -40,22 +40,27 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     private TelephonyManager mTelephonyManager;
     private MyPhoneCallListener mListener;
 
-    private String receiverKeyID, senderUID, current_state, receiverUID, requestStatus;
+    private String receiverKeyID, uuid, senderUID, current_state, receiverUID, currentUID;
     private RelativeLayout confirmButton, backButton;
-    private DatabaseReference UserRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderTicketsRef, asd;
-    private TextView confirm_carpool_button_word, riderPhoneNumber, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
+    private DatabaseReference UserRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderTicketsRef, RootRef;
+    private TextView confirm_carpool_button_word, textView, riderPhoneNumber, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_individual_rider_ticket);
         initializeFields();
+        currentUID = mAuth.getCurrentUser().getUid();
+        textView = (TextView) findViewById(R.id.phone_number_data);
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
         backButtonInit();
         RetrieveTicketStatusInformation();
 
         extractReceiverUID();
         fillTicketInformationFromDatabase();
-
         RiderTicketsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -63,6 +68,24 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                     String receiveruID = dataSnapshot
                             .child(receiverKeyID).child("uid").getValue().toString();
                     receiverUID = receiveruID;
+
+
+
+                    RootRef.child("Users").child(receiverUID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                textView.setText(dataSnapshot.child("phone_number").getValue().toString());
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                    
+
                 }
             }
 
@@ -70,6 +93,8 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+
 
 
         // Create a telephony manager.
@@ -91,9 +116,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     }
 
     public void callNumber(View view) {
-        TextView textView = (TextView) findViewById(R.id.phone_number_data);
-
-        // Use format with "tel:" and phone number to create phoneNumber.
+           // Use format with "tel:" and phone number to create phoneNumber.
         String phoneNumber = String.format("tel: %s", textView.getText().toString());
 
         // Log the concatenated phone number for dialing.
@@ -164,6 +187,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     // Inner class
     private class MyPhoneCallListener extends PhoneStateListener {
         private boolean returningFromOffHook = false;
+
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
             // Define a string for the message to use in a toast.
@@ -222,7 +246,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     }
 
     public void smsSendMessage(View view) {
-        TextView textView = (TextView) findViewById(R.id.phone_number_data);
+//        TextView textView = (TextView) findViewById(R.id.phone_number_data);
 
         // Use format with "smsto:" and phone number to create smsNumber.
         String smsNumber = String.format("smsto: %s", textView.getText().toString());
@@ -324,7 +348,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     private void initializeFields() {
         // initialize fields
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
@@ -332,6 +356,8 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 //        receiverUID = dataSnapshot.child("RiderTicekts").child(receiverKeyID).child("uid").getValue().toString();
         //should be the receiver's uid
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
+//        uuid = getIntent().getExtras().get("clicked_id").toString();
+
         senderUID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         backButton = (RelativeLayout) findViewById(R.id.backButtonOniTicket);
@@ -382,7 +408,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                 Map<String, Object> profileMap = new HashMap<>();
                                 String status = "1";
                                 profileMap.put("status", status);
-                                profileMap.put("status_uid", status+receiverUID);
+                                profileMap.put("status_uid", status + receiverUID);
 
                                 RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
 
@@ -442,7 +468,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 Map<String, Object> profileMap = new HashMap<>();
                                                 String status = "0";
                                                 profileMap.put("status", status);
-                                                profileMap.put("status_uid", status+receiverUID);
+                                                profileMap.put("status_uid", status + receiverUID);
                                                 RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
 
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
@@ -495,7 +521,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 Map<String, Object> profileMap = new HashMap<>();
                                                 String status = "1";
                                                 profileMap.put("status", status);
-                                                profileMap.put("status_uid", status+receiverUID);
+                                                profileMap.put("status_uid", status + receiverUID);
 
                                                 RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
 
@@ -503,7 +529,6 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
                                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
 //                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
                                                 Toast.makeText(IndividualRiderTicketActivity.this, "Sent request to driver", Toast.LENGTH_LONG).show();
-
 
 
                                             }

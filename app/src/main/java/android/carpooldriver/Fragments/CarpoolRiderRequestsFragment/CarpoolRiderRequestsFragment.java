@@ -79,8 +79,11 @@ public class CarpoolRiderRequestsFragment extends Fragment {
                                 @Override
                                 public void onClick(View v) {
                                     clicked_user_uid = getRef(i).getKey();
+//                                    String clicked_uid = getRef(i).child("uid").toString();
                                     Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
                                     intent.putExtra("clicked_user_id", clicked_user_uid);
+//                                    intent.putExtra("clicked_uid", clicked_uid);
+
                                     startActivity(intent);
                                 }
                             });
