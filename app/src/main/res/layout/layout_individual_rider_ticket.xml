@@ -342,7 +342,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/contact_text_constant"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/profile_name"
@@ -362,7 +362,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/name_expand"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_below="@+id/contact_text_constant">
 
                     <TextView
@@ -389,6 +389,8 @@
                         android:text="Call"
                         android:textSize="12sp"
                         android:id="@+id/phone_text_constant"
+                        android:textColor="#484848"
+                        android:fontFamily="@font/roboto"
                         android:layout_centerVertical="true"/>
 
                     <RelativeLayout
@@ -423,7 +425,9 @@
                         android:text="or"
                         android:textSize="12sp"
                         android:id="@+id/message_text_constant"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerVertical="true"
+                        android:textColor="#484848"
+                        android:fontFamily="@font/roboto"/>
 
                     <EditText
                         android:id="@+id/text_message"
@@ -433,7 +437,10 @@
                         android:layout_marginLeft="15dp"
                         android:hint="Enter message here"
                         android:textSize="12sp"
-                        android:inputType="textMultiLine"/>
+                        android:inputType="textMultiLine"
+                        android:textColor="#484848"
+                        android:fontFamily="@font/roboto"
+                        android:textColorHint="#484848"/>
 
                     <ImageView
                         android:id="@+id/message_icon"
