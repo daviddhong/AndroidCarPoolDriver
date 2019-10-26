@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class CarpoolRiderRequestsFragment extends Fragment {
@@ -56,9 +57,18 @@ public class CarpoolRiderRequestsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        //todo. fire base cannot filter out if your own ride ticket.
+        Query rreceiveriderQuery = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("RiderTickets")
+                .orderByChild("status")
+                .equalTo("0");
+
         FirebaseRecyclerOptions<RiderRequestTicketClass> options
                 = new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
-                .setQuery(RiderTicketsRef, RiderRequestTicketClass.class)
+                .setQuery(rreceiveriderQuery, RiderRequestTicketClass.class)
                 .build();
         FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder> adapter
                 = new FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder>(options) {

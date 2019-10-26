@@ -21,11 +21,12 @@ public class CreateAccountPhoneNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account_phone_number);
 
+        phoneNumb = findViewById(R.id.editText_phonenumber_sign_up);
+
         Bundle gotname = getIntent().getExtras();
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
         uemail = gotname.getString("user_email");
-        phoneNumb = findViewById(R.id.editText_phonenumber_sign_up);
 
         initContinue();
         initBack();
@@ -36,12 +37,15 @@ public class CreateAccountPhoneNumberActivity extends AppCompatActivity {
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String phone_num = phoneNumb.getText().toString();
+
                 if (phone_num.isEmpty()) {
                     Toast.makeText(CreateAccountPhoneNumberActivity.this, "Please Enter Phone Number", Toast.LENGTH_SHORT).show();
-                } else if ((phone_num.length() < 9) || (phone_num.length() > 11)) {
+                } else if ((phone_num.length() < 10) || (phone_num.length() > 11)) {
                     Toast.makeText(CreateAccountPhoneNumberActivity.this, "Please Enter Valid Phone Number", Toast.LENGTH_SHORT).show();
                 } else {
+
                     Intent intent = new Intent(CreateAccountPhoneNumberActivity.this, CreateAccountPasswordActivity.class);
                     Bundle dataBundle = new Bundle();
                     dataBundle.putString("first_name", fname);

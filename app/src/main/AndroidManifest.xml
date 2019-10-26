@@ -22,13 +22,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Fragments.CarpoolRiderRequestsFragment.Content.AcceptedCarpoolRequestActivity"/>
         <activity android:name=".Fragments.CarpoolRiderRequestsFragment.Content.IndividualRiderTicketActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolConfirmActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolDateActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolRouteActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolSeatsActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.Content.PostCarpoolTimeActivity"/>
-        <activity android:name=".Fragments.CarpoolRiderRequestsFragment.Content.AcceptedCarpoolRequestActivity"/>
         <activity android:name=".Fragments.SettingsFragment.Content.PasswordActivities.CurrentPasswordActivity"/>
         <activity android:name=".Fragments.SettingsFragment.Content.PasswordActivities.NewPasswordActivity"/>
         <activity android:name=".Fragments.SettingsFragment.Content.PaymentActivities.PaymentActivity"/>

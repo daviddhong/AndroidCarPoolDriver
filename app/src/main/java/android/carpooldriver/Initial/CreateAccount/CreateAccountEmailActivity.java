@@ -68,7 +68,9 @@ public class CreateAccountEmailActivity extends AppCompatActivity {
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String email = uemail.getText().toString();
+
                 if (!(email.isEmpty())) {
                     firebaseAuth.fetchSignInMethodsForEmail(email)
                             .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {

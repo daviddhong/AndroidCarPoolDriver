@@ -44,7 +44,6 @@ public class CreateAccountNameActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Toast.makeText(CreateAccountNameActivity.this, "Please Enter Your First and Last Name", Toast.LENGTH_LONG).show();
-
                 }
             }
         });

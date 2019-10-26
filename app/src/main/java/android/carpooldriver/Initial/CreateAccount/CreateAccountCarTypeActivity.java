@@ -40,6 +40,7 @@ public class CreateAccountCarTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String carmakemodel = car_make_model.getText().toString();
+
                 if (!(carmakemodel.isEmpty())) {
                     Intent intent = new Intent(CreateAccountCarTypeActivity.this, CreateAccountDriversLicenseActivity.class);
 
