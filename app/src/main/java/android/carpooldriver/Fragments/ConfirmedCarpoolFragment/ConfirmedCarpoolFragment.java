@@ -1,6 +1,6 @@
 package android.carpooldriver.Fragments.ConfirmedCarpoolFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.Content.DriverRequestTicketClass;
+import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.DriverRequestTicketClass;
 import android.carpooldriver.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;

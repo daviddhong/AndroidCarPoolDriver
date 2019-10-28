@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments;
+package android.carpooldriver;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,17 +9,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsFragment;
-import android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolFragment;
 import android.carpooldriver.Fragments.ConfirmedCarpoolFragment.ConfirmedCarpoolFragment;
 import android.carpooldriver.Fragments.AcceptPendingRequestsFragment.AcceptPendingRequestsFragment;
+import android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolFragment;
 import android.carpooldriver.Fragments.SettingsFragment.SettingsFragment;
-import android.carpooldriver.Fragments.SettingsFragment.Content.ProfileActivities.ProfileActivity;
-import android.carpooldriver.R;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -33,8 +28,6 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
         setContentView(R.layout.navigation_drawer);
 
         initToolbar();
-
-        initProfile();
 
         initFragment();
 
@@ -52,18 +45,6 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
         drawerLayout.addDrawerListener(toggle);
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.main));
         toggle.syncState();
-    }
-
-    private void initProfile() {
-        ImageView profileImageView = findViewById(R.id.profile_toolbar);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(NavigationDrawerMainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
     }
 
     @Override

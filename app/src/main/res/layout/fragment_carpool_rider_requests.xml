@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textColor="#00205b"
+                    android:textColor="#383838"
                     android:text="Carpool requests"
                     android:textSize="28sp"
                     android:textStyle="bold"
@@ -41,7 +41,7 @@
                     android:layout_below="@id/title_carpool_requests"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:textColor="#a7a9ac"
+                    android:textColor="#405DE6"
                     android:text="The following are a list of possible carpool routes requested by riders. Learn more about the
 by clicking on the top right corner."
                     android:textSize="15sp"

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="Hi"
-            android:textColor="#00205b"
+            android:textColor="#383838"
             android:textSize="27sp"
             android:textStyle="bold"
             app:fontFamily="@font/roboto_bold" />
@@ -35,8 +35,8 @@
             android:layout_toEndOf="@id/text_nav_header_greetings"
             android:layout_toRightOf="@id/text_nav_header_greetings"
             android:hint="Name"
-            android:textColor="#00205b"
-            android:textColorHint="#00205b"
+            android:textColor="#383838"
+            android:textColorHint="#383838"
             android:textSize="27sp"
             android:textStyle="bold"
             app:fontFamily="@font/roboto_bold" />
@@ -51,7 +51,7 @@
             android:layout_toEndOf="@+id/text_nav_header_name"
             android:layout_toRightOf="@+id/text_nav_header_name"
             android:text="."
-            android:textColor="#00205b"
+            android:textColor="#383838"
             android:textSize="27sp"
             android:textStyle="bold"
             app:fontFamily="@font/roboto_bold" />

@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.SettingsFragment.Content;
+package android.carpooldriver.Fragments.SettingsFragment.SettingsContent.ProfileActivities;
 
 import android.carpooldriver.R;
 import android.os.Bundle;
@@ -8,18 +8,18 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class OpenSourceLicenseActivity extends AppCompatActivity {
+public class ProfileEditNameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_open_source_license);
+        setContentView(R.layout.activity_edit_name);
 
-        initBack();
+        backButton();
     }
 
-    private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_settings_open_source);
+    private void backButton() {
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_profile_edit_name);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,15 +1,11 @@
 package android.carpooldriver.Fragments.AcceptPendingRequestsFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.Content.AcceptedCarpoolRequestActivity;
-import android.carpooldriver.Fragments.AcceptPendingRequestsFragment.AcceptPendingRequestsFragment;
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.Content.RiderRequestTicketClass;
+import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 import android.carpooldriver.R;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;

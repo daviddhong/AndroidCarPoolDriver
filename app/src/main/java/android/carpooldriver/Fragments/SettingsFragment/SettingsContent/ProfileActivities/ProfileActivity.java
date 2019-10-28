@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.SettingsFragment.Content.ProfileActivities;
+package android.carpooldriver.Fragments.SettingsFragment.SettingsContent.ProfileActivities;
 
 import android.carpooldriver.R;
 import android.content.Intent;

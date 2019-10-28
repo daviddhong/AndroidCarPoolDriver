@@ -1,16 +1,16 @@
-package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.Content;
+package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent;
 
-public class DriverRequestTicketClass {
+public class RiderRequestTicketClass {
 
     public String From, To, NumberOfSeats, Price, Date, Time;
 
 
-    public DriverRequestTicketClass() {
+    public RiderRequestTicketClass() {
     }
-    public DriverRequestTicketClass(String tickfrom, String tickto,
-                                    String ticknum, String tickprice,
-                                    //        String tickuid
-                                    String tickdate, String ticktime) {
+    public RiderRequestTicketClass(String tickfrom, String tickto,
+                                   String ticknum, String tickprice,
+                                   //        String tickuid
+                                   String tickdate, String ticktime) {
         this.From = tickfrom;
         this.To = tickto;
         this.NumberOfSeats = ticknum;

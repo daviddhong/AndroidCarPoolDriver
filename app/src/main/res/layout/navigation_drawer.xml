@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:background="#FFF"
-    tools:context=".Fragments.NavigationDrawerMainActivity"
+    tools:context=".NavigationDrawerMainActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
@@ -18,31 +18,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FFF"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-            <ImageView
-                android:id="@+id/profile_toolbar"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_account"
-                android:tint="#00205b"
-                android:layout_gravity="end"
-                android:layout_marginRight="15dp"/>
-
-            <ImageView
-                android:id="@+id/chat_toolbar"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_chat"
-                android:layout_centerVertical="true"
-                android:layout_gravity="end"
-                android:layout_marginRight="10dp"
-                android:tint="#00205b"/>
-
-        </androidx.appcompat.widget.Toolbar>
+            android:layout_height="58dp"
+            android:background="#FFF" />
 
         <RelativeLayout
             android:id="@+id/relative_layout_frame_layout"

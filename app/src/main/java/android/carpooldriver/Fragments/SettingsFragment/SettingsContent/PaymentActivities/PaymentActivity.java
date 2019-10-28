@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.SettingsFragment.Content.PaymentActivities;
+package android.carpooldriver.Fragments.SettingsFragment.SettingsContent.PaymentActivities;
 
 import android.carpooldriver.R;
 import android.os.Bundle;

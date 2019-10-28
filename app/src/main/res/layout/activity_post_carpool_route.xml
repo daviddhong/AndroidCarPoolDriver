@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.PostCarpoolFragment.PostCarpoolRouteActivity">
+    tools:context=".Fragments.PostCarpoolFragment.PostCarpoolContent.PostCarpoolRouteActivity">
 
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/post_new_carpool_one_map_view"
@@ -32,7 +32,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/background_oval_filled">
+            android:background="@drawable/background_oval_filled"
+            android:backgroundTint="#383838">
 
             <ImageView
                 android:layout_width="20dp"
@@ -57,7 +58,7 @@
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_forward"
-                android:tint="#262626"/>
+                android:tint="#383838"/>
 
             <RelativeLayout
                 android:id="@+id/origin_post_new_carpool_one"
@@ -75,7 +76,7 @@
                     android:ellipsize="start"
                     android:gravity="center"
                     android:hint="Origin"
-                    android:textColor="#555B5B"
+                    android:textColor="#767676"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -96,7 +97,7 @@
                     android:ellipsize="start"
                     android:gravity="center"
                     android:hint="Destination"
-                    android:textColor="#555B5B"
+                    android:textColor="#767676"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -128,7 +129,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_monetization"
-                android:tint="#262626"/>
+                android:tint="#405DE6"/>
 
             <TextView
                 android:id="@+id/text_view_cost"
@@ -139,7 +140,7 @@
                 android:ellipsize="start"
                 android:gravity="center|left"
                 android:hint="Price"
-                android:textColor="#555B5B"
+                android:textColor="#767676"
                 android:textSize="15sp" />
 
             <RelativeLayout
@@ -153,7 +154,7 @@
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_forward"
-                    android:tint="#262626"/>
+                    android:tint="#383838"/>
 
             </RelativeLayout>
 

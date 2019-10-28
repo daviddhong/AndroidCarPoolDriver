@@ -1,10 +1,10 @@
 package android.carpooldriver.Fragments.SettingsFragment;
 
-import android.carpooldriver.Fragments.SettingsFragment.Content.EmailActivity;
-import android.carpooldriver.Fragments.SettingsFragment.Content.OpenSourceLicenseActivity;
-import android.carpooldriver.Fragments.SettingsFragment.Content.PhoneNumberActivity;
-import android.carpooldriver.Fragments.SettingsFragment.Content.PasswordActivities.CurrentPasswordActivity;
-import android.carpooldriver.Fragments.SettingsFragment.Content.ProfileActivities.ProfileActivity;
+import android.carpooldriver.Fragments.SettingsFragment.SettingsContent.EmailActivity;
+import android.carpooldriver.Fragments.SettingsFragment.SettingsContent.OpenSourceLicenseActivity;
+import android.carpooldriver.Fragments.SettingsFragment.SettingsContent.PhoneNumberActivity;
+import android.carpooldriver.Fragments.SettingsFragment.SettingsContent.PasswordActivities.CurrentPasswordActivity;
+import android.carpooldriver.Fragments.SettingsFragment.SettingsContent.ProfileActivities.ProfileActivity;
 import android.carpooldriver.R;
 import android.carpooldriver.Initial.InitialActivity;
 import android.content.Intent;

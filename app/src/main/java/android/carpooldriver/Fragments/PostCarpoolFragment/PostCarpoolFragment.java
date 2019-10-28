@@ -1,7 +1,7 @@
 package android.carpooldriver.Fragments.PostCarpoolFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.Content.DriverRequestTicketClass;
-import android.carpooldriver.Fragments.PostCarpoolFragment.Content.PostCarpoolRouteActivity;
+import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.DriverRequestTicketClass;
+import android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolContent.PostCarpoolRouteActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;

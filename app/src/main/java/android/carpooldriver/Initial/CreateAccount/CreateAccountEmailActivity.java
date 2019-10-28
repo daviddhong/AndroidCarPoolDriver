@@ -1,7 +1,7 @@
 package android.carpooldriver.Initial.CreateAccount;
 
-import android.carpooldriver.R;
 import android.carpooldriver.Initial.CreateAccount.WhySelectiveEmail.SelectiveEmailDescriptionActivity;
+import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

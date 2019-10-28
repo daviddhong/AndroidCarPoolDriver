@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_height="198dp"
-            android:background="#33396A"
+            android:background="#405DE6"
             android:elevation="25dp">
 
             <RelativeLayout
@@ -52,7 +52,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
                     android:text="Post new carpool"
-                    android:textColor="#a7a9ac"
+                    android:textColor="#767676"
                     app:fontFamily="@font/roboto"
                     android:textSize="20sp" />
 
@@ -63,7 +63,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_next"
-                    android:tint="#33396A"/>
+                    android:tint="#767676"/>
 
             </RelativeLayout>
 

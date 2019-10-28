@@ -12,7 +12,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="388dp"
-            android:background="@drawable/background_drawable" />
+            android:background="@drawable/background_drawable"
+            android:backgroundTint="#383838"/>
 
         <RelativeLayout
             android:id="@+id/relative_layout_ic_back_activity_confirm"
@@ -46,7 +47,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="38dp"
             android:layout_below="@id/relative_layout_ic_back_activity_confirm"
-            android:background="@drawable/border_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled_ticket"
             android:elevation="20dp">
 
 
@@ -67,7 +68,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:text="Carpool Request"
-                        android:textColor="#FF5A5F"
+                        android:textColor="#262626"
                         android:textSize="17sp"
                         android:textStyle="bold"
                         app:fontFamily="@font/roboto_bold"/>
@@ -94,7 +95,7 @@
                             android:layout_height="7dp"
                             android:layout_centerHorizontal="true"
                             android:src="@drawable/ic_solid_to"
-                            android:tint="#FF5A5F"/>
+                            android:tint="#405DE6"/>
 
                         <RelativeLayout
                             android:id="@+id/path"
@@ -102,7 +103,8 @@
                             android:layout_height="38dp"
                             android:layout_below="@id/from"
                             android:layout_centerInParent="true"
-                            android:background="@drawable/path_solid">
+                            android:background="@drawable/path_solid"
+                            android:backgroundTint="#767676">
 
                         </RelativeLayout>
 
@@ -112,7 +114,7 @@
                             android:layout_below="@id/path"
                             android:layout_centerHorizontal="true"
                             android:src="@drawable/ic_solid_to"
-                            android:tint="#FF5A5F" />
+                            android:tint="#405DE6" />
 
                     </RelativeLayout>
 
@@ -144,8 +146,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/origin_location_text"
                                 android:hint="Pickup Location Name"
-                                android:textColor="#484848"
-                                android:textColorHint="#484848"
+                                android:textColor="#383838"
+                                android:textColorHint="#383838"
                                 android:textSize="12sp"
                                 app:fontFamily="@font/roboto"/>
                         </RelativeLayout>
@@ -173,8 +175,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/destination_location_text"
                                 android:hint="Destination Location Name"
-                                android:textColor="#484848"
-                                android:textColorHint="#484848"
+                                android:textColor="#383838"
+                                android:textColorHint="#383838"
                                 android:textSize="12sp"
                                 app:fontFamily="@font/roboto"/>
                         </RelativeLayout>
@@ -205,8 +207,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@id/image_seat"
                         android:hint="#"
-                        android:textColor="#484848"
-                        android:textColorHint="#484848"
+                        android:textColor="#383838"
+                        android:textColorHint="#383838"
                         android:textSize="12sp"
                         app:fontFamily="@font/roboto"/>
                 </RelativeLayout>
@@ -235,8 +237,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@id/image_calendar"
                         android:hint="Date of carpool"
-                        android:textColor="#484848"
-                        android:textColorHint="#484848"
+                        android:textColor="#383838"
+                        android:textColorHint="#383838"
                         android:textSize="12sp"
                         app:fontFamily="@font/roboto"/>
 
@@ -265,8 +267,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@id/image_time"
                         android:hint="Time of carpool"
-                        android:textColor="#484848"
-                        android:textColorHint="#484848"
+                        android:textColor="#383838"
+                        android:textColorHint="#383838"
                         android:textSize="12sp"
                         app:fontFamily="@font/roboto"/>
 
@@ -295,8 +297,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@id/image_monetization"
                         android:hint="$"
-                        android:textColor="#484848"
-                        android:textColorHint="#484848"
+                        android:textColor="#383838"
+                        android:textColorHint="#383838"
                         android:textSize="12sp"
                         app:fontFamily="@font/roboto"/>
 
@@ -307,7 +309,7 @@
                         android:layout_toRightOf="@id/earnings_text_confirm"
                         android:layout_marginLeft="10dp"
                         android:text="(CAD)"
-                        android:textColor="#FF5A5F"
+                        android:textColor="#405DE6"
                         android:textSize="12sp"
                         app:fontFamily="@font/roboto"/>
 
@@ -333,7 +335,7 @@
                     android:text="Contact"
                     app:fontFamily="@font/roboto_bold"
                     android:layout_marginTop="15dp"
-                    android:textColor="#FF5A5F"
+                    android:textColor="#383838"
                     android:textSize="17sp"
                     android:textStyle="bold"/>
 
@@ -349,10 +351,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Name"
-                        android:textColorHint="#555B5B"
+                        android:textColorHint="#383838"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        android:textColor="#555B5B"
+                        android:textColor="#383838"
                         app:fontFamily="@font/roboto_bold"/>
 
                 </RelativeLayout>
@@ -372,7 +374,8 @@
                         android:textSize="12sp"
                         android:text="123-456-7890"
                         android:visibility="visible"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerVertical="true"
+                        android:textColor="#767676"/>
 
                 </RelativeLayout>
 
@@ -389,7 +392,7 @@
                         android:text="Call"
                         android:textSize="12sp"
                         android:id="@+id/phone_text_constant"
-                        android:textColor="#484848"
+                        android:textColor="#383838"
                         android:fontFamily="@font/roboto"
                         android:layout_centerVertical="true"/>
 
@@ -400,7 +403,7 @@
                         android:layout_toRightOf="@id/phone_text_constant"
                         android:layout_marginLeft="15dp"
                         android:background="@drawable/background_oval_filled"
-                        android:backgroundTint="#5087E4"
+                        android:backgroundTint="#405DE6"
                         android:onClick="callNumber">
 
                         <ImageView
@@ -426,7 +429,7 @@
                         android:textSize="12sp"
                         android:id="@+id/message_text_constant"
                         android:layout_centerVertical="true"
-                        android:textColor="#484848"
+                        android:textColor="#383838"
                         android:fontFamily="@font/roboto"/>
 
                     <EditText
@@ -449,13 +452,13 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/text_message"
                         android:layout_marginLeft="15dp"
+                        android:tint="#405DE6"
                         android:src="@drawable/ic_message"
                         android:onClick="smsSendMessage"/>
                 </RelativeLayout>
 
 
             </RelativeLayout>
-
 
         </RelativeLayout>
         <RelativeLayout
@@ -472,7 +475,8 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="39dp"
                 android:layout_marginRight="39dp"
-                android:background="@drawable/background_rectangle_fill">
+                android:background="@drawable/background_rectangle_fill"
+                android:backgroundTint="#405DE6">
 
                 <TextView
                     android:id="@+id/confirm_carpool_button_word"

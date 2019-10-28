@@ -1,6 +1,6 @@
 package android.carpooldriver.Initial;
 
-import android.carpooldriver.Fragments.NavigationDrawerMainActivity;
+import android.carpooldriver.NavigationDrawerMainActivity;
 import android.carpooldriver.R;
 import android.carpooldriver.Initial.CreateAccount.CreateAccountNameActivity;
 import android.content.Intent;

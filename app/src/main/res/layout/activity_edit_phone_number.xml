@@ -26,7 +26,7 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#262626" />
+                    android:tint="#383838" />
 
             </RelativeLayout>
 
@@ -37,7 +37,7 @@
                 android:layout_centerInParent="true"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:textColor="#262626"
+                android:textColor="#383838"
                 app:fontFamily="@font/roboto_bold"/>
 
             <RelativeLayout
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:text="Save"
                     android:textSize="17sp"
-                    android:textColor="#2B4F81"
+                    android:textColor="#405DE6"
                     app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
@@ -64,7 +64,7 @@
             android:id="@+id/edit_phone_number_profile"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border"
+            android:background="@drawable/background_rectangle_fill_light"
             android:layout_marginTop="88dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
@@ -82,7 +82,7 @@
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_phone"
-                    android:tint="#262626"/>
+                    android:tint="#383838"/>
 
             </RelativeLayout>
 
@@ -95,7 +95,7 @@
                 android:background="@android:color/transparent"
                 android:hint="Phone number"
                 android:inputType="phone"
-                android:textColor="#555B5B"
+                android:textColor="#767676"
                 android:textSize="15sp" />
         </RelativeLayout>
 

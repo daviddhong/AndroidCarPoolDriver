@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.SettingsFragment.Content;
+package android.carpooldriver.Fragments.SettingsFragment.SettingsContent;
 
 import android.carpooldriver.R;
 import android.os.Bundle;

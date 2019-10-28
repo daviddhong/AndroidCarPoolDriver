@@ -26,7 +26,7 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#262626"
+                    android:tint="#383838"
                     app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"
-                    android:textColor="#2B4F81"
+                    android:textColor="#405DE6"
                     android:textSize="17sp"
                     app:fontFamily="@font/roboto"/>
 
@@ -58,7 +58,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="88dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border">
+            android:background="@drawable/background_rectangle_fill_light">
 
             <EditText
                 android:id="@+id/editText_car_name"
@@ -69,7 +69,7 @@
                 android:background="@android:color/transparent"
                 android:hint="eg. Hyundai KONA 2020"
                 android:inputType="textNoSuggestions"
-                android:textColor="#555B5B"
+                android:textColor="#767676"
                 android:textSize="15sp" />
 
             <ImageView
@@ -79,7 +79,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_car"
-                android:tint="#262626" />
+                android:tint="#383838" />
         </RelativeLayout>
 
     </RelativeLayout>

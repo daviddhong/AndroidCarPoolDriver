@@ -10,29 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/toolbar_settings"
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Settings"
-                android:textColor="#262626"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/roboto_bold" />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/welcomeuser"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_below="@id/toolbar_settings">
+            android:layout_height="70dp">
 
             <TextView
                 android:id="@+id/welcometext"
@@ -41,7 +23,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Hi"
-                android:textColor="#262626"
+                android:textColor="#383838"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold" />
@@ -54,8 +36,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@id/welcometext"
                 android:hint="F"
-                android:textColor="#262626"
-                android:textColorHint="#262626"
+                android:textColor="#405DE6"
+                android:textColorHint="#405DE6"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold" />
@@ -68,8 +50,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/firstnameofuser"
                 android:hint="L"
-                android:textColor="#262626"
-                android:textColorHint="#262626"
+                android:textColor="#405DE6"
+                android:textColorHint="#405DE6"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold" />
@@ -97,14 +79,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Profile"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto" />
@@ -132,14 +114,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Email"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto" />
@@ -167,14 +149,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Phone number"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto"/>
@@ -201,14 +183,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Account password"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto"/>
@@ -236,14 +218,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Payment"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto" />
@@ -272,14 +254,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Help"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto" />
@@ -309,14 +291,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#555B5B" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Open source license"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto" />
@@ -346,14 +328,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_next"
-                    android:tint="#657189" />
+                    android:tint="#383838" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Terms and policies"
-                    android:textColor="#555B5B"
+                    android:textColor="#383838"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto" />
@@ -372,14 +354,14 @@
             android:layout_marginLeft="58dp"
             android:layout_marginRight="58dp"
             android:layout_marginTop="28dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border_settings">
+            android:background="@drawable/border_rectangle_unfilled_with_border">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Sign out"
-                android:textColor="#262626"
+                android:textColor="#405DE6"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>

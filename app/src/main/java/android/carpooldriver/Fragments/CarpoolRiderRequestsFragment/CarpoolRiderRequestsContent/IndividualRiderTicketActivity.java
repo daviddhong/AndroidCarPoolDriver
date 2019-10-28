@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.Content;
+package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent;
 
 import android.Manifest;
 import android.carpooldriver.R;

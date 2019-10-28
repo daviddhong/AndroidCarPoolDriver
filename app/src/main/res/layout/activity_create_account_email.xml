@@ -23,7 +23,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#FF5A5F" />
+                android:tint="#383838" />
 
         </RelativeLayout>
 
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hi"
                 android:textSize="25sp"
-                android:textColor="#FF5A5F"
+                android:textColor="#383838"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -51,9 +51,9 @@
                 android:layout_toRightOf="@+id/text_row_one"
                 android:layout_marginLeft="10dp"
                 android:textSize="25sp"
-                android:textColor="#484848"
+                android:textColor="#305DE6"
                 android:hint="Person's Name"
-                android:textColorHint="#484848"
+                android:textColorHint="#405DE6"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -65,7 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
                 android:text="What is your email?"
-                android:textColor="#FF5A5F"
+                android:textColor="#383838"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -82,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#FF5A5F"
+                android:textColor="#383838"
                 android:text="Please provide your work or school email."
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -101,7 +101,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#484848"
+                android:textColor="#405DE6"
                 android:text="Why work or school email?"
                 android:textSize="15sp"
                 app:fontFamily="@font/roboto"/>
@@ -112,7 +112,7 @@
             android:id="@+id/sign_up_email"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:background="@drawable/background_rectangle_red_border"
+            android:background="@drawable/background_rectangle_fill_light"
             android:layout_centerInParent="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
@@ -124,7 +124,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_email_24dp"
-                android:tint="#FF5A5F"/>
+                android:tint="#383838"/>
 
             <EditText
                 android:id="@+id/editText_email_login_create"
@@ -151,7 +151,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/background_rectangle_fill"
-            android:backgroundTint="#FF5A5F">
+            android:backgroundTint="#405DE6">
 
             <TextView
                 android:layout_width="wrap_content"

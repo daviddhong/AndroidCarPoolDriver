@@ -28,7 +28,7 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#262626" />
+                    android:tint="#383838" />
 
             </RelativeLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="Open Source License"
                     android:textSize="20sp"
-                    android:textColor="#262626"
+                    android:textColor="#383838"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto_bold"/>
             </RelativeLayout>
@@ -66,23 +66,8 @@
                 android:layout_height="wrap_content"
                 android:text="The following sets forth attribution and for third party software that are contained in this application"
                 app:fontFamily="@font/roboto"
-                android:textColor="#555B5B"/>
+                android:textColor="#405DE6"/>
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/description_osl"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Icon made by"
-                android:textColor="#555B5B"
-                app:fontFamily="@font/roboto"/>
         </RelativeLayout>
 
     </RelativeLayout>

@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.SettingsFragment.Content.PasswordActivities;
+package android.carpooldriver.Fragments.SettingsFragment.SettingsContent.PasswordActivities;
 
 import android.carpooldriver.R;
 import android.os.Bundle;

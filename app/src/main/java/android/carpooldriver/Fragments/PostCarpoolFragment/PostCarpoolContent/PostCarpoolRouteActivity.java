@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.PostCarpoolFragment.Content;
+package android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolContent;
 
 import android.app.Activity;
 import android.carpooldriver.R;

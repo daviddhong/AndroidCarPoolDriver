@@ -1,6 +1,6 @@
-package android.carpooldriver.Fragments.PostCarpoolFragment.Content;
+package android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolContent;
 
-import android.carpooldriver.Fragments.NavigationDrawerMainActivity;
+import android.carpooldriver.NavigationDrawerMainActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
