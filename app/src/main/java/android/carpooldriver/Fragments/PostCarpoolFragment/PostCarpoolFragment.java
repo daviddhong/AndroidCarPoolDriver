@@ -49,6 +49,19 @@ public class PostCarpoolFragment extends Fragment {
         return mPostCarpoolView;
     }
 
+    // EFFECTS: Initialize the post new carpool activity.
+    private void initPostNewCarpool() {
+        RelativeLayout mPostCarpoolRelativeLayout = (RelativeLayout) mPostCarpoolView.findViewById(R.id.post_new_carpool);
+        mPostCarpoolRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PostCarpoolRouteActivity.class);
+                startActivity(intent);
+                // EFFECTS: Animation to Profile Activity
+                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+            }
+        });
+    }
 
     //use recycler view and friend list adapter to display list of friends
     private void displaysFriendsListbyRecyclerView() {
@@ -159,17 +172,4 @@ public class PostCarpoolFragment extends Fragment {
 
     }
 
-    // EFFECTS: Initialize the post new carpool activity.
-    private void initPostNewCarpool() {
-        RelativeLayout mPostCarpoolRelativeLayout = (RelativeLayout) mPostCarpoolView.findViewById(R.id.post_new_carpool);
-        mPostCarpoolRelativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PostCarpoolRouteActivity.class);
-                startActivity(intent);
-                // EFFECTS: Animation to Profile Activity
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
-    }
 }

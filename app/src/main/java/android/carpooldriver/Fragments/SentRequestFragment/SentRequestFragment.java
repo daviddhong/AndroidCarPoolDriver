@@ -1,5 +1,6 @@
-package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent;
+package android.carpooldriver.Fragments.SentRequestFragment;
 
+import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 import android.carpooldriver.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,18 +31,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
+public class SentRequestFragment  extends Fragment {
     private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef,UserRef,DriverTicketsRef;
     private String senderUIDme;
     private RecyclerView FriendRecyclerView;
+    private View mySentRequestView;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accepted_carpool_requests);
-        initBack();
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mySentRequestView = inflater.inflate(R.layout.fragment_accepted_carpool_requests, container, false);
         initiateFields();
+        return mySentRequestView;
     }
 
     private void initiateFields() {
@@ -52,21 +54,12 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
 
-        FriendRecyclerView = (RecyclerView) findViewById(R.id.rrides_requested_recycler_view);
-        FriendRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        FriendRecyclerView = (RecyclerView) mySentRequestView.findViewById(R.id.rrides_requested_recycler_view);
+        FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
 
     }
 
-    private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_accepted);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
 
     @Override
     public void onStart() {
@@ -206,7 +199,7 @@ public class AcceptedCarpoolRequestActivity extends AppCompatActivity {
 
 
 //                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
-                                                Toast.makeText(AcceptedCarpoolRequestActivity.this, "Canceled ticket request", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getContext(), "Canceled ticket request", Toast.LENGTH_LONG).show();
 
                                             }
                                         }

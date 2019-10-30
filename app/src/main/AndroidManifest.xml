@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NavigationDrawerMainActivity"/>
-        <activity android:name=".Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.AcceptedCarpoolRequestActivity"/>
+        <activity android:name=".Fragments.SentRequestFragment.AcceptedCarpoolRequestActivity"/>
         <activity android:name=".Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.PostCarpoolContent.PostCarpoolConfirmActivity"/>
         <activity android:name=".Fragments.PostCarpoolFragment.PostCarpoolContent.PostCarpoolDateActivity"/>

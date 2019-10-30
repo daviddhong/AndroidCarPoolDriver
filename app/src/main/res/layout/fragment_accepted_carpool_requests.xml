@@ -11,21 +11,21 @@
         android:layout_height="match_parent">
 
 
-        <RelativeLayout
-            android:id="@+id/rl_back_accepted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp">
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/rl_back_accepted"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginLeft="15dp">-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_arrow_back"
-                android:tint="#383838" />
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:src="@drawable/ic_arrow_back"-->
+<!--                android:tint="#383838" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <RelativeLayout
             android:id="@+id/description_carpool_request_pending_accepted"
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:textColor="#383838"
-                    android:text="Accepted carpool requests"
+                    android:text="Sent carpool requests"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     app:fontFamily="@font/roboto_bold"/>
@@ -61,7 +61,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="8dp"
                     android:textColor="#405DE6"
-                    android:text="The following are a list of rider's carpool requests that you have accepted that are pending approval. You can cancel your request at any time."
+                    android:text="The following are a list of rider's carpool requests that you have requested that are pending approval. You can cancel your request at any time."
                     android:textSize="15sp"
                     app:fontFamily="@font/roboto"/>
 

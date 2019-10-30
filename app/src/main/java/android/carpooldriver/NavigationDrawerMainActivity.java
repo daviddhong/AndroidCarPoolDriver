@@ -12,6 +12,7 @@ import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRider
 import android.carpooldriver.Fragments.ConfirmedCarpoolFragment.ConfirmedCarpoolFragment;
 import android.carpooldriver.Fragments.AcceptPendingRequestsFragment.AcceptPendingRequestsFragment;
 import android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolFragment;
+import android.carpooldriver.Fragments.SentRequestFragment.SentRequestFragment;
 import android.carpooldriver.Fragments.SettingsFragment.SettingsFragment;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -73,6 +74,9 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
         switch (item.getItemId()) {
             case R.id.nav_carpool_requests:
                 fragment = new CarpoolRiderRequestsFragment();
+                break;
+            case R.id.nav_sent_carpool_requests:
+                fragment = new SentRequestFragment();
                 break;
             case R.id.nav_post_carpool:
                 fragment = new PostCarpoolFragment();
