@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -83,9 +84,25 @@ public class CarpoolRiderRequestsFragment extends Fragment {
                             riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
                             riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
                             riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
-                            riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
+
+
+//                            riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    clicked_user_uid = getRef(i).getKey();
+////                                    String clicked_uid = getRef(i).child("uid").toString();
+//                                    Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
+//                                    intent.putExtra("clicked_user_id", clicked_user_uid);
+////                                    intent.putExtra("clicked_uid", clicked_uid);
+//
+//                                    startActivity(intent);
+//                                }
+//                            });
+
+
+                            riderticketholder.moreTicketInformation.setOnClickListener(new View.OnClickListener() {
                                 @Override
-                                public void onClick(View v) {
+                                public void onClick(View view) {
                                     clicked_user_uid = getRef(i).getKey();
 //                                    String clicked_uid = getRef(i).child("uid").toString();
                                     Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
@@ -93,15 +110,20 @@ public class CarpoolRiderRequestsFragment extends Fragment {
 //                                    intent.putExtra("clicked_uid", clicked_uid);
 
                                     startActivity(intent);
+
                                 }
                             });
+
+
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
             }
+
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -116,8 +138,11 @@ public class CarpoolRiderRequestsFragment extends Fragment {
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
+        RelativeLayout moreTicketInformation;
+
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
+            moreTicketInformation = itemView.findViewById(R.id.more_information_entity_request);
             riderFrom = itemView.findViewById(R.id.text_origin);
             riderTo = itemView.findViewById(R.id.text_destination);
             riderDate = itemView.findViewById(R.id.text_date);

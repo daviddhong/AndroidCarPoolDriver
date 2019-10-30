@@ -1,7 +1,9 @@
 package android.carpooldriver.Fragments.SentRequestFragment;
 
+import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
 import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 import android.carpooldriver.R;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,9 +34,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class SentRequestFragment  extends Fragment {
-    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef,UserRef,DriverTicketsRef;
-    private String senderUIDme;
+public class SentRequestFragment extends Fragment {
+    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef, UserRef, DriverTicketsRef;
+    private String senderUIDme, clicked_user_uid;
     private RecyclerView FriendRecyclerView;
     private View mySentRequestView;
 
@@ -115,6 +117,21 @@ public class SentRequestFragment  extends Fragment {
                                             holder.riderPrice.setText(ticketPrice);
                                             holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
 
+
+                                            holder.moreTicketInfo.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    clicked_user_uid = getRef(i).getKey();
+//                                    String clicked_uid = getRef(i).child("uid").toString();
+                                                    Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
+                                                    intent.putExtra("clicked_user_id", clicked_user_uid);
+//                                    intent.putExtra("clicked_uid", clicked_uid);
+
+                                                    startActivity(intent);
+                                                }
+                                            });
+
+
                                             holder.cancelButtonForRiderRequest.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
@@ -161,7 +178,7 @@ public class SentRequestFragment  extends Fragment {
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
-        RelativeLayout cancelButtonForRiderRequest;
+        RelativeLayout cancelButtonForRiderRequest, moreTicketInfo;
 
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
@@ -172,6 +189,7 @@ public class SentRequestFragment  extends Fragment {
             riderNumberOfSeats = itemView.findViewById(R.id.drivertext_passenger_number_post_accepted_rider);
             riderPrice = itemView.findViewById(R.id.drivertext_earnings_entity_post_accepted_rider);
             cancelButtonForRiderRequest = itemView.findViewById(R.id.cancel_carpool_accept_rider);
+            moreTicketInfo = itemView.findViewById(R.id.more_information_entity_request2);
         }
     }
 
@@ -193,7 +211,7 @@ public class SentRequestFragment  extends Fragment {
                                                 Map<String, Object> profileMap = new HashMap<>();
                                                 String status = "0";
                                                 profileMap.put("status", status);
-                                                profileMap.put("status_uid", status+receiverUID);
+                                                profileMap.put("status_uid", status + receiverUID);
 
                                                 RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
 
