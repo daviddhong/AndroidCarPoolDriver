@@ -4,7 +4,6 @@ import android.Manifest;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,10 +39,10 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     private TelephonyManager mTelephonyManager;
     private MyPhoneCallListener mListener;
 
-    private String receiverKeyID, uuid, senderUID, current_state, receiverUID, currentUID;
+    private String receiverKeyID, uuid, senderUID, current_state, receiverUID, currentUID, confirmed;
     private RelativeLayout confirmButton, backButton;
     private DatabaseReference UserRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderTicketsRef, RootRef;
-    private TextView confirm_carpool_button_word, textView, riderPhoneNumber, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
+    private TextView confirm_carpool_button_word, RiderPhoneNumber, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
     private FirebaseAuth mAuth;
 
 
@@ -52,54 +51,17 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_individual_rider_ticket);
         initializeFields();
-        currentUID = mAuth.getCurrentUser().getUid();
-        textView = (TextView) findViewById(R.id.phone_number_data);
-        RootRef = FirebaseDatabase.getInstance().getReference();
-
         backButtonInit();
         RetrieveTicketStatusInformation();
-
         extractReceiverUID();
         fillTicketInformationFromDatabase();
-        RiderTicketsRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    String receiveruID = dataSnapshot
-                            .child(receiverKeyID).child("uid").getValue().toString();
-                    receiverUID = receiveruID;
+        gettingPhoneNumberFromFirebase();
 
+        createATelephonyManager();
+    }
 
-
-                    RootRef.child("Users").child(receiverUID).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists()) {
-                                textView.setText(dataSnapshot.child("phone_number").getValue().toString());
-                            }
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-
-                    
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-
-
-
-        // Create a telephony manager.
+    private void createATelephonyManager() {
         mTelephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-
         if (isTelephonyEnabled()) {
             Log.d(TAG, "Telephony is enabled");
             // Check for phone permission.
@@ -116,20 +78,15 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     }
 
     public void callNumber(View view) {
-           // Use format with "tel:" and phone number to create phoneNumber.
-        String phoneNumber = String.format("tel: %s", textView.getText().toString());
-
+        // Use format with "tel:" and phone number to create phoneNumber.
+        String phoneNumber = String.format("tel: %s", RiderPhoneNumber.getText().toString());
         // Log the concatenated phone number for dialing.
         Log.d(TAG, "Phone Status: DIALING: " + phoneNumber);
-        Toast.makeText(this, "Phone Status: DIALING: " + phoneNumber,
-                Toast.LENGTH_LONG).show();
-
+        Toast.makeText(this, "Phone Status: DIALING: " + phoneNumber, Toast.LENGTH_LONG).show();
         // Create the intent.
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-
         // Set the data for the intent as the phone number.
         callIntent.setData(Uri.parse(phoneNumber));
-
         // If package resolves to an app, send intent.
         if (callIntent.resolveActivity(getPackageManager()) != null) {
             checkForPhonePermission();
@@ -153,20 +110,17 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     }
 
     private void checkForPhonePermission() {
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "PERMISSION NOT GRANTED!");
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.CALL_PHONE},
-                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, MY_PERMISSIONS_REQUEST_CALL_PHONE);
         } else {
             // Permission already granted. Enable the call button.
         }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[],
-                                           int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_CALL_PHONE: {
                 if (permissions[0].equalsIgnoreCase(Manifest.permission.CALL_PHONE)
@@ -246,10 +200,10 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     }
 
     public void smsSendMessage(View view) {
-//        TextView textView = (TextView) findViewById(R.id.phone_number_data);
+//        TextView RiderPhoneNumber = (TextView) findViewById(R.id.phone_number_data);
 
         // Use format with "smsto:" and phone number to create smsNumber.
-        String smsNumber = String.format("smsto: %s", textView.getText().toString());
+        String smsNumber = String.format("smsto: %s", RiderPhoneNumber.getText().toString());
 
         // Find the sms_message view.
         EditText smsEditText = (EditText) findViewById(R.id.text_message);
@@ -272,6 +226,37 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
     }
 
 
+    private void initializeFields() {
+        // initialize fields
+        confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
+        mAuth = FirebaseAuth.getInstance();
+        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
+        ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
+        Bundle gotname = getIntent().getExtras();
+        confirmed = gotname.getString("CONFIRMED");
+        if (!(confirmed == null)) {
+            current_state = confirmed;
+        } else {
+            current_state = "new_dontknoweachother";
+        }
+        receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
+        senderUID = mAuth.getCurrentUser().getUid();
+        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+        backButton = (RelativeLayout) findViewById(R.id.backButtonOniTicket);
+        confirmButton = (RelativeLayout) findViewById(R.id.confirm_carpool);
+        riderFrom = findViewById(R.id.origin_data);
+        riderTo = findViewById(R.id.destination_data);
+        riderDate = findViewById(R.id.date_data);
+        riderTime = findViewById(R.id.time_data);
+        riderNumberOfSeats = findViewById(R.id.passenger_seat_data);
+        riderPrice = findViewById(R.id.earnings_text_confirm);
+        riderName = findViewById(R.id.profile_name);
+        currentUID = mAuth.getCurrentUser().getUid();
+        RiderPhoneNumber = (TextView) findViewById(R.id.phone_number_data);
+        RootRef = FirebaseDatabase.getInstance().getReference();
+    }
+
     private void backButtonInit() {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -280,6 +265,187 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
             }
         });
     }
+
+    //todo check the USERREF.recieverkeyID
+    private void RetrieveTicketStatusInformation() {
+        UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ManageCarpoolRequest();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
+    private void ManageCarpoolRequest() {
+        DriverRequestingRiderRef.child(senderUID)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChild(receiverKeyID)) {
+
+                            String requestStatus = dataSnapshot.child(receiverKeyID)
+                                    .child("requeststatus").getValue().toString();
+
+//                            if (!(confirmed == null)) {
+////                                current_state = confirmed;
+//                                confirmButton.setVisibility(View.INVISIBLE);
+//                            }
+//                            if (current_state.equals("CONFIRMED")) {
+//                                confirmButton.setVisibility(View.INVISIBLE);
+//                            }
+
+                            if (requestStatus.equals("sent")) {
+                                current_state = "requestissent";
+//                                todo
+
+                                Map<String, Object> profileMap = new HashMap<>();
+                                String status = "1";
+                                profileMap.put("status", status);
+                                profileMap.put("status_uid", status + receiverUID);
+
+                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+                                confirm_carpool_button_word.setText("Cancel Carpool Request");
+//                                confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
+
+        if (current_state.equals("CONFIRMED")) {
+            confirmButton.setVisibility(View.INVISIBLE);
+        }
+
+        // double check for senderUID.equals(receiverKeyID) should be differnt!!
+        if (!senderUID.equals(receiverUID)) {
+            confirmButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    confirmButton.setVisibility(View.INVISIBLE);
+                    confirmButton.setEnabled(false);
+
+//                    if (current_state.equals("CONFIRMED")) {
+//                        confirmButton.setVisibility(View.INVISIBLE);
+//                    }
+
+                    if (current_state.equals("new_dontknoweachother")) {
+                        confirmButton.setVisibility(View.VISIBLE);
+                        SendRequestToPickUpRider();
+                    }
+                    if (current_state.equals("requestissent")) {
+                        confirmButton.setVisibility(View.VISIBLE);
+                        CancelCarpoolRequest();
+                    }
+                }
+            });
+        } else {
+//            confirmButton.setVisibility(View.INVISIBLE);
+            // todo shouldnt be called
+            confirm_carpool_button_word.setText("My own request... cannot request!");
+            confirmButton.setEnabled(false);
+        }
+    }
+
+    private void SendRequestToPickUpRider() {
+        DriverRequestingRiderRef.child(senderUID).child(receiverKeyID)
+                .child("requeststatus").setValue("sent")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+
+                            //putting the receivers uid
+                            HashMap<String, Object> ticketuserMap = new HashMap<>();
+                            ticketuserMap.put("receiverUID", receiverUID);
+                            DriverRequestingRiderRef.child(senderUID)
+                                    .child(receiverKeyID).updateChildren(ticketuserMap);
+
+                            //recieved should be the UID
+                            DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
+                                    .child("requeststatus").setValue("received")
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+
+                                                //putting the sender uid
+                                                HashMap<String, Object> ticketuserMap = new HashMap<>();
+                                                ticketuserMap.put("senderUID", senderUID);
+                                                DriverRequestingRiderRef.child(receiverUID)
+                                                        .child(receiverKeyID).updateChildren(ticketuserMap);
+
+                                                confirmButton.setEnabled(true);
+                                                current_state = "requestissent";
+
+
+                                                // todo
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "1";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status + receiverUID);
+
+                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
+                                                confirm_carpool_button_word.setText("Cancel Carpool Request");
+//                                                confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
+//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
+                                                Toast.makeText(IndividualRiderTicketActivity.this, "Sent request to driver", Toast.LENGTH_LONG).show();
+
+
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+    }
+
+    private void CancelCarpoolRequest() {
+        DriverRequestingRiderRef.child(senderUID).child(receiverKeyID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+
+                            DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
+                                    .removeValue()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                confirmButton.setEnabled(true);
+                                                current_state = "new_dontknoweachother";
+
+                                                // todo
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "0";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status + receiverUID);
+                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
+                                                confirm_carpool_button_word.setText("Request to Pickup Rider");
+//                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
+                                                Toast.makeText(IndividualRiderTicketActivity.this, "Canceled request to driver", Toast.LENGTH_LONG).show();
+
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+    }
+
 
     private void extractReceiverUID() {
 
@@ -344,198 +510,35 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 
     }
 
-
-    private void initializeFields() {
-        // initialize fields
-        confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
-        mAuth = FirebaseAuth.getInstance();
-        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
-        ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
-        current_state = "new_dontknoweachother";
-//        receiverUID = dataSnapshot.child("RiderTicekts").child(receiverKeyID).child("uid").getValue().toString();
-        //should be the receiver's uid
-        receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
-//        uuid = getIntent().getExtras().get("clicked_id").toString();
-
-        senderUID = mAuth.getCurrentUser().getUid();
-        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        backButton = (RelativeLayout) findViewById(R.id.backButtonOniTicket);
-
-        confirmButton = (RelativeLayout) findViewById(R.id.confirm_carpool);
-        riderFrom = findViewById(R.id.origin_data);
-        riderTo = findViewById(R.id.destination_data);
-        riderDate = findViewById(R.id.date_data);
-        riderTime = findViewById(R.id.time_data);
-        riderNumberOfSeats = findViewById(R.id.passenger_seat_data);
-        riderPrice = findViewById(R.id.earnings_text_confirm);
-        riderName = findViewById(R.id.profile_name);
-        riderPhoneNumber = findViewById(R.id.phone_number_data);
-
-
-    }
-
-    //todo check the USERREF.recieverkeyID
-    private void RetrieveTicketStatusInformation() {
-        UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
+    private void gettingPhoneNumberFromFirebase() {
+        RiderTicketsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ManageCarpoolRequest();
+                if (dataSnapshot.exists()) {
+                    String receiveruID = dataSnapshot
+                            .child(receiverKeyID).child("uid").getValue().toString();
+                    receiverUID = receiveruID;
+
+                    RootRef.child("Users").child(receiverUID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                RiderPhoneNumber.setText(dataSnapshot.child("phone_number").getValue().toString());
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-    }
-
-    private void ManageCarpoolRequest() {
-        DriverRequestingRiderRef.child(senderUID)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild(receiverKeyID)) {
-
-                            String requestStatus = dataSnapshot.child(receiverKeyID)
-                                    .child("requeststatus").getValue().toString();
-
-                            if (requestStatus.equals("sent")) {
-                                current_state = "requestissent";
-
-
-//                                todo
-
-                                Map<String, Object> profileMap = new HashMap<>();
-                                String status = "1";
-                                profileMap.put("status", status);
-                                profileMap.put("status_uid", status + receiverUID);
-
-                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
-
-                                confirm_carpool_button_word.setText("Cancel Carpool Request");
-//                                confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
-
-
-        // double check for senderUID.equals(receiverKeyID) should be differnt!!
-        if (!senderUID.equals(receiverUID)) {
-            confirmButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    confirmButton.setEnabled(false);
-                    if (current_state.equals("new_dontknoweachother")) {
-                        SendRequestToPickUpRider();
-                    }
-                    if (current_state.equals("requestissent")) {
-                        CancelCarpoolRequest();
-                    }
-                }
-            });
-        } else {
-//            confirmButton.setVisibility(View.INVISIBLE);
-            // todo shouldnt be called
-            confirm_carpool_button_word.setText("My own request... cannot request!");
-            confirmButton.setEnabled(false);
-        }
-    }
-
-    private void CancelCarpoolRequest() {
-        DriverRequestingRiderRef.child(senderUID).child(receiverKeyID)
-                .removeValue()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-
-                            DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
-                                    .removeValue()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                confirmButton.setEnabled(true);
-                                                current_state = "new_dontknoweachother";
-
-                                                // todo
-
-                                                Map<String, Object> profileMap = new HashMap<>();
-                                                String status = "0";
-                                                profileMap.put("status", status);
-                                                profileMap.put("status_uid", status + receiverUID);
-                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
-
-                                                confirm_carpool_button_word.setText("Request to Pickup Rider");
-//                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
-//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
-                                                Toast.makeText(IndividualRiderTicketActivity.this, "Canceled request to driver", Toast.LENGTH_LONG).show();
-
-                                            }
-                                        }
-                                    });
-                        }
-                    }
-                });
-    }
-
-    private void SendRequestToPickUpRider() {
-        DriverRequestingRiderRef.child(senderUID).child(receiverKeyID)
-                .child("requeststatus").setValue("sent")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-
-                            //putting the receivers uid
-                            HashMap<String, Object> ticketuserMap = new HashMap<>();
-                            ticketuserMap.put("receiverUID", receiverUID);
-                            DriverRequestingRiderRef.child(senderUID)
-                                    .child(receiverKeyID).updateChildren(ticketuserMap);
-
-                            //recieved should be the UID
-                            DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
-                                    .child("requeststatus").setValue("received")
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-
-                                                //putting the sender uid
-                                                HashMap<String, Object> ticketuserMap = new HashMap<>();
-                                                ticketuserMap.put("senderUID", senderUID);
-                                                DriverRequestingRiderRef.child(receiverUID)
-                                                        .child(receiverKeyID).updateChildren(ticketuserMap);
-
-                                                confirmButton.setEnabled(true);
-                                                current_state = "requestissent";
-
-
-                                                // todo
-
-                                                Map<String, Object> profileMap = new HashMap<>();
-                                                String status = "1";
-                                                profileMap.put("status", status);
-                                                profileMap.put("status_uid", status + receiverUID);
-
-                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
-
-                                                confirm_carpool_button_word.setText("Cancel Carpool Request");
-//                                                confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
-//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
-                                                Toast.makeText(IndividualRiderTicketActivity.this, "Sent request to driver", Toast.LENGTH_LONG).show();
-
-
-                                            }
-                                        }
-                                    });
-                        }
-                    }
-                });
     }
 }

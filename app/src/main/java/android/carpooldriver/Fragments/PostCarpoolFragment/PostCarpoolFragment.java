@@ -103,7 +103,7 @@ public class PostCarpoolFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
                                             int i, @NonNull DriverRequestTicketClass riderReqTickets) {
-
+                String usersIDS = getRef(i).getKey();
                 DriverTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -120,7 +120,7 @@ public class PostCarpoolFragment extends Fragment {
                             riderticketholder.xDeletingButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    usersIDS = getRef(i).getKey();
+//                                    usersIDS = getRef(i).getKey();
                                     DriverTicketsRef.child(usersIDS).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {

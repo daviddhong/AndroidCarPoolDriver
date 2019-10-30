@@ -121,7 +121,7 @@ public class PostCarpoolConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //save to realtime database
-                Toast.makeText(PostCarpoolConfirmActivity.this, "clicked", Toast.LENGTH_LONG).show();
+                Toast.makeText(PostCarpoolConfirmActivity.this, "Created Ticket", Toast.LENGTH_LONG).show();
                 saveToRealTimeDatabase();
                 Intent intent = new Intent(PostCarpoolConfirmActivity.this, NavigationDrawerMainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
