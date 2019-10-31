@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent;
+package android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent;
 
 public class RiderRequestTicketClass {
 

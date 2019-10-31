@@ -1,4 +1,4 @@
-package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent;
+package android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent;
 
 import android.Manifest;
 import android.carpooldriver.R;
@@ -396,7 +396,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
 //                                                confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
-//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
+//                                                AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 2;
                                                 Toast.makeText(IndividualRiderTicketActivity.this, "Sent request to driver", Toast.LENGTH_LONG).show();
 
 
@@ -435,7 +435,7 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
 
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
 //                                                confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
-//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
+//                                                AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(IndividualRiderTicketActivity.this, "Canceled request to driver", Toast.LENGTH_LONG).show();
 
                                             }

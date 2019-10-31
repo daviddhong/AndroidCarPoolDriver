@@ -1,7 +1,7 @@
 package android.carpooldriver.Fragments.SentRequestFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -216,7 +216,7 @@ public class SentRequestFragment extends Fragment {
                                                 RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
 
 
-//                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
+//                                                AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(getContext(), "Canceled ticket request", Toast.LENGTH_LONG).show();
 
                                             }

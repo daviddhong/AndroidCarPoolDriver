@@ -8,7 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsFragment;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.AllAvailableCarpoolTicketsFragment;
 import android.carpooldriver.Fragments.ConfirmedCarpoolFragment.ConfirmedCarpoolFragment;
 import android.carpooldriver.Fragments.AcceptPendingRequestsFragment.AcceptPendingRequestsFragment;
 import android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolFragment;
@@ -59,7 +59,7 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
 
     private void initFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_layout, new CarpoolRiderRequestsFragment()).commit();
+                .replace(R.id.frame_layout, new AllAvailableCarpoolTicketsFragment()).commit();
     }
 
     private void NavigationView() {
@@ -73,7 +73,7 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
         Fragment fragment = null;
         switch (item.getItemId()) {
             case R.id.nav_carpool_requests:
-                fragment = new CarpoolRiderRequestsFragment();
+                fragment = new AllAvailableCarpoolTicketsFragment();
                 break;
             case R.id.nav_sent_carpool_requests:
                 fragment = new SentRequestFragment();

@@ -1,10 +1,7 @@
 package android.carpooldriver.Fragments.AcceptPendingRequestsFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
-import android.carpooldriver.Fragments.PostCarpoolFragment.PostCarpoolContent.PostCarpoolConfirmActivity;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 import android.carpooldriver.R;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

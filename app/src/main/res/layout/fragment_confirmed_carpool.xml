@@ -49,8 +49,8 @@ by clicking on the top right corner of the ticket."
 
             </RelativeLayout>
 
-
         </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"

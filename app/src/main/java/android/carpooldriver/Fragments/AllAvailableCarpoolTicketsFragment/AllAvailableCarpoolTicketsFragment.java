@@ -1,7 +1,7 @@
-package android.carpooldriver.Fragments.CarpoolRiderRequestsFragment;
+package android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class CarpoolRiderRequestsFragment extends Fragment {
+public class AllAvailableCarpoolTicketsFragment extends Fragment {
     private View mCarpoolRequestsView;
     private RecyclerView FriendRecyclerView;
     private DatabaseReference RiderTicketsRef;

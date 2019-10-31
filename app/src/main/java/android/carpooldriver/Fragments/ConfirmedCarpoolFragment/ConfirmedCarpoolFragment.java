@@ -1,7 +1,7 @@
 package android.carpooldriver.Fragments.ConfirmedCarpoolFragment;
 
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.DriverRequestTicketClass;
-import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.DriverRequestTicketClass;
+import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.IndividualRiderTicketActivity;
 import android.carpooldriver.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -115,7 +115,7 @@ public class ConfirmedCarpoolFragment extends Fragment {
                                 public void onClick(View v) {
 
                                     //todo cancel when button pressed
-//                                    CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 2;
+//                                    AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 2;
                                     RemoveSpecificContact(riderKeyID);
                                 }
                             });

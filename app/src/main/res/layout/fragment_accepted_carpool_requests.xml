@@ -33,7 +33,6 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_height="188dp"
-            android:layout_below="@+id/rl_back_accepted"
             android:background="@drawable/border_bottom">
 
             <RelativeLayout

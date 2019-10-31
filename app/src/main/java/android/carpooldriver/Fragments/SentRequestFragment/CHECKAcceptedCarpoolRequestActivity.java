@@ -1,6 +1,6 @@
 //package android.carpooldriver.Fragments.SentRequestFragment;
 //
-//import android.carpooldriver.Fragments.CarpoolRiderRequestsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
+//import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 //import android.carpooldriver.R;
 //import android.os.Bundle;
 //import android.view.LayoutInflater;
@@ -206,7 +206,7 @@
 //                                                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
 //
 //
-////                                                CarpoolRiderRequestsFragment.riderTicketHolder.FILTER = 1;
+////                                                AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 1;
 //                                                Toast.makeText(AcceptedCarpoolRequestActivity.this, "Canceled ticket request", Toast.LENGTH_LONG).show();
 //
 //                                            }
