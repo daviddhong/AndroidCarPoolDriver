@@ -99,8 +99,8 @@
                 android:id="@+id/image_to_from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp">
 
                 <ImageView
                     android:id="@+id/origin_ticket"
@@ -108,7 +108,17 @@
                     android:layout_height="7dp"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/background_oval_filled"
-                    android:tint="#405DE6"/>
+                    android:tint="#405DE6" />
+
+                <ImageView
+                    android:id="@+id/destination"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_below="@id/vert_two_ticket"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/background_oval_filled"
+                    android:tint="#405DE6" />
 
                 <RelativeLayout
                     android:id="@+id/vert_two_ticket"
@@ -119,17 +129,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/path_solid"
-                    android:backgroundTint="#767676"/>
-
-                <ImageView
-                    android:id="@+id/destination"
-                    android:layout_width="7dp"
-                    android:layout_height="7dp"
-                    android:layout_below="@id/vert_two_ticket"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:src="@drawable/background_oval_filled"
-                    android:tint="#405DE6"/>
+                    android:backgroundTint="#767676" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -161,7 +161,7 @@
                     android:textColor="#383838"
                     android:textColorHint="#383838"
                     android:textSize="12sp"
-                    app:fontFamily="@font/roboto"/>
+                    app:fontFamily="@font/roboto" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -170,8 +170,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relative_layout_request_new_ride_origin"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginTop="27dp"
+                android:layout_marginBottom="8dp"
                 android:layout_toRightOf="@id/image_to_from">
 
                 <TextView
@@ -181,7 +181,7 @@
                     android:text="Destination location"
                     android:textColor="#767676"
                     android:textSize="12sp"
-                    app:fontFamily="@font/roboto_bold"/>
+                    app:fontFamily="@font/roboto_bold" />
 
                 <TextView
                     android:id="@+id/text_destination"
@@ -194,7 +194,7 @@
                     android:textColor="#383838"
                     android:textColorHint="#383838"
                     android:textSize="12sp"
-                    app:fontFamily="@font/roboto"/>
+                    app:fontFamily="@font/roboto" />
             </RelativeLayout>
 
         </RelativeLayout>

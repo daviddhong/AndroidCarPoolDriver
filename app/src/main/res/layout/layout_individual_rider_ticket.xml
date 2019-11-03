@@ -52,7 +52,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/relative_layout_confirm_body"
+                android:id="@+id/relative_layout_confirm_body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -312,12 +312,18 @@
                         android:textColor="#405DE6"
                         android:textSize="12sp"
                         app:fontFamily="@font/roboto"/>
-
-
                 </RelativeLayout>
-
-
             </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
 
             <RelativeLayout
                 android:id="@+id/rider_profile"
@@ -325,7 +331,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_below="@id/relative_layout_confirm_body"
+                android:layout_below="@id/relative_layout_confirm_body1"
                 android:background="@drawable/border_top">
 
                 <TextView
@@ -457,11 +463,9 @@
                         android:src="@drawable/ic_message"
                         android:onClick="smsSendMessage"/>
                 </RelativeLayout>
-
-
             </RelativeLayout>
-
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/confirm_footer"
             android:layout_width="match_parent"
