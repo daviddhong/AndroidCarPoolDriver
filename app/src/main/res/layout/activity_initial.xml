@@ -19,7 +19,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:background="@drawable/background_rectangle_fill"
-                android:backgroundTint="#405DE6"
                 android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp">
 
@@ -59,7 +58,7 @@
                     android:layout_toRightOf="@id/text_horizontal_one"
                     android:layout_marginLeft="5dp"
                     android:text="Sign in"
-                    android:textColor="#405DE6"
+                    android:textColor="#416DF4"
                     android:textStyle="bold"
                     android:textSize="15sp"
                     app:fontFamily="@font/roboto_bold"/>

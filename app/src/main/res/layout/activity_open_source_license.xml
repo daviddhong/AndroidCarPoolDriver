@@ -19,9 +19,8 @@
                 android:id="@+id/rl_back_settings_open_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -35,7 +34,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -55,9 +54,8 @@
             android:layout_below="@id/header_osl"
             android:layout_width="match_parent"
             android:layout_height="77dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="22.3dp"
+            android:layout_marginRight="22.3dp"
             android:background="@drawable/border_bottom">
 
             <TextView
@@ -66,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="The following sets forth attribution and for third party software that are contained in this application"
                 app:fontFamily="@font/roboto"
-                android:textColor="#405DE6"/>
+                android:textColor="#416DF4"/>
 
         </RelativeLayout>
 

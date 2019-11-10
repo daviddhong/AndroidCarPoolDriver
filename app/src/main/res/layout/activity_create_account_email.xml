@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp">
 
             <ImageView
@@ -51,9 +52,9 @@
                 android:layout_toRightOf="@+id/text_row_one"
                 android:layout_marginLeft="10dp"
                 android:textSize="25sp"
-                android:textColor="#305DE6"
+                android:textColor="#416DF4"
                 android:hint="Person's Name"
-                android:textColorHint="#405DE6"
+                android:textColorHint="#416DF4"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
 
@@ -101,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#405DE6"
+                android:textColor="#416DF4"
                 android:text="Why work or school email?"
                 android:textSize="15sp"
                 app:fontFamily="@font/roboto"/>
@@ -114,8 +115,8 @@
             android:layout_height="58dp"
             android:background="@drawable/background_rectangle_fill_light"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
             <ImageView
                 android:id="@+id/image_email_sign_up"
@@ -148,10 +149,9 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="188dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/background_rectangle_fill"
-            android:backgroundTint="#405DE6">
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/background_rectangle_fill">
 
             <TextView
                 android:layout_width="wrap_content"

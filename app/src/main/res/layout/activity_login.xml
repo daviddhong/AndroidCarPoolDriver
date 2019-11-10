@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="20dp">
 
             <ImageView
                 android:layout_width="30dp"
@@ -29,10 +29,10 @@
             android:id="@+id/enter_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_below="@id/rl_close_login"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginRight="20dp">
 
             <RelativeLayout
                 android:id="@+id/enter_email"
@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:layout_below="@id/enter_email"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/background_rectangle_fill_light">
 
                 <ImageView
@@ -104,11 +104,10 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_below="@+id/enter_account"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="58dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/background_rectangle_fill"
-            android:backgroundTint="#405DE6">
+            android:layout_marginRight="20dp"
+            android:background="@drawable/background_rectangle_fill">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -126,11 +125,11 @@
             android:id="@+id/relative_layout_make_account_login"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_below="@+id/button_login"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/border_rectangle_unfilled_with_border">
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_rectangle_blue_border">
 
             <TextView
                 android:id="@+id/textView_make_account"
@@ -138,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign up"
                 android:layout_centerInParent="true"
-                android:textColor="#405DE6"
+                android:textColor="#416DF4"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
@@ -151,7 +150,7 @@
             android:layout_below="@id/relative_layout_make_account_login"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:text="Forgot password?"
             android:textColor="#405DE6"
             android:textSize="15sp"
@@ -166,7 +165,7 @@
             android:layout_below="@id/relative_layout_make_account_login"
             android:layout_marginTop="15dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="20dp"
             android:text="Resend verification email"
             android:textColor="#262626"
             android:textSize="15sp"

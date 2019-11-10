@@ -18,7 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp">
+                android:layout_marginLeft="20dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -33,7 +33,7 @@
                 android:id="@+id/rl_profile_save_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true">
 
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:text="Save"
                     android:textSize="17sp"
-                    android:textColor="#405DE6"
+                    android:textColor="#416DF4"
                     app:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
@@ -55,8 +55,8 @@
             android:layout_height="58dp"
             android:background="@drawable/background_rectangle_fill_light"
             android:layout_marginTop="88dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
             <ImageView
                 android:id="@+id/image_name"

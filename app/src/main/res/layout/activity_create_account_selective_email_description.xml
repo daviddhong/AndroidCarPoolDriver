@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="277dp"
             android:background="@drawable/background_drawable_red"
-            android:backgroundTint="#405DE6"/>
+            android:backgroundTint="#416DF4"/>
 
 
         <RelativeLayout

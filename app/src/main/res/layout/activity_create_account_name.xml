@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp">
 
             <ImageView
@@ -86,8 +87,8 @@
             android:layout_height="58dp"
             android:background="@drawable/background_rectangle_fill_light"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
             <EditText
                 android:id="@+id/editText_first_name_create_login"
@@ -105,13 +106,13 @@
         <RelativeLayout
             android:id="@+id/sign_up_last_name"
             android:layout_below="@id/sign_up_name"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@drawable/background_rectangle_fill_light"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
             <EditText
                 android:id="@+id/editText_last_name_create_login"
@@ -133,10 +134,9 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="188dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/background_rectangle_fill"
-            android:backgroundTint="#405DE6">
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/background_rectangle_fill">
 
             <TextView
                 android:layout_width="wrap_content"

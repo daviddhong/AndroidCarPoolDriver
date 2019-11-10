@@ -19,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp">
+                android:layout_marginLeft="20dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -37,13 +37,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="15dp">
+                android:layout_marginRight="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"
-                    android:textColor="#405DE6"
+                    android:textColor="#416DF4"
                     android:textSize="17sp"
                     app:fontFamily="@font/roboto"/>
 
@@ -55,9 +55,9 @@
             android:id="@+id/profile_car"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="88dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/background_rectangle_fill_light">
 
             <EditText
