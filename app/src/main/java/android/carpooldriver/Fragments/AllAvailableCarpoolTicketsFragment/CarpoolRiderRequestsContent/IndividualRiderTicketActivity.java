@@ -206,16 +206,16 @@ public class IndividualRiderTicketActivity extends AppCompatActivity {
         String smsNumber = String.format("smsto: %s", RiderPhoneNumber.getText().toString());
 
         // Find the sms_message view.
-        EditText smsEditText = (EditText) findViewById(R.id.text_message);
+//        EditText smsEditText = (EditText) findViewById(R.id.text_message);
         // Get the text of the SMS message.
-        String sms = smsEditText.getText().toString();
+//        String sms = smsEditText.getText().toString();
 
         // Create the intent.
         Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
         // Set the data for the intent as the phone number.
         smsIntent.setData(Uri.parse(smsNumber));
         // Add the message (sms) with the key ("sms_body")
-        smsIntent.putExtra("sms_body", sms);
+//        smsIntent.putExtra("sms_body", sms);
 
         // If package resolves (target app installed), send intent.
         if (smsIntent.resolveActivity(getPackageManager()) != null) {
