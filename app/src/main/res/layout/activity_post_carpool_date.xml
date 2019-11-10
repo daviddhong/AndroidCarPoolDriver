@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp">
 
             <ImageView
@@ -142,8 +142,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:background="@drawable/background_rectangle_fill"
-                android:backgroundTint="#405DE6">
+                android:background="@drawable/background_rectangle_fill">
 
 
                 <TextView

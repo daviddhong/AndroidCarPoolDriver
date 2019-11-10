@@ -11,10 +11,10 @@
 
         <RelativeLayout
             android:id="@+id/close_button_profile"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
@@ -22,8 +22,8 @@
             android:backgroundTint="#383838">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_close"
                 android:tint="#FFF" />
@@ -36,8 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="25dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/background_rectangle_fill_light">
 
             <RelativeLayout
@@ -75,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/background_rectangle_fill_light">
 
             <RelativeLayout
@@ -114,8 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/background_rectangle_fill_light">
 
             <RelativeLayout
