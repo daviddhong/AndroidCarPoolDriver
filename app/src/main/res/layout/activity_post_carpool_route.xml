@@ -129,7 +129,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_monetization"
-                android:tint="#405DE6"/>
+                android:tint="#383838"/>
 
             <TextView
                 android:id="@+id/text_view_cost"
