@@ -25,8 +25,8 @@
 
                 <ImageView
                     android:id="@+id/back_confirm"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
                     android:tint="#383838" />
@@ -109,14 +109,14 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="22.3dp"
                         android:layout_centerVertical="true">
 
                         <RelativeLayout
                             android:id="@+id/from_rl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="22.3dp">
+                            android:layout_marginTop="17dp">
 
                             <TextView
                                 android:id="@+id/origin_location_text"
@@ -129,7 +129,7 @@
 
                             <TextView
                                 android:id="@+id/origin_data"
-                                android:layout_width="250dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/origin_location_text"
                                 android:hint="Pickup Location Name"
@@ -157,7 +157,7 @@
 
                             <TextView
                                 android:id="@+id/destination_data"
-                                android:layout_width="250dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/destination_location_text"
                                 android:hint="Destination Location Name"
