@@ -96,8 +96,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:background="@drawable/background_rectangle_fill"
-                android:backgroundTint="#405DE6">
+                android:background="@drawable/background_rectangle_fill">
 
 
                 <TextView

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,12 +26,21 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/image_view_logo"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_below="@+id/rl_close_login"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_carpool_icon"
+            android:layout_marginTop="25dp"/>
+
         <RelativeLayout
             android:id="@+id/enter_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_below="@id/rl_close_login"
+            android:layout_below="@id/image_view_logo"
             android:layout_marginTop="50dp"
             android:layout_marginRight="20dp">
 
