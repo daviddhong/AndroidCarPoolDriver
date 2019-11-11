@@ -107,7 +107,7 @@
                     android:layout_height="7dp"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/background_oval_filled"
-                    android:tint="#405DE6" />
+                    android:tint="#416DF4" />
 
                 <ImageView
                     android:id="@+id/destination"
@@ -117,7 +117,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:src="@drawable/background_oval_filled"
-                    android:tint="#405DE6" />
+                    android:tint="#416DF4" />
 
                 <RelativeLayout
                     android:id="@+id/vert_two_ticket"
@@ -239,7 +239,7 @@
                     android:layout_toRightOf="@+id/drivertext_earnings_entity_post"
                     android:layout_marginLeft="5dp"
                     android:textSize="12sp"
-                    android:textColor="#405DE6"
+                    android:textColor="#416DF4"
                     app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 

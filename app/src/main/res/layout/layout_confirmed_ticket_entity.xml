@@ -113,7 +113,7 @@
                         android:layout_height="7dp"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/background_oval_filled"
-                        android:tint="#405DE6" />
+                        android:tint="#416DF4" />
 
                     <ImageView
                         android:id="@+id/destination"
@@ -123,7 +123,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="2dp"
                         android:src="@drawable/background_oval_filled"
-                        android:tint="#405DE6" />
+                        android:tint="#416DF4" />
 
                     <RelativeLayout
                         android:id="@+id/vert_two_ticket"
@@ -245,7 +245,7 @@
                         android:text="(CAD)"
                         android:layout_marginLeft="5dp"
                         android:textSize="12sp"
-                        android:textColor="#405DE6"
+                        android:textColor="#416DF4"
                         app:fontFamily="@font/roboto"/>
                 </RelativeLayout>
 
@@ -306,7 +306,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="Cancel Confirmation"
-                        android:textColor="#405DE6"
+                        android:textColor="#416DF4"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:fontFamily="@font/roboto_bold"

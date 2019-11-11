@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_height="198dp"
-            android:background="#405DE6"
+            android:background="#416DF4"
             android:elevation="25dp">
 
             <RelativeLayout

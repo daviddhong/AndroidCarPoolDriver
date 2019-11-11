@@ -59,7 +59,7 @@
                     android:layout_below="@id/title_carpool_requests_accepted"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="8dp"
-                    android:textColor="#405DE6"
+                    android:textColor="#416DF4"
                     android:text="The following are a list of rider's carpool requests that you have requested that are pending approval. You can cancel your request at any time."
                     android:textSize="15sp"
                     app:fontFamily="@font/roboto"/>

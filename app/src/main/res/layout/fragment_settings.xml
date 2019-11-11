@@ -36,8 +36,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@id/welcometext"
                 android:hint="F"
-                android:textColor="#405DE6"
-                android:textColorHint="#405DE6"
+                android:textColor="#416DF4"
+                android:textColorHint="#416DF4"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold" />
@@ -50,8 +50,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/firstnameofuser"
                 android:hint="L"
-                android:textColor="#405DE6"
-                android:textColorHint="#405DE6"
+                android:textColor="#416DF4"
+                android:textColorHint="#416DF4"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold" />
@@ -361,7 +361,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Sign out"
-                android:textColor="#405DE6"
+                android:textColor="#416DF4"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_bold"/>
