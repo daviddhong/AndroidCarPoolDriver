@@ -31,7 +31,7 @@ public class AllAvailableCarpoolTicketsFragment extends Fragment {
     private View mCarpoolRequestsView;
     private RecyclerView FriendRecyclerView;
     private DatabaseReference RiderTicketsRef;
-    private String currentUserID, clicked_user_uid;
+    private String clicked_user_uid;
 
     @Nullable
     @Override
@@ -41,13 +41,8 @@ public class AllAvailableCarpoolTicketsFragment extends Fragment {
         return mCarpoolRequestsView;
     }
 
-    //use recycler view and friend list adapter to display list of friends
     private void initializeFields() {
-        // initialize FireBase
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        currentUserID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        // initialize recylerView
         FriendRecyclerView = (RecyclerView) mCarpoolRequestsView.findViewById(R.id.rides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
@@ -84,46 +79,22 @@ public class AllAvailableCarpoolTicketsFragment extends Fragment {
                             riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
                             riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
                             riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
-
-
-//                            riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View v) {
-//                                    clicked_user_uid = getRef(i).getKey();
-////                                    String clicked_uid = getRef(i).child("uid").toString();
-//                                    Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
-//                                    intent.putExtra("clicked_user_id", clicked_user_uid);
-////                                    intent.putExtra("clicked_uid", clicked_uid);
-//
-//                                    startActivity(intent);
-//                                }
-//                            });
-
-
                             riderticketholder.moreTicketInformation.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     clicked_user_uid = getRef(i).getKey();
-//                                    String clicked_uid = getRef(i).child("uid").toString();
                                     Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
                                     intent.putExtra("clicked_user_id", clicked_user_uid);
-//                                    intent.putExtra("clicked_uid", clicked_uid);
-
                                     startActivity(intent);
-
                                 }
                             });
-
-
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
             }
-
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

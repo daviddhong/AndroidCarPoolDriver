@@ -27,11 +27,8 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
-
         initToolbar();
-
         initFragment();
-
         NavigationView();
     }
 

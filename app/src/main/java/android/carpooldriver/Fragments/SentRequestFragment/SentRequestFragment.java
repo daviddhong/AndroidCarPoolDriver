@@ -35,10 +35,10 @@ import java.util.Map;
 
 
 public class SentRequestFragment extends Fragment {
-    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef, UserRef, DriverTicketsRef;
-    private String senderUIDme, clicked_user_uid;
-    private RecyclerView FriendRecyclerView;
     private View mySentRequestView;
+    private RecyclerView FriendRecyclerView;
+    private String senderUIDme, clicked_user_uid;
+    private DatabaseReference RiderTicketsRef, DriverRequestingRiderRef;
 
     @Nullable
     @Override
@@ -52,21 +52,15 @@ public class SentRequestFragment extends Fragment {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         senderUIDme = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
-        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-
+        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
         FriendRecyclerView = (RecyclerView) mySentRequestView.findViewById(R.id.rrides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
 
     }
-
 
     @Override
     public void onStart() {
         super.onStart();
-
         Query rreceiveriderQuery = FirebaseDatabase
                 .getInstance()
                 .getReference()
@@ -74,72 +68,54 @@ public class SentRequestFragment extends Fragment {
                 .child(senderUIDme)
                 .orderByChild("requeststatus")
                 .equalTo("sent");
-
-
         FirebaseRecyclerOptions options =
                 new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
                         .setQuery(rreceiveriderQuery, RiderRequestTicketClass.class)
                         .build();
-
         final FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder> adapter
                 = new FirebaseRecyclerAdapter<RiderRequestTicketClass, riderTicketHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder holder,
                                             int i, @NonNull RiderRequestTicketClass riderReqTickets) {
-
                 //get all friend request list and then get their information from Users node
                 final String receiverKeyID = getRef(i).getKey();
                 DatabaseReference getTypeRef = getRef(i).child("requeststatus").getRef();
                 getTypeRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                         if (dataSnapshot.exists()) {
                             String type = dataSnapshot.getValue().toString();
-
                             if (type.equals("sent")) {
                                 RiderTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.exists()) {
-
                                             final String ticketTo = dataSnapshot.child("To").getValue().toString();
                                             final String ticketFrom = dataSnapshot.child("From").getValue().toString();
                                             final String ticketDate = dataSnapshot.child("Date").getValue().toString();
                                             final String ticketTime = dataSnapshot.child("Time").getValue().toString();
                                             final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
                                             final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
-
                                             holder.riderTo.setText(ticketTo);
                                             holder.riderFrom.setText(ticketFrom);
                                             holder.riderDate.setText(ticketDate);
                                             holder.riderTime.setText(ticketTime);
                                             holder.riderPrice.setText(ticketPrice);
                                             holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
-
-
                                             holder.moreTicketInfo.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
                                                     clicked_user_uid = getRef(i).getKey();
-//                                    String clicked_uid = getRef(i).child("uid").toString();
                                                     Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
                                                     intent.putExtra("clicked_user_id", clicked_user_uid);
-//                                    intent.putExtra("clicked_uid", clicked_uid);
-
                                                     startActivity(intent);
                                                 }
                                             });
-
-
                                             holder.cancelButtonForRiderRequest.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
                                                     //todo delete firebase
-
                                                     final String receiverUID = dataSnapshot.child("uid").getValue().toString();
-
-
                                                     CancelCarpoolRequest(receiverUID, receiverKeyID);
                                                 }
                                             });
@@ -151,7 +127,6 @@ public class SentRequestFragment extends Fragment {
                                     }
                                 });
                             }
-
                             if (type.equals("received")) {
                                 holder.itemView.setVisibility(View.GONE);
                             }
@@ -200,25 +175,18 @@ public class SentRequestFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-
                             DriverRequestingRiderRef.child(receiverUID).child(receiverKeyID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-
                                                 Map<String, Object> profileMap = new HashMap<>();
                                                 String status = "0";
                                                 profileMap.put("status", status);
                                                 profileMap.put("status_uid", status + receiverUID);
-
                                                 RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
-
-
-//                                                AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 1;
                                                 Toast.makeText(getContext(), "Canceled ticket request", Toast.LENGTH_LONG).show();
-
                                             }
                                         }
                                     });
@@ -226,6 +194,4 @@ public class SentRequestFragment extends Fragment {
                     }
                 });
     }
-
-
 }

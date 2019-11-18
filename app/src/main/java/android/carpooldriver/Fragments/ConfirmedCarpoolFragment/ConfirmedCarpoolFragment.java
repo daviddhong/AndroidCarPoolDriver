@@ -43,12 +43,9 @@ public class ConfirmedCarpoolFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mYourCarpoolView = inflater.inflate(R.layout.fragment_confirmed_carpool, container, false);
-
         initializeFields();
-
         return mYourCarpoolView;
     }
-
 
     private void initializeFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -60,12 +57,10 @@ public class ConfirmedCarpoolFragment extends Fragment {
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
-
     // Display the list of confirmed/matched rides with FireBase recycler
     @Override
     public void onStart() {
         super.onStart();
-
         FirebaseRecyclerOptions<DriverRequestTicketClass> options
                 = new FirebaseRecyclerOptions.Builder<DriverRequestTicketClass>()
                 .setQuery(ConfirmedTicketsRef.child(senderUIDme), DriverRequestTicketClass.class)
@@ -75,9 +70,8 @@ public class ConfirmedCarpoolFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull driverTicketHolder driverticketholder,
                                             int i, @NonNull DriverRequestTicketClass driverReqTickets) {
-
                 String riderKeyID = getRef(i).getKey();
-
+                // rider's info
                 RiderTicketsRef.child(riderKeyID).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,32 +88,25 @@ public class ConfirmedCarpoolFragment extends Fragment {
                             driverticketholder.riderTime.setText(ticketTime);
                             driverticketholder.riderPrice.setText(ticketPrice);
                             driverticketholder.riderNumberOfSeats.setText(ticketNumberOfSeats);
-
                             driverticketholder.moreInfoTicket.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     clicked_user_uid = getRef(i).getKey();
-                                    //  String clicked_uid = getRef(i).child("uid").toString();
-//                                    Toast.makeText(getContext(), "CLICK confirmed ticket", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
                                     intent.putExtra("clicked_user_id", clicked_user_uid);
                                     intent.putExtra("CONFIRMED", "CONFIRMED");
-
                                     startActivity(intent);
-
                                 }
                             });
-
                             driverticketholder.cancelCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-
                                     //todo cancel when button pressed
-//                                    AllAvailableCarpoolTicketsFragment.riderTicketHolder.FILTER = 2;
                                     RemoveSpecificContact(riderKeyID);
                                 }
                             });
                         } else {
+                            // driver's info
                             DriverTicketsRef.child(riderKeyID).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -136,28 +123,21 @@ public class ConfirmedCarpoolFragment extends Fragment {
                                         driverticketholder.riderTime.setText(ticketTime);
                                         driverticketholder.riderPrice.setText(ticketPrice);
                                         driverticketholder.riderNumberOfSeats.setText(ticketNumberOfSeats);
-
                                         driverticketholder.moreInfoTicket.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
                                                 clicked_user_uid = getRef(i).getKey();
-                                                //  String clicked_uid = getRef(i).child("uid").toString();
-//                                                Toast.makeText(getContext(), "CLICK confirmed ticket", Toast.LENGTH_LONG).show();
-                                                Intent intent = new Intent(getActivity(), IndividualRiderTicketActivity.class);
+                                                Intent intent = new Intent(getActivity(), IndividualConfirmedDriverTicketActivity.class);
                                                 intent.putExtra("clicked_user_id", clicked_user_uid);
                                                 intent.putExtra("CONFIRMED", "CONFIRMED");
-
                                                 startActivity(intent);
-
                                             }
                                         });
-
 
                                         driverticketholder.cancelCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-
-
+                                                //getting driver key ID
                                                 ConfirmedTicketsRef.child(senderUIDme).child(riderKeyID).child("with").addValueEventListener(new ValueEventListener() {
                                                     @Override
                                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -168,26 +148,19 @@ public class ConfirmedCarpoolFragment extends Fragment {
 
                                                     @Override
                                                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                                                     }
                                                 });
-
-
                                                 //todo cancel when button pressed
                                                 RemoveSpecificContact(riderKeyID);
                                             }
                                         });
-
-
                                     }
                                 }
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                                 }
                             });
-
                         }
                     }
 
@@ -214,39 +187,31 @@ public class ConfirmedCarpoolFragment extends Fragment {
 
         private driverTicketHolder(@NonNull View itemView) {
             super(itemView);
-            riderFrom = itemView.findViewById(R.id.drivertext_origin_post_accepted_confirm);
-            riderTo = itemView.findViewById(R.id.drivertext_destination_post_accepted_confirm);
             riderDate = itemView.findViewById(R.id.drivertext_date_post_accepted_confirm);
             riderTime = itemView.findViewById(R.id.drivertext_time_post_accepted_confirm);
-            riderNumberOfSeats = itemView.findViewById(R.id.drivertext_passenger_number_post_accepted_confirm);
-            riderPrice = itemView.findViewById(R.id.driver_text_earnings_entity_post_accepted_confirm);
-            cancelCarPoolButton = itemView.findViewById(R.id.confirm_carpool_accept_confirm);
             moreInfoTicket = itemView.findViewById(R.id.more_information_entity_request3);
-
+            riderFrom = itemView.findViewById(R.id.drivertext_origin_post_accepted_confirm);
+            cancelCarPoolButton = itemView.findViewById(R.id.confirm_carpool_accept_confirm);
+            riderTo = itemView.findViewById(R.id.drivertext_destination_post_accepted_confirm);
+            riderPrice = itemView.findViewById(R.id.driver_text_earnings_entity_post_accepted_confirm);
+            riderNumberOfSeats = itemView.findViewById(R.id.drivertext_passenger_number_post_accepted_confirm);
         }
     }
 
     // todo fix this so database removes the matchedRides realtime.
     private void RemoveSpecificContact(String receiverKeyID) {
-
-
         ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     receiverUID = dataSnapshot.child("with").getValue().toString();
-
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-
         });
-
-
         ConfirmedTicketsRef.child(senderUIDme).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -260,7 +225,6 @@ public class ConfirmedCarpoolFragment extends Fragment {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                // toast deleted
                                                 Toast.makeText(getContext(), "Canceled confirmed ticket", Toast.LENGTH_LONG).show();
                                             }
                                         }

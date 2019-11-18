@@ -2,6 +2,7 @@ package android.carpooldriver.Fragments.AcceptPendingRequestsFragment;
 
 import android.carpooldriver.Fragments.AllAvailableCarpoolTicketsFragment.CarpoolRiderRequestsContent.RiderRequestTicketClass;
 import android.carpooldriver.R;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,60 +33,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AcceptPendingRequestsFragment extends Fragment {
-    private RecyclerView receivedFriendRequest;
-    private DatabaseReference DriverTicketsRef, DriverRequestingRiderRef, ConfirmedMatchRef, RiderRequestingDriverRef;
-    private String receiverUIDme, senderUID, clicked_user_uid;
+
     private View mRequestView;
+    private RecyclerView receivedFriendRequest;
+    private String CurrentUserUID, senderUID, clicked_user_uid;
+    private DatabaseReference DriverTicketsRef, ConfirmedMatchRef, RiderRequestingDriverRef;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRequestView = inflater.inflate(R.layout.fragment_accept_pending_request, container, false);
         initializeFields();
-//        initAcceptedCarpoolRequestActivity();
-//        goToMyProfileByProfileImageView();
         return mRequestView;
     }
 
     private void initializeFields() {
-        //initialize fields
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        receiverUIDme = mAuth.getCurrentUser().getUid();
+        CurrentUserUID = mAuth.getCurrentUser().getUid();
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
-        RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
-        //initialize recycler view for received
+        RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         receivedFriendRequest = (RecyclerView) mRequestView.findViewById(R.id.arides_requested_recycler_view);
         receivedFriendRequest.setLayoutManager(new LinearLayoutManager(getContext()));
     }
-
-
-//    private void initAcceptedCarpoolRequestActivity() {
-//        TextView clickHere = (TextView) mRequestView.findViewById(R.id.text_pending_request_three);
-//        clickHere.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), AcceptedCarpoolRequestActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
-
-//    // EFFECTS: Set OnClickActivity for ProfileActivity.
-//    private void goToMyProfileByProfileImageView() {
-//        ImageView profileImageView = (ImageView) mRequestView.findViewById(R.id.profile_rate_riders);
-//        profileImageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // todo name of profile activity
-////                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-////                startActivity(intent);
-//                // EFFECTS: Animation to Profile Activity
-////                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-//            }
-//        });
-//    }
 
     // Display the list of all my sent carpool requests with FireBase recycler
     @Override
@@ -95,10 +65,9 @@ public class AcceptPendingRequestsFragment extends Fragment {
                 .getInstance()
                 .getReference()
                 .child("RiderRequestingDriver")
-                .child(receiverUIDme)
+                .child(CurrentUserUID)
                 .orderByChild("requeststatus")
                 .equalTo("received");
-
 
         FirebaseRecyclerOptions options =
                 new FirebaseRecyclerOptions.Builder<RiderRequestTicketClass>()
@@ -122,7 +91,6 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.exists()) {
-
                                             final String ticketTo = dataSnapshot.child("To").getValue().toString();
                                             final String ticketFrom = dataSnapshot.child("From").getValue().toString();
                                             final String ticketDate = dataSnapshot.child("Date").getValue().toString();
@@ -135,9 +103,7 @@ public class AcceptPendingRequestsFragment extends Fragment {
                                             holder.riderTime.setText(ticketTime);
                                             holder.riderPrice.setText(ticketPrice);
                                             holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
-
-
-                                            RiderRequestingDriverRef.child(receiverUIDme).child(ReceiverKeyIDme).child("senderUID").addValueEventListener(new ValueEventListener() {
+                                            RiderRequestingDriverRef.child(CurrentUserUID).child(ReceiverKeyIDme).child("senderUID").addValueEventListener(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                     if (dataSnapshot.exists()) {
@@ -147,57 +113,41 @@ public class AcceptPendingRequestsFragment extends Fragment {
 
                                                 @Override
                                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                                                 }
                                             });
-
                                             holder.moreInformationTicket.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
                                                     // todo
-//                                                    clicked_user_uid = getRef(i).getKey();
-                                                    //  String clicked_uid = getRef(i).child("uid").toString();
-                                                Toast.makeText(getContext(), "Show my info + Rider Phone", Toast.LENGTH_LONG).show();
-//                                                    Intent intent = new Intent(getActivity(), .class);
-//                                                    intent.putExtra("clicked_user_id", clicked_user_uid);
-//                                                    intent.putExtra("CONFIRMED", "CONFIRMED");
-//                                                    startActivity(intent);
-
+                                                    clicked_user_uid = getRef(i).getKey();
+                                                    Intent intent = new Intent(getActivity(), IndividualAcceptedDriverTicketActivity.class);
+                                                    intent.putExtra("clicked_user_id", clicked_user_uid);
+                                                    startActivity(intent);
                                                 }
                                             });
-
                                             holder.confirmCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
                                                     //todo confirm the carpool
                                                     createCarpoolConfirmMatchNodeInFireBase(senderUID, ReceiverKeyIDme);
                                                     //todo ask are you sure before finalizing finish
-//                                                deletingDatabase(receiverKeyID);
                                                     DeleteSentRequestDatabase(senderUID, ReceiverKeyIDme);
                                                     Toast.makeText(getContext(), "Accepted ticket offer", Toast.LENGTH_LONG).show();
-
-
                                                 }
                                             });
-
                                             holder.declineCarPoolButton.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View view) {
-
                                                     Map<String, Object> profileMap = new HashMap<>();
                                                     String status = "0";
                                                     profileMap.put("status", status);
-                                                    profileMap.put("status_uid", status + receiverUIDme);
+                                                    profileMap.put("status_uid", status + CurrentUserUID);
                                                     DriverTicketsRef.child(ReceiverKeyIDme).updateChildren(profileMap);
-
                                                     // todo delete the carpool
                                                     DeleteSentRequestDatabase(senderUID, ReceiverKeyIDme);
                                                     Toast.makeText(getContext(), "Declined ticket offer", Toast.LENGTH_LONG).show();
-
-
                                                 }
                                             });
-
                                         }
                                     }
 
@@ -251,31 +201,26 @@ public class AcceptPendingRequestsFragment extends Fragment {
     }
 
     private void createCarpoolConfirmMatchNodeInFireBase(String receiverUID, String receiverKeyID) {
-        ConfirmedMatchRef.child(receiverUIDme).child(receiverKeyID)
+        ConfirmedMatchRef.child(CurrentUserUID).child(receiverKeyID)
                 .child("with").setValue(receiverUID)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             ConfirmedMatchRef.child(receiverUID).child(receiverKeyID)
-                                    .child("with").setValue(receiverUIDme);
-
-//                            Toast.makeText(getContext(), "Accepted ticket offer", Toast.LENGTH_LONG).show();
-
+                                    .child("with").setValue(CurrentUserUID);
                         }
                     }
                 });
     }
 
-
     private void DeleteSentRequestDatabase(String receiverUID, String receiverKeyID) {
-        RiderRequestingDriverRef.child(receiverUIDme).child(receiverKeyID)
+        RiderRequestingDriverRef.child(CurrentUserUID).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-
                             RiderRequestingDriverRef.child(receiverUID).child(receiverKeyID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {

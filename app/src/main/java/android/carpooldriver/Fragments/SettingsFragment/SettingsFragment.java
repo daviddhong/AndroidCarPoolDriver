@@ -29,25 +29,36 @@ import com.google.firebase.database.ValueEventListener;
 public class SettingsFragment extends Fragment {
 
     View mMoreView;
-    private RelativeLayout sign_out_button;
     FirebaseAuth mAuth;
     String currentUID;
     private DatabaseReference RootRef;
-
     private TextView firstName, lastName;
+    private RelativeLayout sign_out_button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mMoreView = inflater.inflate(R.layout.fragment_settings, container, false);
+        initializeFields();
+        displayCurrentUserName();
+        initProfile();
+        initEmail();
+        initAccountPassword();
+        initOpenSourceLicense();
+        initPhone();
+        setLogoutRelativeLayout();
+        return mMoreView;
+    }
+
+    private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
-
-
-
-        firstName = mMoreView.findViewById(R.id.firstnameofuser);
         lastName = mMoreView.findViewById(R.id.lastnameofuser);
+        firstName = mMoreView.findViewById(R.id.firstnameofuser);
         currentUID = mAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
+    }
+
+    private void displayCurrentUserName() {
         RootRef.child("Users").child(currentUID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -57,22 +68,11 @@ public class SettingsFragment extends Fragment {
                     lastName.setText(dataSnapshot.child("lastname").getValue().toString());
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
-        initProfile();
-        initEmail();
-        initAccountPassword();
-        initOpenSourceLicense();
-        initPhone();
-        // EFFECTS: Call setLogoutRelativeLayout;
-        setLogoutRelativeLayout();
-        return mMoreView;
     }
 
     // MODIFIES: this
