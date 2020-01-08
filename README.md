@@ -35,9 +35,9 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 
 ![Posting a ride](https://imgur.com/LRIXVst)
 
-[Imgur](https://imgur.com/LRIXVst)
+![Imgur](https://imgur.com/LRIXVst)
 
-[Imgur](https://imgur.com/7b9o50B)
+![Imgur](https://imgur.com/7b9o50B)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
