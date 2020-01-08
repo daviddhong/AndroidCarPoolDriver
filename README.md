@@ -7,8 +7,10 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 
 ## Demo
 * This is how the driver can post a ride ticket:
-<a href="https://imgflip.com/gif/3lh1cu"><img src="https://i.imgflip.com/3lh1cu.gif" title="made at imgflip.com"/></a>
 
+![](gifs/post.mov)
+
+<img src="gifs/post.mov" >
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
