@@ -13,12 +13,16 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 <img src="./gifs/gifpost.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
 
-<p align="center">
-<img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-</p>
+* This is how the driver can accept a ride ticket:
 
 <p align="center">
-<img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="./gifs/gifacceptaride.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+</p>
+
+* This is how the driver can send a ride request:
+
+<p align="center">
+<img src="./gifs/gifsendrequest.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
 
 ## License
