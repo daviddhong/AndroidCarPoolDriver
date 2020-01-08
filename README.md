@@ -9,6 +9,20 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 * This is how the driver can post a ride ticket:
 
 
+<p align="center">
+<img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+</p>
+
+<p align="center">
+<img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+</p>
+
+<p align="center">
+<img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+</p>
+
+
+
 ![gif](https://user-images.githubusercontent.com/48232810/71942555-722ff600-3172-11ea-8025-28da497038f8.gif=250x250)
 
 ![gif](https://user-images.githubusercontent.com/48232810/71942555-722ff600-3172-11ea-8025-28da497038f8.gif | width=100)
@@ -18,6 +32,10 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 ![](gifs/post.mov)
 
 <img src="gifs/post.mov" >
+
+[Imgur](https://imgur.com/LRIXVst)
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
