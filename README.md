@@ -10,7 +10,7 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 
 
 <p align="center">
-<img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="./gifs/gifpost.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
 
 <p align="center">
@@ -20,24 +20,6 @@ AndroidCarPoolDriver is an android app for a person who wishes to pick up passen
 <p align="center">
 <img src="" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
-
-<img src='./gifs/gifpost.gif'>
-
-![gif](https://user-images.githubusercontent.com/48232810/71942555-722ff600-3172-11ea-8025-28da497038f8.gif=250x250)
-
-![gif](https://user-images.githubusercontent.com/48232810/71942555-722ff600-3172-11ea-8025-28da497038f8.gif | width=100)
-
-<img src="https://user-images.githubusercontent.com/48232810/71942555-722ff600-3172-11ea-8025-28da497038f8.gif" width="400" height="400">
-
-![](gifs/post.mov)
-
-<img src="gifs/post.mov" >
-
-![Posting ride](https://imgur.com/LRIXVst.gif)
-
-![Screenshot](https://imgur.com/LRIXVst.gif)
-
-![Imgur](https://imgur.com/7b9o50B.jpg)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
